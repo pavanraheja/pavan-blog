@@ -26,19 +26,36 @@ Built growth systems, implemented AI/ML personalization (Google Vertex AI), opti
 Market: Kuwait, pop 4.82M, Kuwaiti Dinar = world's highest-valued currency ($3.2 per KD).
 Used: A/B testing, user feedback loops, data-driven experimentation, cross-functional collaboration.
 
-### PriceLabs (SaaS — dynamic pricing for short-term rentals)
-Part of team that drove 7X growth in 18 months.
-Company grew from 7 people to 150+ during his time.
-Focus: Growth strategy, user acquisition, retention.
+### Nova Benefits (Insurtech B2B — India)
+Role: Growth Product Manager (Jan 2022 – Oct 2022)
+Achievement: 2.5× website traffic, +30% product leads, +20% lead generation in 4 months.
+Built LinkedIn ABM campaigns, automated sales funnel, reduced response times by 25%.
+Achieved 80% OKRs for two consecutive quarters.
 
-### Digital Marketing & SEO
-8 years in digital marketing. 7 years specialized in SEO.
-Built, grew, and SOLD two content websites at premium valuations (website flipping).
+### rtCamp (Enterprise Web Agency — Remote)
+Role: Growth Specialist & PM (Aug 2020 – Dec 2021)
+Achievement: +30% template discovery for 100K+ Google Web Stories plugin installs in 3 months.
+SEO consulting for HCL. Upgraded digital practices for enterprise clients.
+
+### Flint Technology & Systems (Founder — Remote)
+Role: Founder (Dec 2011 – Aug 2020)
+Drove 5× growth for PriceLabs (vacation rental AI SaaS) — team grew 7 → 150+ people.
+Grew property listings 240% (50K → 170K) for a real estate client.
+Built content websites with affiliate marketing — 300K users across 6 platforms, sold 2 websites.
 
 ### Certifications
-Mastering Product Management (Reforge, Oct 2023)
-Product Strategy (Reforge, Apr 2023)
-GrowthX member and investor.
+Gen AI Product Strategy — Walmart AI Leaders (2024)
+Gen AI: Idea to MVP — Uber AI Leaders (2024)
+Product Strategy — Reforge (2023)
+Master in Product Management — Reforge (2022)
+Product & Growth Bootcamp — GrowthX (2021)
+Advanced Google Analytics — Google
+Advanced SEO Strategies — UC Davis
+Content Marketing — HubSpot Academy
+BE in Information Technology — University of Pune (2006)
+
+### Technical Skills
+Figma, Amplitude, Mixpanel, MoEngage, Looker, Google Vertex AI, A/B Testing, OKRs, PLG, SEO, GTM Strategy
 
 ---
 

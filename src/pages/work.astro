@@ -2,77 +2,90 @@
 import Layout from '@/layouts/Layout.astro';
 ---
 
-<Layout title="Work — Pavan Raheja" description="Product & Growth operator. Key roles at Mashkor, PriceLabs, and more.">
+<Layout title="Work — Pavan Raheja" description="Senior Product Manager (Growth) — 10+ years scaling B2C and B2B products across Kuwait, India, and remote.">
   <section class="max-w-5xl mx-auto px-6 py-20">
     <h1 class="text-4xl font-bold text-gray-900 mb-4">Work</h1>
     <p class="text-gray-500 mb-14 max-w-xl">
-      Operator across product, growth, and investing. I've scaled startups from early stage to
-      product-market fit, and built systems that compound.
+      10+ years scaling products and growth systems across B2C and B2B. I've taken startups from flat to 3× and 7×, built data-driven growth engines, and shipped AI/ML features that stuck.
     </p>
 
     <div class="space-y-12">
       {[
         {
           company: 'Mashkor',
-          role: 'Product Lead (Growth)',
-          location: 'Kuwait',
-          period: '2022 – 2024',
-          headline: '3× revenue and user growth in 18 months.',
+          tag: 'Hyperlocal · B2C · Kuwait',
+          role: 'Senior Product Manager (Growth)',
+          period: 'Nov 2022 – May 2024',
+          headline: 'MAU 3× (7K → 25K), revenue 2.8× in 18 months.',
           bullets: [
-            'Built growth systems from scratch — activation funnels, experimentation culture, channel optimization',
-            'Shipped Google Vertex AI recommendation engine: +30% engagement, +40% activation',
-            'Led cross-functional work across product, marketing, and engineering',
-            'Market: Kuwait (pop 4.82M, world\'s highest-valued currency)',
+            'Led OKR strategy — roadmap focused on acquisition, retention, engagement, and revenue growth',
+            'Improved activation loops by 40% in 8 months via journey mapping, onboarding, and ARIA framework',
+            'Shipped Google Vertex AI recommendation engine: +15% activations, +1.3× engagement',
+            'Identified SOM of 500K users, developed two core personas for "Buy Anything" and "Pick Up Anything"',
+            'Cross-functional leadership: UI/UX, Engineering, Marketing, Customer Support, Finance, Legal',
           ],
         },
         {
-          company: 'PriceLabs',
-          role: 'Growth',
-          location: 'Remote',
-          period: '2020 – 2022',
-          headline: '7× growth in 18 months. 7 → 150+ people.',
+          company: 'Nova Benefits',
+          tag: 'Insurtech · B2B · India',
+          role: 'Growth Product Manager',
+          period: 'Jan 2022 – Oct 2022',
+          headline: '2.5× website traffic, +30% product leads in 4 months.',
           bullets: [
-            'Part of the core growth team during hyper-growth phase',
-            'Focused on user acquisition, retention, and monetization strategy',
-            'Helped build the systems and culture that enabled rapid scaling',
+            'Pioneered product-led website initiative — improved lead generation by 20% in 4 months',
+            'Built LinkedIn ABM campaigns that amplified product leads by 30%',
+            'Automated sales funnel and refined outreach — reduced response times by 25%',
+            'Achieved 80% OKRs for two consecutive quarters through growth experiments and process improvements',
           ],
         },
         {
-          company: 'Website Flipping',
-          role: 'Founder / SEO',
-          location: 'Independent',
-          period: '2015 – ongoing',
-          headline: 'Built, grew, and sold two content websites at premium valuations.',
+          company: 'rtCamp',
+          tag: 'Enterprise Web Agency · Remote',
+          role: 'Growth Specialist & PM',
+          period: 'Aug 2020 – Dec 2021',
+          headline: '+30% template discovery for 100K+ installs in 3 months.',
           bullets: [
-            '8 years in digital marketing, 7 years specialized in SEO',
-            'Built audience and revenue, then exited at multiples',
-            'Deep expertise in content strategy, organic growth, and monetization',
+            'Optimized Google Web Stories plugin using competitive search strategies',
+            'SEO consulting for HCL — measurable improvements in search visibility within 3 months',
+            'Upgraded digital web practices for enterprise clients — ensured effective crawling and indexing',
           ],
         },
         {
-          company: 'Angel Investing',
-          role: 'Investor',
-          location: 'UAE / Remote',
-          period: '2021 – present',
-          headline: 'Investing in AI, Web3, and community-driven businesses.',
+          company: 'Flint Technology & Systems',
+          tag: 'Founder · Remote',
+          role: 'Founder',
+          period: 'Dec 2011 – Aug 2020',
+          headline: '5× growth for PriceLabs. 300K users across 6 content platforms.',
           bullets: [
-            'xAI — Elon Musk\'s frontier AI company',
-            'GrowthX — community & education for growth professionals (also a member)',
-            'WorldMobile — decentralized telecom infrastructure',
-            'Worldcoin — crypto identity protocol',
-            'Philosophy: invest in things I believe in and use',
+            'Drove 5× growth for PriceLabs (vacation rental AI SaaS) over 16 months — 7 → 150+ people',
+            'Grew property listings 240% (50K → 170K) for a real estate client',
+            'Built content websites with affiliate marketing — 300K users across 6 platforms',
+            'Sold 2 content websites within a year at premium valuations',
+          ],
+        },
+        {
+          company: 'Softronikx',
+          tag: 'Pune, India',
+          role: 'Director, Project Management',
+          period: 'Apr 2008 – Nov 2011',
+          headline: 'Business strategy, market analysis, and revenue growth.',
+          bullets: [
+            'Developed and executed business strategies including sales and business planning',
+            'Identified new opportunities and drove revenue through market analysis',
+            'Led business analysis to streamline operations and improve performance',
           ],
         },
       ].map((role) => (
         <div class="border-l-2 border-gray-100 pl-6">
-          <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+          <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
             <div>
               <span class="font-semibold text-gray-900">{role.company}</span>
               <span class="mx-2 text-gray-300">·</span>
-              <span class="text-gray-600">{role.role}</span>
+              <span class="text-gray-600 text-sm">{role.role}</span>
             </div>
-            <span class="text-sm text-gray-400">{role.period}</span>
+            <span class="text-sm text-gray-400 flex-shrink-0">{role.period}</span>
           </div>
+          <p class="text-xs text-gray-400 mb-2">{role.tag}</p>
           <p class="text-sm font-medium text-gray-700 mb-3">{role.headline}</p>
           <ul class="space-y-1.5">
             {role.bullets.map((b) => (
@@ -86,13 +99,60 @@ import Layout from '@/layouts/Layout.astro';
       ))}
     </div>
 
-    <!-- Certs -->
-    <div class="mt-16 pt-10 border-t border-gray-100">
-      <h2 class="text-lg font-semibold text-gray-900 mb-4">Education & Certifications</h2>
-      <div class="space-y-2 text-sm text-gray-500">
-        <p>Mastering Product Management — Reforge (Oct 2023)</p>
-        <p>Product Strategy — Reforge (Apr 2023)</p>
-        <p>GrowthX Member & Investor</p>
+    <!-- Angel Investing -->
+    <div class="mt-14 pt-10 border-t border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Angel Investing</h2>
+      <div class="space-y-1.5">
+        {[
+          'xAI — Elon Musk\'s frontier AI company',
+          'GrowthX — community & education for growth professionals',
+          'WorldMobile — decentralized telecom infrastructure',
+          'Worldcoin — crypto identity protocol',
+        ].map((inv) => (
+          <div class="text-sm text-gray-500 flex gap-2">
+            <span class="text-gray-300 mt-0.5">→</span>
+            <span>{inv}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="mt-10 pt-10 border-t border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-5">Education & Certifications</h2>
+      <div class="grid sm:grid-cols-2 gap-3">
+        {[
+          { title: 'Gen AI Product Strategy', org: 'Walmart AI Leaders', year: '2024' },
+          { title: 'Gen AI — Idea to MVP', org: 'Uber AI Leaders', year: '2024' },
+          { title: 'Product Strategy', org: 'Reforge', year: '2023' },
+          { title: 'Master in Product Management', org: 'Reforge', year: '2022' },
+          { title: 'Product & Growth Bootcamp', org: 'GrowthX', year: '2021' },
+          { title: 'Advanced Google Analytics', org: 'Google', year: '' },
+          { title: 'Advanced SEO Strategies', org: 'UC Davis', year: '' },
+          { title: 'Content Marketing', org: 'HubSpot Academy', year: '' },
+        ].map((cert) => (
+          <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-100">
+            <div class="flex-1">
+              <p class="text-sm font-medium text-gray-800">{cert.title}</p>
+              <p class="text-xs text-gray-400 mt-0.5">{cert.org}{cert.year ? ` · ${cert.year}` : ''}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-6 text-sm text-gray-500">
+        <p class="font-medium text-gray-700 mb-1">Education</p>
+        <p>Bachelor of Engineering (BE) in Information Technology — University of Pune, 2006</p>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="mt-10 pt-10 border-t border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Tools & Skills</h2>
+      <div class="flex flex-wrap gap-2">
+        {['Figma', 'Amplitude', 'Mixpanel', 'MoEngage', 'Looker', 'Notion', 'Slack', 'Google Vertex AI', 'A/B Testing', 'OKRs', 'PRDs', 'GTM Strategy', 'SEO', 'PLG'].map((t) => (
+          <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-600">{t}</span>
+        ))}
       </div>
     </div>
   </section>
