@@ -1,6 +1,15 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import ChatWidget from '@/components/ChatWidget.astro';
+import { getCollection } from 'astro:content';
+
+const recentPosts = (await getCollection('articles'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 4);
+
+function formatDate(d: string) {
+  return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
 ---
 
 <Layout>
@@ -11,11 +20,10 @@ import ChatWidget from '@/components/ChatWidget.astro';
       <div class="flex-1">
         <p class="text-sm text-brand-600 font-medium mb-3">Based in Dubai, UAE</p>
         <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
-          Product, Growth<br />& Trading.
+          I build tech products<br />and scale startups.
         </h1>
         <p class="mt-5 text-lg text-gray-500 leading-relaxed">
-          I scale startups, build growth systems, angel invest in early-stage companies,
-          and trade crypto markets. Currently self-employed — building in public.
+          Product & Growth operator with a track record of 3× and 7× growth. I love the craft of building — from zero to one, and one to scale. Also angel invest, trade crypto markets, and write about it all.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a
@@ -28,7 +36,7 @@ import ChatWidget from '@/components/ChatWidget.astro';
             href="/work"
             class="border border-gray-200 text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium hover:border-gray-400 transition-colors"
           >
-            See my work
+            See my work →
           </a>
         </div>
       </div>
@@ -47,45 +55,50 @@ import ChatWidget from '@/components/ChatWidget.astro';
 
   <!-- Highlights strip -->
   <section class="border-y border-gray-100 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6 py-10 grid sm:grid-cols-3 gap-8">
+    <div class="max-w-5xl mx-auto px-6 py-10 grid sm:grid-cols-4 gap-8">
       <div>
         <p class="text-3xl font-bold text-gray-900">3×</p>
-        <p class="mt-1 text-sm text-gray-500">Revenue & user growth at Mashkor in 18 months</p>
+        <p class="mt-1 text-sm text-gray-500">Revenue & users at Mashkor in 18 months</p>
       </div>
       <div>
         <p class="text-3xl font-bold text-gray-900">7×</p>
-        <p class="mt-1 text-sm text-gray-500">Growth driven at PriceLabs — 7 to 150+ people</p>
+        <p class="mt-1 text-sm text-gray-500">Growth at PriceLabs — 7 to 150+ people</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold text-gray-900">5</p>
+        <p class="mt-1 text-sm text-gray-500">Countries lived in across the globe</p>
       </div>
       <div>
         <p class="text-3xl font-bold text-gray-900">60+</p>
-        <p class="mt-1 text-sm text-gray-500">Books read. Active investor, trader, and writer</p>
+        <p class="mt-1 text-sm text-gray-500">Books read. Always learning.</p>
       </div>
     </div>
   </section>
 
   <!-- What I do -->
   <section class="max-w-5xl mx-auto px-6 py-20">
-    <h2 class="text-xl font-semibold text-gray-900 mb-8">What I do</h2>
+    <h2 class="text-xl font-semibold text-gray-900 mb-2">What I do</h2>
+    <p class="text-gray-400 text-sm mb-8">The intersection of building, investing, and trading.</p>
     <div class="grid sm:grid-cols-2 gap-6">
       {[
         {
-          title: 'Product & Growth',
-          body: 'Building and scaling digital products. From activation funnels to AI/ML personalization — I own the full lifecycle.',
+          title: 'Build Tech Products',
+          body: 'I love the craft of product — finding real user problems and building things that actually solve them. From activation loops to AI/ML personalization, I own the full lifecycle.',
         },
         {
-          title: 'Angel Investing',
-          body: 'I invest in things I believe in and use — AI, Web3, community-driven businesses. GrowthX, WorldMobile, Worldcoin.',
+          title: 'Scale Startups',
+          body: 'Growth is a system, not a hack. I build the engines — experimentation culture, data-driven funnels, cross-functional alignment — that compound over time.',
         },
         {
-          title: 'Crypto Trading',
-          body: 'Active crypto trader focused on market structure and on-chain data. Running systematic strategies across cycles.',
+          title: 'Angel Invest',
+          body: 'I invest in things I believe in and use — AI, Web3, community-driven businesses. Portfolio includes GrowthX, WorldMobile, and Worldcoin.',
         },
         {
-          title: 'Writing',
-          body: 'Sharing frameworks, lessons, and honest takes on growth, product, and building. Published at pavan.blog.',
+          title: 'Trade & Write',
+          body: 'Active crypto trader running systematic strategies. I write about product, growth, markets, and building in public — because thinking in public makes you sharper.',
         },
       ].map((item) => (
-        <div class="p-6 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
+        <div class="p-6 rounded-xl border border-gray-100 hover:border-gray-300 transition-colors">
           <h3 class="font-semibold text-gray-900 mb-2">{item.title}</h3>
           <p class="text-sm text-gray-500 leading-relaxed">{item.body}</p>
         </div>
@@ -93,13 +106,24 @@ import ChatWidget from '@/components/ChatWidget.astro';
     </div>
   </section>
 
-  <!-- Latest articles placeholder -->
-  <section class="max-w-5xl mx-auto px-6 pb-10">
-    <div class="flex items-center justify-between mb-6">
+  <!-- Latest articles -->
+  <section class="max-w-5xl mx-auto px-6 pb-16">
+    <div class="flex items-center justify-between mb-8">
       <h2 class="text-xl font-semibold text-gray-900">Latest articles</h2>
       <a href="/articles" class="text-sm text-brand-600 hover:text-brand-700 transition-colors">View all →</a>
     </div>
-    <p class="text-sm text-gray-400 italic">Articles loading soon — migrating from WordPress.</p>
+    <div class="divide-y divide-gray-100">
+      {recentPosts.map((post) => (
+        <article class="py-5 group">
+          <a href={`/articles/${post.slug}`} class="flex items-start justify-between gap-4">
+            <h3 class="text-sm font-medium text-gray-900 group-hover:text-brand-600 transition-colors leading-snug">
+              {post.data.title}
+            </h3>
+            <time class="text-xs text-gray-400 flex-shrink-0 mt-0.5">{formatDate(post.data.date)}</time>
+          </a>
+        </article>
+      ))}
+    </div>
   </section>
 
   <!-- Digital clone chat -->
