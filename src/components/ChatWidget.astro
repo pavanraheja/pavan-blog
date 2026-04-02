@@ -1,0 +1,134 @@
+---
+---
+
+<section id="chat" class="max-w-5xl mx-auto px-6 py-20">
+  <div class="max-w-2xl mx-auto">
+    <div class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-900">Talk to my digital clone</h2>
+      <p class="mt-1 text-gray-500 text-sm">
+        Ask me anything — product, growth, trading, Dubai life, or just say hi.
+      </p>
+    </div>
+
+    <!-- Chat messages -->
+    <div
+      id="chat-messages"
+      class="h-80 overflow-y-auto rounded-xl border border-gray-200 bg-gray-50 p-4 flex flex-col gap-3 mb-3"
+    >
+      <div class="flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-gray-900 flex-shrink-0 flex items-center justify-center">
+          <span class="text-white text-xs font-bold">P</span>
+        </div>
+        <div class="bg-white rounded-xl px-4 py-3 text-sm text-gray-700 shadow-sm max-w-[85%]">
+          Hey — I'm Pavan. Ask me anything about product, growth, trading, or what I'm working on.
+        </div>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <form id="chat-form" class="flex gap-2">
+      <input
+        id="chat-input"
+        type="text"
+        placeholder="Ask me something..."
+        autocomplete="off"
+        class="flex-1 rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+      />
+      <button
+        type="submit"
+        id="chat-submit"
+        class="bg-gray-900 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Send
+      </button>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('chat-form') as HTMLFormElement;
+  const input = document.getElementById('chat-input') as HTMLInputElement;
+  const submit = document.getElementById('chat-submit') as HTMLButtonElement;
+  const messagesEl = document.getElementById('chat-messages') as HTMLDivElement;
+
+  const history: { role: string; content: string }[] = [];
+
+  function addMessage(role: 'user' | 'assistant', text: string): HTMLElement {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'flex gap-3' + (role === 'user' ? ' justify-end' : '');
+
+    if (role === 'assistant') {
+      const avatar = document.createElement('div');
+      avatar.className = 'w-7 h-7 rounded-full bg-gray-900 flex-shrink-0 flex items-center justify-center';
+      avatar.innerHTML = '<span class="text-white text-xs font-bold">P</span>';
+      wrapper.appendChild(avatar);
+    }
+
+    const bubble = document.createElement('div');
+    bubble.className =
+      role === 'user'
+        ? 'bg-gray-900 text-white rounded-xl px-4 py-3 text-sm max-w-[85%]'
+        : 'bg-white rounded-xl px-4 py-3 text-sm text-gray-700 shadow-sm max-w-[85%]';
+    bubble.textContent = text;
+    wrapper.appendChild(bubble);
+
+    messagesEl.appendChild(wrapper);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return bubble;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+
+    input.value = '';
+    submit.disabled = true;
+
+    addMessage('user', text);
+    history.push({ role: 'user', content: text });
+
+    const bubble = addMessage('assistant', '');
+    bubble.innerHTML = '<span class="animate-pulse text-gray-400">...</span>';
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+      });
+
+      if (!res.ok) throw new Error('API error');
+
+      const reader = res.body!.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+      bubble.textContent = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value);
+        const lines = chunk.split('\n');
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            const data = line.slice(6);
+            if (data === '[DONE]') break;
+            fullText += data;
+            bubble.textContent = fullText;
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+          }
+        }
+      }
+
+      history.push({ role: 'assistant', content: fullText });
+    } catch {
+      bubble.textContent = 'Something went wrong. Try again.';
+      bubble.classList.add('text-red-500');
+    } finally {
+      submit.disabled = false;
+      input.focus();
+    }
+  });
+</script>

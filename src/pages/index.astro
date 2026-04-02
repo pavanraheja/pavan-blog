@@ -1,0 +1,94 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ChatWidget from '@/components/ChatWidget.astro';
+---
+
+<Layout>
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-6 pt-20 pb-16">
+    <div class="max-w-2xl">
+      <p class="text-sm text-brand-600 font-medium mb-3">Based in Dubai, UAE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
+        Product, Growth<br />& Trading.
+      </h1>
+      <p class="mt-5 text-lg text-gray-500 leading-relaxed">
+        I scale startups, build growth systems, angel invest in early-stage companies,
+        and trade crypto markets. Currently self-employed — building in public.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/#chat"
+          class="bg-gray-900 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors"
+        >
+          Talk to my clone
+        </a>
+        <a
+          href="/work"
+          class="border border-gray-200 text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium hover:border-gray-400 transition-colors"
+        >
+          See my work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights strip -->
+  <section class="border-y border-gray-100 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6 py-10 grid sm:grid-cols-3 gap-8">
+      <div>
+        <p class="text-3xl font-bold text-gray-900">3×</p>
+        <p class="mt-1 text-sm text-gray-500">Revenue & user growth at Mashkor in 18 months</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold text-gray-900">7×</p>
+        <p class="mt-1 text-sm text-gray-500">Growth driven at PriceLabs — 7 to 150+ people</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold text-gray-900">60+</p>
+        <p class="mt-1 text-sm text-gray-500">Books read. Active investor, trader, and writer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I do -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <h2 class="text-xl font-semibold text-gray-900 mb-8">What I do</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      {[
+        {
+          title: 'Product & Growth',
+          body: 'Building and scaling digital products. From activation funnels to AI/ML personalization — I own the full lifecycle.',
+        },
+        {
+          title: 'Angel Investing',
+          body: 'I invest in things I believe in and use — AI, Web3, community-driven businesses. GrowthX, WorldMobile, Worldcoin.',
+        },
+        {
+          title: 'Crypto Trading',
+          body: 'Active crypto trader focused on market structure and on-chain data. Running systematic strategies across cycles.',
+        },
+        {
+          title: 'Writing',
+          body: 'Sharing frameworks, lessons, and honest takes on growth, product, and building. Published at pavan.blog.',
+        },
+      ].map((item) => (
+        <div class="p-6 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
+          <h3 class="font-semibold text-gray-900 mb-2">{item.title}</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Latest articles placeholder -->
+  <section class="max-w-5xl mx-auto px-6 pb-10">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xl font-semibold text-gray-900">Latest articles</h2>
+      <a href="/articles" class="text-sm text-brand-600 hover:text-brand-700 transition-colors">View all →</a>
+    </div>
+    <p class="text-sm text-gray-400 italic">Articles loading soon — migrating from WordPress.</p>
+  </section>
+
+  <!-- Digital clone chat -->
+  <ChatWidget />
+</Layout>

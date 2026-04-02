@@ -1,0 +1,73 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="About — Pavan Raheja" description="Product & Growth operator based in Dubai. Learning daily, growing daily.">
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="max-w-2xl">
+      <h1 class="text-4xl font-bold text-gray-900 mb-6">About</h1>
+
+      <div class="prose prose-gray max-w-none space-y-5 text-gray-600 leading-relaxed">
+        <p>
+          I'm Pavan — a Product & Growth operator, angel investor, crypto trader, and writer.
+          Born in Pune, India. Currently based in Dubai, UAE. I've lived in 5 countries
+          and somehow I'm still restless.
+        </p>
+
+        <p>
+          My core mantra: <em>"Learn daily, grow daily, learn fundamentally."</em> And the harder
+          one: <em>"Pain with reflection = awesome growth."</em> I've tested both enough times
+          to believe them.
+        </p>
+
+        <p>
+          I've spent the last decade scaling startups — most recently 3× growth at Mashkor in Kuwait,
+          and before that 7× at PriceLabs. I've built growth systems, shipped AI/ML features,
+          flipped websites, angel invested, and now I trade markets systematically.
+        </p>
+
+        <p>
+          I read a lot — 60+ books and counting. I try to build and write in public.
+          I believe in giving credit where it's due, being honest about what I don't know,
+          and staying genuinely curious.
+        </p>
+      </div>
+
+      <!-- Adventures -->
+      <div class="mt-12">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">A few numbers</h2>
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { n: '5', label: 'Countries lived in' },
+            { n: '60+', label: 'Books read' },
+            { n: '12:44', label: 'Longest headstand (min:sec)' },
+            { n: '9', label: 'Waves surfed in first 3 days' },
+          ].map((s) => (
+            <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+              <p class="text-2xl font-bold text-gray-900">{s.n}</p>
+              <p class="text-xs text-gray-400 mt-1">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Connect -->
+      <div class="mt-12 pt-8 border-t border-gray-100">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Connect</h2>
+        <div class="flex flex-col gap-2 text-sm">
+          <a
+            href="https://www.linkedin.com/in/pavanraheja"
+            target="_blank"
+            rel="noopener"
+            class="text-brand-600 hover:text-brand-700 transition-colors"
+          >
+            LinkedIn → linkedin.com/in/pavanraheja
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-gray-500">
+          Or just <a href="/#chat" class="text-gray-900 underline underline-offset-2">talk to my digital clone</a> — it's trained on how I think.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

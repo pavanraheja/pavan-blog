@@ -1,0 +1,89 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Pavan Raheja — Product, Growth & Trading',
+  description = 'Product & Growth operator, angel investor, trader, and writer. Based in Dubai.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pavan.blog" />
+
+    <!-- Schema.org Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Pavan Raheja",
+        "url": "https://pavan.blog",
+        "jobTitle": "Product & Growth Operator",
+        "description": "Product & Growth operator, angel investor, trader, and writer. Based in Dubai.",
+        "sameAs": [
+          "https://www.linkedin.com/in/pavanraheja"
+        ]
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+
+  <body class="bg-white text-gray-900 font-sans antialiased">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+      <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+        <a href="/" class="font-semibold text-gray-900 hover:text-brand-600 transition-colors">
+          Pavan Raheja
+        </a>
+        <div class="flex items-center gap-6 text-sm text-gray-600">
+          <a href="/work" class="hover:text-gray-900 transition-colors">Work</a>
+          <a href="/articles" class="hover:text-gray-900 transition-colors">Articles</a>
+          <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
+          <a
+            href="/#chat"
+            class="bg-gray-900 text-white px-3 py-1.5 rounded-md text-xs font-medium hover:bg-gray-700 transition-colors"
+          >
+            Talk to me
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-14">
+      <slot />
+    </main>
+
+    <footer class="mt-24 border-t border-gray-100 py-10">
+      <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+        <span>© {new Date().getFullYear()} Pavan Raheja</span>
+        <div class="flex gap-5">
+          <a href="https://www.linkedin.com/in/pavanraheja" target="_blank" rel="noopener" class="hover:text-gray-700 transition-colors">LinkedIn</a>
+          <a href="/articles" class="hover:text-gray-700 transition-colors">Articles</a>
+          <a href="/#chat" class="hover:text-gray-700 transition-colors">Digital Clone</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

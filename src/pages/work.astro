@@ -1,0 +1,98 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Work — Pavan Raheja" description="Product & Growth operator. Key roles at Mashkor, PriceLabs, and more.">
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Work</h1>
+    <p class="text-gray-500 mb-14 max-w-xl">
+      Operator across product, growth, and investing. I've scaled startups from early stage to
+      product-market fit, and built systems that compound.
+    </p>
+
+    <div class="space-y-12">
+      {[
+        {
+          company: 'Mashkor',
+          role: 'Product Lead (Growth)',
+          location: 'Kuwait',
+          period: '2022 – 2024',
+          headline: '3× revenue and user growth in 18 months.',
+          bullets: [
+            'Built growth systems from scratch — activation funnels, experimentation culture, channel optimization',
+            'Shipped Google Vertex AI recommendation engine: +30% engagement, +40% activation',
+            'Led cross-functional work across product, marketing, and engineering',
+            'Market: Kuwait (pop 4.82M, world\'s highest-valued currency)',
+          ],
+        },
+        {
+          company: 'PriceLabs',
+          role: 'Growth',
+          location: 'Remote',
+          period: '2020 – 2022',
+          headline: '7× growth in 18 months. 7 → 150+ people.',
+          bullets: [
+            'Part of the core growth team during hyper-growth phase',
+            'Focused on user acquisition, retention, and monetization strategy',
+            'Helped build the systems and culture that enabled rapid scaling',
+          ],
+        },
+        {
+          company: 'Website Flipping',
+          role: 'Founder / SEO',
+          location: 'Independent',
+          period: '2015 – ongoing',
+          headline: 'Built, grew, and sold two content websites at premium valuations.',
+          bullets: [
+            '8 years in digital marketing, 7 years specialized in SEO',
+            'Built audience and revenue, then exited at multiples',
+            'Deep expertise in content strategy, organic growth, and monetization',
+          ],
+        },
+        {
+          company: 'Angel Investing',
+          role: 'Investor',
+          location: 'UAE / Remote',
+          period: '2021 – present',
+          headline: 'Investing in AI, Web3, and community-driven businesses.',
+          bullets: [
+            'GrowthX — community & education for growth professionals (also a member)',
+            'WorldMobile — decentralized telecom infrastructure',
+            'Worldcoin — crypto identity protocol',
+            'Philosophy: invest in things I believe in and use',
+          ],
+        },
+      ].map((role) => (
+        <div class="border-l-2 border-gray-100 pl-6">
+          <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+            <div>
+              <span class="font-semibold text-gray-900">{role.company}</span>
+              <span class="mx-2 text-gray-300">·</span>
+              <span class="text-gray-600">{role.role}</span>
+            </div>
+            <span class="text-sm text-gray-400">{role.period}</span>
+          </div>
+          <p class="text-sm font-medium text-gray-700 mb-3">{role.headline}</p>
+          <ul class="space-y-1.5">
+            {role.bullets.map((b) => (
+              <li class="text-sm text-gray-500 flex gap-2">
+                <span class="text-gray-300 mt-0.5">→</span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Certs -->
+    <div class="mt-16 pt-10 border-t border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Education & Certifications</h2>
+      <div class="space-y-2 text-sm text-gray-500">
+        <p>Mastering Product Management — Reforge (Oct 2023)</p>
+        <p>Product Strategy — Reforge (Apr 2023)</p>
+        <p>GrowthX Member & Investor</p>
+      </div>
+    </div>
+  </section>
+</Layout>
