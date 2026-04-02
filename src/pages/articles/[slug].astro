@@ -1,0 +1,53 @@
+---
+export const prerender = true;
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('articles');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(d: string) {
+  return new Date(d).toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+}
+---
+
+<Layout title={`${post.data.title} — Pavan Raheja`} description={post.data.excerpt}>
+  <article class="max-w-5xl mx-auto px-6 py-20">
+    <div class="max-w-2xl mx-auto">
+      <!-- Back -->
+      <a href="/articles" class="text-sm text-gray-400 hover:text-gray-700 transition-colors mb-8 inline-block">
+        ← All articles
+      </a>
+
+      <!-- Header -->
+      <header class="mb-10">
+        <time class="text-sm text-gray-400">{formatDate(post.data.date)}</time>
+        <h1 class="mt-2 text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+          {post.data.title}
+        </h1>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-gray max-w-none prose-headings:font-semibold prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-blockquote:border-l-4 prose-blockquote:border-gray-200 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600">
+        <Content />
+      </div>
+
+      <!-- Footer -->
+      <footer class="mt-16 pt-8 border-t border-gray-100">
+        <p class="text-sm text-gray-500">
+          Want to discuss this? <a href="/#chat" class="text-gray-900 underline underline-offset-2">Talk to my digital clone</a> — it knows how I think.
+        </p>
+      </footer>
+    </div>
+  </article>
+</Layout>

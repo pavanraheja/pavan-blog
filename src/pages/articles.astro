@@ -1,5 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('articles')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+function formatDate(d: string) {
+  return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
 ---
 
 <Layout title="Articles — Pavan Raheja" description="Writing on product, growth, trading, and building. By Pavan Raheja.">
@@ -7,20 +16,29 @@ import Layout from '@/layouts/Layout.astro';
     <h1 class="text-4xl font-bold text-gray-900 mb-4">Articles</h1>
     <p class="text-gray-500 mb-14 max-w-xl">
       Frameworks, honest takes, and lessons from scaling startups, trading markets,
-      and building in public. Migrating from WordPress — new posts coming soon.
+      and building in public.
     </p>
 
-    <!-- Placeholder — will be replaced with WordPress import -->
-    <div class="space-y-6">
-      <div class="p-6 rounded-xl border border-dashed border-gray-200 text-center text-gray-400 text-sm py-12">
-        Articles importing from pavan.blog/WordPress — check back soon.
-      </div>
-    </div>
-
-    <div class="mt-16 pt-10 border-t border-gray-100">
-      <p class="text-sm text-gray-500">
-        Want to read something now? <a href="/#chat" class="text-gray-900 underline underline-offset-2">Ask my digital clone</a> — it knows how I think about product, growth, and trading.
-      </p>
+    <div class="divide-y divide-gray-100">
+      {posts.map((post) => (
+        <article class="py-7 group">
+          <a href={`/articles/${post.slug}`} class="block">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex-1">
+                <h2 class="text-lg font-semibold text-gray-900 group-hover:text-brand-600 transition-colors leading-snug">
+                  {post.data.title}
+                </h2>
+                <p class="mt-2 text-sm text-gray-500 leading-relaxed line-clamp-2">
+                  {post.data.excerpt}
+                </p>
+              </div>
+              <time class="text-xs text-gray-400 flex-shrink-0 mt-1">
+                {formatDate(post.data.date)}
+              </time>
+            </div>
+          </a>
+        </article>
+      ))}
     </div>
   </section>
 </Layout>
