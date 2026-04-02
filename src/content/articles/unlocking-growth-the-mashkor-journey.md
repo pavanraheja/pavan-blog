@@ -2,6 +2,7 @@
 title: "Unlocking Growth: The Mashkor Journey"
 date: "2024-04-11"
 excerpt: "Achieving 3x monthly run rate in user and revenue growth in just 18 months! 📈 Rarely shared publicly, but here's the behind-the-scenes story of our remarkable journey. ✨ **Market Insight:** - Kuwait's population: 4.82..."
+image: "/images/mashkor-hero.webp"
 slug: "unlocking-growth-the-mashkor-journey"
 ---
 

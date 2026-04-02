@@ -2,6 +2,7 @@
 title: "How We Scaled Mashkor: A Product & Growth Story"
 date: "2024-06-15"
 excerpt: "From 250 orders a day to 3.5x users and 2.8x revenue in 18 months. Here's the full playbook — discovery, ops, acquisition, and AI/ML — from inside the building."
+image: "/images/mashkor-hero.webp"
 slug: "mashkor-product-growth-story"
 ---
 

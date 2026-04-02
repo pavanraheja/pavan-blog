@@ -2,6 +2,7 @@
 title: "🌱The Evolution to Product - Growth function."
 date: "2024-01-24"
 excerpt: "Having received numerous inquiries from my network about the nuances between Growth Product leaders and traditional Product leaders, I thought to shed light on this topic from all the work I have been doing and how its..."
+image: "/images/product-growth.png"
 slug: "the-evolution-to-product-growth-function"
 ---
 

@@ -2,6 +2,7 @@
 title: "Intuitions, Impulsiveness, errors, mistakes –– the science behind it!"
 date: "2018-04-08"
 excerpt: "I have been intuitive and impulsive for most of early life, which has got me into trouble on a lot of occasions. I have been lucky to receive tough love several times from special people in my life and realize some of..."
+image: "/images/intuitions.jpg"
 slug: "intuitions-impulsiveness-errors-mistakes-selfhelp"
 ---
 

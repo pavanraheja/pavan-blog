@@ -51,11 +51,18 @@ import Layout from '@/layouts/Layout.astro';
         </p>
 
         <!-- Headstand highlight -->
-        <div class="rounded-xl bg-gray-50 border border-gray-100 p-5 flex items-center gap-4">
-          <div class="text-3xl">🧘</div>
-          <div>
-            <p class="font-semibold text-gray-900">12 min 53 sec headstand</p>
-            <p class="text-sm text-gray-500 mt-0.5">Personal record — on video. Balance, breath, and a lot of wall practice before that.</p>
+        <div class="rounded-xl overflow-hidden border border-gray-100">
+          <img
+            src="/images/headstand.jpg"
+            alt="Pavan Raheja headstand — 12 min 53 sec personal record"
+            class="w-full object-cover max-h-80 object-top"
+          />
+          <div class="p-4 bg-gray-50 flex items-center gap-3">
+            <span class="text-xl">🧘</span>
+            <div>
+              <p class="font-semibold text-gray-900 text-sm">12 min 53 sec headstand</p>
+              <p class="text-xs text-gray-500 mt-0.5">Personal record — on video. Balance, breath, and a lot of wall practice before that.</p>
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 title: "MUMBAI-PUNE EXPRESSWAY: AN EYE OPENER TO INDIAN INEQUALITY"
 date: "2017-01-30"
 excerpt: "India ranks 130th amongst the 188 countries on the Human Development Index, however, once inequality is factored in, we drop even further to rank 150th. In addition to employment strategies, the report calls for the..."
+image: "/images/mumbai-pune.jpg"
 slug: "mumbai-pune-expressway-an-eye-opener-to-indian-inequality"
 ---
 

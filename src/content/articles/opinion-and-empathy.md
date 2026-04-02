@@ -2,6 +2,7 @@
 title: "Opinion and Empathy: Bill Bullard"
 date: "2017-01-31"
 excerpt: "Happen to just come across this image, and it just hit me to the core. I just kept reading about Empathy and Opinions in so many places. It really did not make me understand to clearly, a lot of my Mentors and the..."
+image: "/images/opinion-empathy.png"
 slug: "opinion-and-empathy"
 ---
 

@@ -2,6 +2,7 @@
 title: "Growth Strategy for Clear App- Learnings from Capstone."
 date: "2021-10-31"
 excerpt: "In the 8-week boot camp project with [GrowthX](https://www.growthx.club/), after the four weeks of deep diving in modules, we had to apply the concepts and fundamentals we learned to real-time products. We got the..."
+image: "/images/growth.jpg"
 slug: "growth-strategy-clear"
 ---
 

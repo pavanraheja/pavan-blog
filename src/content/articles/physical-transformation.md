@@ -2,6 +2,7 @@
 title: "Physical Transformation"
 date: "2020-02-29"
 excerpt: "###                                                          Part-1 (Jan-18) Lately, I have been continually asked for inputs from a lot of friends, for the quick physical transformation in a short time. I have been..."
+image: "/images/physical-transformation.jpg"
 slug: "physical-transformation"
 ---
 

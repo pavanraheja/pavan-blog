@@ -2,6 +2,7 @@
 title: "Growth check!"
 date: "2021-07-07"
 excerpt: "I have been a Digital Marketing professional for eight years and specialized in SEO for seven years. I have worked with numerous varied projects to achieve results. I also have run websites for fun and flipped them..."
+image: "/images/growth-check.jpg"
 slug: "growth-check"
 ---
 

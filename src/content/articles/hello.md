@@ -2,6 +2,7 @@
 title: "Thailand Diary"
 date: "2016-12-20"
 excerpt: "Howdy  , So my last vacation of my year was in Thailand, I just loved the vibes of that country, on a personal experience it had a blend of the feeling you get in India an Island as well. The moment I landed in..."
+image: "/images/thailand.jpg"
 slug: "hello"
 ---
 

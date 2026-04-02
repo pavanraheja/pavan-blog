@@ -2,6 +2,7 @@
 title: "Optimizing the Activation loop iteratively to improve the conversion for Mashkor App."
 date: "2024-04-02"
 excerpt: "## Introduction - Wanted to share the story of working with [Mashkor](https://play.google.com/store/apps/details?id=com.mashkor.mobileapp&hl=en&gl=US) for the initial 8 months working here about how we worked to..."
+image: "/images/activation-loop.webp"
 slug: "optimizing-the-activation-funnel-iteratively-to-improve-the"
 ---
 

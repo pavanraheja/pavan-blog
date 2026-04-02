@@ -2,6 +2,7 @@
 title: "Leveraging AI/ML to Enhance User Activation and Engagements."
 date: "2024-04-05"
 excerpt: "Innovative strategies are crucial for maintaining a competitive edge, particularly in user engagement and activation. This post outlines our integration of Artificial Intelligence (AI) and Machine Learning (ML) to..."
+image: "/images/ai-ml.jpg"
 slug: "leveraging-ai-ml-to-enhance-user-activation-and-engagements"
 ---
 
