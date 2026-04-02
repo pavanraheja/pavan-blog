@@ -50,21 +50,31 @@ import Layout from '@/layouts/Layout.astro';
           the same principle I apply to building products.
         </p>
 
-        <!-- Headstand highlight -->
-        <div class="rounded-xl overflow-hidden border border-gray-100">
-          <img
-            src="/images/headstand.jpg"
-            alt="Pavan Raheja headstand — 12 min 53 sec personal record"
-            class="w-full object-cover max-h-80 object-top"
-          />
-          <div class="p-4 bg-gray-50 flex items-center gap-3">
-            <span class="text-xl">🧘</span>
-            <div>
-              <p class="font-semibold text-gray-900 text-sm">12 min 53 sec headstand</p>
-              <p class="text-xs text-gray-500 mt-0.5">Personal record — on video. Balance, breath, and a lot of wall practice before that.</p>
-            </div>
+        <!-- Photo grid -->
+        <div class="grid grid-cols-3 gap-3 mt-2">
+          <div class="rounded-xl overflow-hidden bg-gray-100 aspect-[3/4]">
+            <img
+              src="/images/travel-rocks.jpg"
+              alt="Pavan Raheja travelling"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+          <div class="rounded-xl overflow-hidden bg-gray-100 aspect-[3/4]">
+            <img
+              src="/images/headstand-actual.jpg"
+              alt="Pavan Raheja headstand — 12 min 53 sec"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+          <div class="rounded-xl overflow-hidden bg-gray-100 aspect-[3/4]">
+            <img
+              src="/images/hike.jpg"
+              alt="Pavan Raheja hiking"
+              class="w-full h-full object-cover object-center"
+            />
           </div>
         </div>
+        <p class="text-xs text-gray-400 mt-2 text-center">Travelling · 12:53 headstand · hiking</p>
       </div>
 
       <!-- Numbers grid -->
