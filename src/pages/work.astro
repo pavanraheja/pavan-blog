@@ -112,10 +112,16 @@ import Layout from '@/layouts/Layout.astro';
             link: 'https://pavan-blog.vercel.app/#chat',
           },
           {
-            title: 'Crypto Trading Bot Dashboard',
-            tech: 'Python · Binance API · Systemd',
-            desc: 'Running systematic crypto trading bots across 8 ports on a VPS. Built live dashboards for monitoring trade logs, win rates, and profit factors across multiple strategies. Pure curiosity — keeps me sharp on data systems.',
-            link: null,
+            title: 'MFI Live Trader — Bot Dashboard',
+            tech: 'Python · Flask · Binance API · VPS',
+            desc: 'Live dashboard for a systematic crypto trading bot scanning for MFI-based reversal signals. Tracks open positions, win rate, profit factor, and trade log in real time across multiple coins.',
+            link: 'http://217.15.164.68:8083',
+          },
+          {
+            title: 'Liq Zone Trader — Bot Dashboard',
+            tech: 'Python · Flask · Binance API · VPS',
+            desc: 'Dashboard for a liquidity zone reversal strategy bot. Monitors regime detection (bear/bull), active positions, margin sizing, and cumulative PnL. Regime switches automatically based on monthly MFI.',
+            link: 'http://217.15.164.68:8089',
           },
         ].map((p) => (
           <div class="p-5 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
