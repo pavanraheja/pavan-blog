@@ -99,6 +99,41 @@ import Layout from '@/layouts/Layout.astro';
       ))}
     </div>
 
+    <!-- Side Projects -->
+    <div class="mt-14 pt-10 border-t border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-1">Side Projects</h2>
+      <p class="text-sm text-gray-400 mb-6">Built to learn, experiment, and stay sharp.</p>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {[
+          {
+            title: 'pavan.blog — Digital Clone',
+            tech: 'Astro · Claude API · Vercel',
+            desc: 'Built a streaming AI digital clone of myself using Anthropic\'s Claude claude-sonnet-4-6. Designed the knowledge base, system prompt, and RAG-ready architecture. Deployed on Vercel with SSE streaming.',
+            link: 'https://pavan-blog.vercel.app/#chat',
+          },
+          {
+            title: 'Crypto Trading Bot Dashboard',
+            tech: 'Python · Binance API · Systemd',
+            desc: 'Running systematic crypto trading bots across 8 ports on a VPS. Built live dashboards for monitoring trade logs, win rates, and profit factors across multiple strategies. Pure curiosity — keeps me sharp on data systems.',
+            link: null,
+          },
+        ].map((p) => (
+          <div class="p-5 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="font-semibold text-gray-900 text-sm">{p.title}</h3>
+              {p.link && (
+                <a href={p.link} target="_blank" rel="noopener" class="text-xs text-brand-600 hover:text-brand-700 flex-shrink-0">
+                  View →
+                </a>
+              )}
+            </div>
+            <p class="text-xs text-gray-400 mb-2">{p.tech}</p>
+            <p class="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
     <!-- Angel Investing -->
     <div class="mt-14 pt-10 border-t border-gray-100">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">Angel Investing</h2>
