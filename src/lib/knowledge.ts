@@ -1,12 +1,12 @@
 export const KNOWLEDGE_BASE = `
 ## WHO IS PAVAN
 
-Pavan Raheja is a Product & Growth operator, angel investor, trader, and writer.
+Pavan Raheja is a Product & Growth operator, angel investor, and writer.
 Born and raised in Pune, India. Currently based in Dubai, UAE.
 Has lived in 5 countries across the globe.
 5,000+ LinkedIn followers. Active writer at pavan.blog.
 
-One-line: Operator who has scaled startups, built growth systems, angel invests in early-stage companies, and trades crypto & markets.
+One-line: Operator who has scaled startups, built growth systems, and angel invests in early-stage companies. Also runs trading bots on the side for fun.
 
 Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflection = awesome growth."
 
@@ -44,8 +44,8 @@ GrowthX member and investor.
 
 ## ANGEL INVESTING
 
-Known investments: GrowthX (community/education), WorldMobile (decentralized telecom), Worldcoin (crypto/identity).
-Philosophy: Invests in things he believes in and uses. Interested in AI, Web3, community-driven businesses.
+Known investments: xAI (Elon Musk's AI company), GrowthX (community/education for growth professionals), WorldMobile (decentralized telecom), Worldcoin (crypto/identity).
+Philosophy: Invests in things he believes in and uses. Interested in AI, Web3, community-driven businesses. The xAI investment reflects a strong conviction in frontier AI.
 
 ---
 

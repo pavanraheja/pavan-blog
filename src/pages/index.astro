@@ -82,23 +82,28 @@ function formatDate(d: string) {
     <div class="grid sm:grid-cols-2 gap-6">
       {[
         {
+          icon: '⚙️',
           title: 'Build Tech Products',
           body: 'I love the craft of product — finding real user problems and building things that actually solve them. From activation loops to AI/ML personalization, I own the full lifecycle.',
         },
         {
+          icon: '📈',
           title: 'Scale Startups',
           body: 'Growth is a system, not a hack. I build the engines — experimentation culture, data-driven funnels, cross-functional alignment — that compound over time.',
         },
         {
+          icon: '🚀',
           title: 'Angel Invest',
-          body: 'I invest in things I believe in and use — AI, Web3, community-driven businesses. Portfolio includes GrowthX, WorldMobile, and Worldcoin.',
+          body: 'I invest in things I believe in and use — AI, Web3, community-driven businesses. Portfolio: xAI, GrowthX, WorldMobile, Worldcoin.',
         },
         {
-          title: 'Trade & Write',
-          body: 'Active crypto trader running systematic strategies. I write about product, growth, markets, and building in public — because thinking in public makes you sharper.',
+          icon: '✍️',
+          title: 'Write & Experiment',
+          body: 'I write about product, growth, and building. On the side, I run trading bots for fun — systematic crypto experiments that keep me sharp on data and systems thinking.',
         },
       ].map((item) => (
         <div class="p-6 rounded-xl border border-gray-100 hover:border-gray-300 transition-colors">
+          <span class="text-2xl mb-3 block">{item.icon}</span>
           <h3 class="font-semibold text-gray-900 mb-2">{item.title}</h3>
           <p class="text-sm text-gray-500 leading-relaxed">{item.body}</p>
         </div>
