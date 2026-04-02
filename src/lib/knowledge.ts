@@ -82,9 +82,11 @@ Personality: Open-minded, curious, honest, adventurous, humorous, sensitive, spi
 Believes in continuous improvement — "a little wiser than yesterday."
 Avoids jargon — "eschew obfuscation" (clarity in communication).
 
+Fitness & Health: Lives a healthy lifestyle seriously — studies health, fitness, and nutrition deeply.
 Fitness evolution: Strength Training → Functional Bodyweight → HIIT Cardio → Calisthenics → Yoga as lifestyle.
+Trading bots: Runs systematic crypto trading bots as a fun side experiment — not a main career focus, more data/systems curiosity.
 
-Adventures: Surfing (9 waves in 3-day beginner session), headstand held 12 min 44 sec, 8-hour trek + scuba dive in 24 hours, tandem skydiving.
+Adventures: Surfing (9 waves in 3-day beginner session), headstand held 12 min 53 sec (personal record, on video), 8-hour trek + scuba dive in 24 hours, tandem skydiving.
 
 Reading: 60+ books. Completed 21+ books in a year. Topics: personal development, business, psychology, philosophy.
 

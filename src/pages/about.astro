@@ -12,9 +12,9 @@ import Layout from '@/layouts/Layout.astro';
 
       <div class="prose prose-gray max-w-none space-y-5 text-gray-600 leading-relaxed">
         <p>
-          I'm Pavan — a Product & Growth operator, angel investor, crypto trader, and writer.
-          Born in Pune, India. Currently based in Dubai, UAE. I've lived in 5 countries
-          and somehow I'm still restless.
+          I'm Pavan — a Product & Growth operator, angel investor, and writer.
+          Born in Pune, India. Currently based in Dubai, UAE. Lived in 5 countries,
+          still restless.
         </p>
 
         <p>
@@ -26,25 +26,51 @@ import Layout from '@/layouts/Layout.astro';
         <p>
           I've spent the last decade scaling startups — most recently 3× growth at Mashkor in Kuwait,
           and before that 7× at PriceLabs. I've built growth systems, shipped AI/ML features,
-          flipped websites, angel invested, and now I trade markets systematically.
+          flipped websites, and angel invested in companies like xAI, GrowthX, and WorldMobile.
         </p>
 
         <p>
-          I read a lot — 60+ books and counting. I try to build and write in public.
-          I believe in giving credit where it's due, being honest about what I don't know,
-          and staying genuinely curious.
+          I read a lot — 60+ books and counting. I write in public, build in public,
+          and try to stay genuinely curious about everything.
         </p>
       </div>
 
-      <!-- Adventures -->
+      <!-- Health & Lifestyle -->
       <div class="mt-12">
+        <h2 class="text-lg font-semibold text-gray-900 mb-2">Health & lifestyle</h2>
+        <p class="text-sm text-gray-500 mb-5 leading-relaxed">
+          Living healthy isn't a phase — it's the foundation. My fitness journey has gone through
+          every modality: strength training → functional bodyweight → HIIT → calisthenics → yoga.
+          Each one taught me something different about discipline and the body.
+          Now yoga is a lifestyle, not just a workout.
+        </p>
+        <p class="text-sm text-gray-500 mb-5 leading-relaxed">
+          I study health, fitness, and nutrition seriously. The physical transformation I went through
+          showed me that consistency and reflection beat intensity every time —
+          the same principle I apply to building products.
+        </p>
+
+        <!-- Headstand highlight -->
+        <div class="rounded-xl bg-gray-50 border border-gray-100 p-5 flex items-center gap-4">
+          <div class="text-3xl">🧘</div>
+          <div>
+            <p class="font-semibold text-gray-900">12 min 53 sec headstand</p>
+            <p class="text-sm text-gray-500 mt-0.5">Personal record — on video. Balance, breath, and a lot of wall practice before that.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Numbers grid -->
+      <div class="mt-10">
         <h2 class="text-lg font-semibold text-gray-900 mb-4">A few numbers</h2>
         <div class="grid grid-cols-2 gap-4">
           {[
             { n: '5', label: 'Countries lived in' },
             { n: '60+', label: 'Books read' },
-            { n: '12:44', label: 'Longest headstand (min:sec)' },
-            { n: '9', label: 'Waves surfed in first 3 days' },
+            { n: '12:53', label: 'Longest headstand (min:sec)' },
+            { n: '9', label: 'Waves surfed in first 3 days of surfing' },
+            { n: '24hrs', label: '8hr trek + scuba dive in the same day' },
+            { n: '↑', label: 'Tandem skydiving — done' },
           ].map((s) => (
             <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
               <p class="text-2xl font-bold text-gray-900">{s.n}</p>
@@ -52,6 +78,16 @@ import Layout from '@/layouts/Layout.astro';
             </div>
           ))}
         </div>
+      </div>
+
+      <!-- Travel -->
+      <div class="mt-10">
+        <h2 class="text-lg font-semibold text-gray-900 mb-2">Travel</h2>
+        <p class="text-sm text-gray-500 leading-relaxed">
+          Travel is how I reset and recharge. From surfing trips to treks to random cities I had no plan in —
+          movement keeps me sharp. Living across 5 countries has given me a perspective that I think makes
+          me a better builder, investor, and human.
+        </p>
       </div>
 
       <!-- Connect -->
