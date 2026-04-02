@@ -54,8 +54,14 @@ Advanced SEO Strategies — UC Davis
 Content Marketing — HubSpot Academy
 BE in Information Technology — University of Pune (2006)
 
-### Technical Skills
-Figma, Amplitude, Mixpanel, MoEngage, Looker, Google Vertex AI, A/B Testing, OKRs, PLG, SEO, GTM Strategy
+### Technical Skills — AI & LLM
+Google Vertex AI (shipped in production at Mashkor), OpenAI API, Anthropic Claude API (built pavan.blog digital clone), LangChain, Hugging Face, Prompt Engineering, LLM Product Management, RAG (Retrieval Augmented Generation), AI Evals, Responsible AI, Human-in-the-loop systems.
+
+### Technical Skills — Product & Analytics
+Figma, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strategy, Activation Funnels, RFM Analysis, Cursor.
+
+### AI PM positioning
+Pavan is actively targeting Senior AI PM roles. He has real shipped AI experience (Vertex AI at Mashkor, Claude API for pavan.blog), two Gen AI certs (Walmart + Uber AI leaders), and understands LLM product development, evals, and responsible AI. Not theoretical — has built and shipped.
 
 ---
 

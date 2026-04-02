@@ -20,7 +20,7 @@ import Layout from '@/layouts/Layout.astro';
           bullets: [
             'Led OKR strategy — roadmap focused on acquisition, retention, engagement, and revenue growth',
             'Improved activation loops by 40% in 8 months via journey mapping, onboarding, and ARIA framework',
-            'Shipped Google Vertex AI recommendation engine: +15% activations, +1.3× engagement',
+            'Shipped LLM/ML recommendation engine (Google Vertex AI) — defined evals, iterated on model outputs, +15% activations, +1.3× engagement',
             'Identified SOM of 500K users, developed two core personas for "Buy Anything" and "Pick Up Anything"',
             'Cross-functional leadership: UI/UX, Engineering, Marketing, Customer Support, Finance, Legal',
           ],
@@ -28,7 +28,7 @@ import Layout from '@/layouts/Layout.astro';
         {
           company: 'Nova Benefits',
           tag: 'Insurtech · B2B · India',
-          role: 'Growth Product Manager',
+          role: 'Growth Program Manager',
           period: 'Jan 2022 – Oct 2022',
           headline: '2.5× website traffic, +30% product leads in 4 months.',
           bullets: [
@@ -149,8 +149,24 @@ import Layout from '@/layouts/Layout.astro';
     <!-- Tools -->
     <div class="mt-10 pt-10 border-t border-gray-100">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">Tools & Skills</h2>
+      <!-- AI / LLM -->
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">AI & LLM</p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        {['Google Vertex AI', 'OpenAI API', 'Anthropic Claude API', 'LangChain', 'Hugging Face', 'Prompt Engineering', 'LLM Product Management', 'RAG', 'AI Evals', 'Responsible AI', 'Human-in-the-loop'].map((t) => (
+          <span class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-100">{t}</span>
+        ))}
+      </div>
+      <!-- Product & Growth -->
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">Product & Growth</p>
+      <div class="flex flex-wrap gap-2 mb-5">
+        {['A/B Testing', 'OKRs', 'PRDs', 'GTM Strategy', 'PLG', 'Activation Funnels', 'Experimentation', 'User Research', 'RFM Analysis'].map((t) => (
+          <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-600">{t}</span>
+        ))}
+      </div>
+      <!-- Analytics & Tools -->
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">Analytics & Tools</p>
       <div class="flex flex-wrap gap-2">
-        {['Figma', 'Amplitude', 'Mixpanel', 'MoEngage', 'Looker', 'Notion', 'Slack', 'Google Vertex AI', 'A/B Testing', 'OKRs', 'PRDs', 'GTM Strategy', 'SEO', 'PLG'].map((t) => (
+        {['Amplitude', 'Mixpanel', 'MoEngage', 'Looker', 'Figma', 'Notion', 'Cursor', 'SEO'].map((t) => (
           <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-600">{t}</span>
         ))}
       </div>
