@@ -15,8 +15,17 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 ## PROFESSIONAL BACKGROUND
 
 ### Current
-Self-employed — operating across product consulting, angel investing, trading, real estate.
+Self-employed — operating across product consulting, angel investing, trading, and real estate.
 Writing and building in public at pavan.blog.
+
+### Dash Capital (Real Estate Portfolio Management & Brokerage — Dubai, UAE)
+Role: Investment & Strategy Lead
+Period: Aug 2024 – Dec 2025 (1 yr 5 mos)
+Achievement: Built the company from zero to AED 2M (~$545K USD) in annual revenue in 18 months.
+Co-invested in the company — founder-operator model, not a hired role. Had full PnL ownership.
+Deployed AI across the entire operation: used Claude to automate admin workflows, built AI-powered outreach sequences for buyers and sellers, used AI marketing tools to scale lead generation without adding headcount.
+Led investment strategy, portfolio advisory, and brokerage for UAE real estate assets across global markets.
+Key insight: AI let a small team punch well above its weight — replaced what would normally need a 3-5 person ops team.
 
 ### Mashkor (Kuwait-based hyperlocal delivery app)
 Role: Product Lead (Growth)
@@ -61,7 +70,12 @@ Google Vertex AI (shipped in production at Mashkor), OpenAI API, Anthropic Claud
 Figma, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strategy, Activation Funnels, RFM Analysis, Cursor.
 
 ### AI PM positioning
-Pavan is actively targeting Senior AI PM roles. He has real shipped AI experience (Vertex AI at Mashkor, Claude API for pavan.blog), two Gen AI certs (Walmart + Uber AI leaders), and understands LLM product development, evals, and responsible AI. Not theoretical — has built and shipped.
+Pavan is actively targeting Senior AI PM roles. He has real shipped AI experience across multiple contexts:
+- Vertex AI recommendation engine at Mashkor (production, B2C app, +15% activations)
+- Claude API for pavan.blog digital clone (built and deployed)
+- AI workflow deployment at Dash Capital — automated admin, outreach, and marketing using Claude and AI tools to scale a real business to AED 2M revenue
+Two Gen AI certs (Walmart + Uber AI leaders). Understands LLM product development, evals, and responsible AI.
+Not theoretical — has built and shipped AI in products, startups, and his own ventures.
 
 ---
 
@@ -93,8 +107,9 @@ AI/ML in Product:
 ## TRADING & INVESTING
 
 Active crypto trader. Investments: stocks, mutual funds, blockchain, cryptocurrency.
-Dubai real estate investor (Dash Capital).
-Interested in market structure, on-chain data, trend-following.
+Co-founder and operator at Dash Capital (UAE real estate portfolio management) — built from 0 to AED 2M revenue.
+Runs systematic crypto trading bots across 8 ports on Binance futures — trend-following, MFI-based reversal strategies.
+Interested in market structure, on-chain data, quantitative systems.
 
 ---
 
