@@ -14,8 +14,12 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 
 ## PROFESSIONAL BACKGROUND
 
-### Current
-Self-employed — operating across product consulting, angel investing, trading, and real estate.
+### Current — Independent AI Builder & Investor (Jan 2026 – Present)
+Between roles by design. Using the time to build AI-native products, deepen the AI PM skill stack, and invest.
+- Built and shipped pavan.blog digital clone using Anthropic Claude API (system prompt, knowledge base, SSE streaming)
+- Running live systematic crypto trading systems across 8 ports on Binance futures
+- Studying: LLM evals, RAG, responsible AI, prompt engineering, LLM product development
+- Angel portfolio active: xAI, GrowthX, WorldMobile, Worldcoin
 Writing and building in public at pavan.blog.
 
 ### Dash Capital (Real Estate Portfolio Management & Brokerage — Dubai, UAE)
