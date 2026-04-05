@@ -1,0 +1,85 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="The Emirates Allocator — Newsletter by Pavan Raheja" description="Where capital moves across UAE tech, Crypto and Real Estate. Weekly insights from Pavan Raheja — AI PM, crypto investor, and operator based in Dubai.">
+  <section class="max-w-3xl mx-auto px-6 py-20">
+
+    <!-- Header -->
+    <div class="mb-12">
+      <p class="text-xs font-medium text-brand-600 uppercase tracking-wide mb-3">Newsletter</p>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">The Emirates Allocator</h1>
+      <p class="text-xl text-gray-500 leading-relaxed">
+        Where capital moves across UAE tech, Crypto and Real Estate.
+      </p>
+    </div>
+
+    <!-- What it is -->
+    <div class="mb-12 p-6 rounded-2xl bg-gray-50 border border-gray-100">
+      <p class="text-sm text-gray-700 leading-relaxed mb-4">
+        A weekly newsletter for capital owners in the UAE and GCC — from someone who operates across all three asset classes simultaneously. Not a commentator. A participant.
+      </p>
+      <div class="space-y-2">
+        {[
+          'Market thesis — what I\'m watching and why, across crypto, tech, and real estate',
+          'Allocation frameworks — how to think about capital across multiple asset classes in the UAE context',
+          'UAE/GCC angle — DIFC, ADGM, and where the smart money is moving',
+          'Personal signals — what I\'m building, investing in, and learning from',
+        ].map((item) => (
+          <div class="flex gap-2 text-sm text-gray-500">
+            <span class="text-brand-400 flex-shrink-0 mt-0.5">→</span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Subscribe embed -->
+    <div class="mb-12">
+      <h2 class="text-lg font-semibold text-gray-900 mb-2">Subscribe — it's free</h2>
+      <p class="text-sm text-gray-400 mb-6">Weekly. No spam. Unsubscribe anytime.</p>
+      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+      <iframe
+        src="https://subscribe-forms.beehiiv.com/7440ef18-7a53-490a-b513-60eac2e9b5d5"
+        class="beehiiv-embed"
+        data-test-id="beehiiv-embed"
+        frameborder="0"
+        scrolling="no"
+        style="width: 100%; max-width: 560px; height: 291px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000;"
+      ></iframe>
+    </div>
+
+    <!-- Who it's for -->
+    <div class="mb-12">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">Who it's for</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {[
+          { title: 'Capital owners', body: 'You have money working and want a sharper lens on where to move it next across UAE asset classes.' },
+          { title: 'Expat investors', body: 'You\'re in Dubai or GCC and want an operator\'s view — not a generic financial newsletter.' },
+          { title: 'Crypto natives', body: 'You\'re moving capital into UAE for its regulatory and tax advantages and want context on the full picture.' },
+        ].map((card) => (
+          <div class="p-5 rounded-xl border border-gray-100">
+            <p class="font-semibold text-gray-900 text-sm mb-2">{card.title}</p>
+            <p class="text-sm text-gray-500 leading-relaxed">{card.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- About the author -->
+    <div class="pt-10 border-t border-gray-100">
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-4">About the author</p>
+      <div class="flex items-start gap-4">
+        <img src="/pavan.jpg" alt="Pavan Raheja" class="w-14 h-14 rounded-xl object-cover object-top flex-shrink-0" />
+        <div>
+          <p class="font-semibold text-gray-900 text-sm mb-1">Pavan Raheja</p>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            AI Product Manager, crypto investor, and operator based in Dubai. Built AI systems in production (Vertex AI, Claude API), runs live systematic trading strategies, and invests across crypto, tech, and real estate. Writing from inside the ecosystem — not from the sidelines.
+          </p>
+          <a href="/work" class="text-xs text-brand-600 hover:text-brand-700 mt-2 inline-block">See full background →</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</Layout>
