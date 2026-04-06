@@ -6,8 +6,26 @@
     <div class="mb-6">
       <h2 class="text-2xl font-semibold text-gray-900">Talk to my digital clone</h2>
       <p class="mt-1 text-gray-500 text-sm">
-        Ask me anything — product, growth, trading, Dubai life, or just say hi.
+        Ask me anything — product, growth, AI, crypto, or what I'm working on.
       </p>
+    </div>
+
+    <!-- Suggested questions -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      {[
+        'What kind of PM roles are you looking for?',
+        'How did you grow Mashkor 3×?',
+        'What AI have you shipped in production?',
+        'Why are you interested in crypto?',
+        'What does your background look like?',
+        'What are you building right now?',
+      ].map((q) => (
+        <button
+          class="suggested-q text-xs px-3 py-1.5 rounded-full border border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700 transition-colors bg-white"
+        >
+          {q}
+        </button>
+      ))}
     </div>
 
     <!-- Chat messages -->
@@ -20,7 +38,7 @@
           <span class="text-white text-xs font-bold">P</span>
         </div>
         <div class="bg-white rounded-xl px-4 py-3 text-sm text-gray-700 shadow-sm max-w-[85%]">
-          Hey — I'm Pavan. Ask me anything about product, growth, trading, or what I'm working on.
+          Hey — I'm Pavan. Ask me anything about my work, background, or what I'm building. Recruiters — feel free to ask what you'd normally ask in a first call.
         </div>
       </div>
     </div>
@@ -52,6 +70,14 @@
   const messagesEl = document.getElementById('chat-messages') as HTMLDivElement;
 
   const history: { role: string; content: string }[] = [];
+
+  // Suggested question chips
+  document.querySelectorAll('.suggested-q').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      input.value = (btn as HTMLElement).innerText;
+      form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+    });
+  });
 
   function addMessage(role: 'user' | 'assistant', text: string): HTMLElement {
     const wrapper = document.createElement('div');

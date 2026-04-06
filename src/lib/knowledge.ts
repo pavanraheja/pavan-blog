@@ -1,12 +1,12 @@
 export const KNOWLEDGE_BASE = `
 ## WHO IS PAVAN
 
-Pavan Raheja is a Product & Growth operator, angel investor, and writer.
+Pavan Raheja is a Product & Growth leader, AI builder, and investor.
 Born and raised in Pune, India. Currently based in Dubai, UAE.
 Has lived in 5 countries across the globe.
 5,000+ LinkedIn followers. Active writer at pavan.blog.
 
-One-line: Operator who has scaled startups, built growth systems, and angel invests in early-stage companies. Also runs trading bots on the side for fun.
+One-line: PM who ships AI products, builds growth systems, and invests in crypto, tech and real estate. Deeply interested in where AI and crypto are taking the next decade.
 
 Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflection = awesome growth."
 
@@ -15,11 +15,12 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 ## PROFESSIONAL BACKGROUND
 
 ### Current — Independent AI Builder & Investor (Jan 2026 – Present)
-Between roles by design. Using the time to build AI-native products, deepen the AI PM skill stack, and invest.
-- Built and shipped pavan.blog digital clone using Anthropic Claude API (system prompt, knowledge base, SSE streaming)
-- Running live systematic crypto trading systems across 8 ports on Binance futures
-- Studying: LLM evals, RAG, responsible AI, prompt engineering, LLM product development
-- Angel portfolio active: xAI, GrowthX, WorldMobile, Worldcoin
+Intentional time to build, upskill, and invest.
+- Built and shipped pavan.blog with an AI digital clone using Anthropic Claude API (system prompt, knowledge base, SSE streaming)
+- Actively investing in crypto markets and following the AI and Web3 space closely
+- Deepening AI PM stack: LLM evals, RAG, responsible AI, prompt engineering
+- Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin
+- Building The Emirates Allocator — weekly newsletter on capital allocation across UAE tech, crypto and real estate
 Writing and building in public at pavan.blog.
 
 ### Dash Capital (Real Estate Portfolio Management & Brokerage — Dubai, UAE)
@@ -74,7 +75,7 @@ Google Vertex AI (shipped in production at Mashkor), OpenAI API, Anthropic Claud
 Figma, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strategy, Activation Funnels, RFM Analysis, Cursor.
 
 ### AI PM positioning
-Pavan is actively targeting Senior AI PM roles. He has real shipped AI experience across multiple contexts:
+Pavan is actively looking for PM roles — ideally at crypto, AI, or tech companies. He has real shipped AI experience across multiple contexts:
 - Vertex AI recommendation engine at Mashkor (production, B2C app, +15% activations)
 - Claude API for pavan.blog digital clone (built and deployed)
 - AI workflow deployment at Dash Capital — automated admin, outreach, and marketing using Claude and AI tools to scale a real business to AED 2M revenue
@@ -108,12 +109,13 @@ AI/ML in Product:
 
 ---
 
-## TRADING & INVESTING
+## INVESTING & CRYPTO INTEREST
 
-Active crypto trader. Investments: stocks, mutual funds, blockchain, cryptocurrency.
-Co-founder and operator at Dash Capital (UAE real estate portfolio management) — built from 0 to AED 2M revenue.
-Runs systematic crypto trading bots across 8 ports on Binance futures — trend-following, MFI-based reversal strategies.
-Interested in market structure, on-chain data, quantitative systems.
+Keen investor across crypto, tech and real estate. Follows the crypto and AI markets closely — it's where personal curiosity and conviction sit.
+Co-invested and built Dash Capital (UAE real estate) from 0 to AED 2M revenue.
+Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin — conviction-based picks in AI and Web3.
+Building The Emirates Allocator newsletter — covering capital allocation across UAE tech, crypto and real estate for UAE/GCC investors.
+Interested in on-chain data, crypto market structure, and where AI and blockchain intersect.
 
 ---
 
@@ -126,7 +128,7 @@ Avoids jargon — "eschew obfuscation" (clarity in communication).
 
 Fitness & Health: Lives a healthy lifestyle seriously — studies health, fitness, and nutrition deeply.
 Fitness evolution: Strength Training → Functional Bodyweight → HIIT Cardio → Calisthenics → Yoga as lifestyle.
-Trading bots: Runs systematic crypto trading bots as a fun side experiment — not a main career focus, more data/systems curiosity.
+Crypto & investing: Follows crypto markets closely, invests with conviction, and is building a newsletter (The Emirates Allocator) for UAE investors — more intellectual passion than side hustle.
 
 Adventures: Surfing (9 waves in 3-day beginner session), headstand held 12 min 53 sec (personal record, on video), 8-hour trek + scuba dive in 24 hours, tandem skydiving.
 
