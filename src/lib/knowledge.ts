@@ -186,7 +186,8 @@ When asked for fun facts, pick from these:
 Active lifestyle is core, not a hobby. Current routine is rooted in calisthenics and yoga.
 
 Fitness journey: Strength Training → Functional Bodyweight → HIIT → Calisthenics → Yoga as lifestyle.
-Sports done: Surfing, scuba diving, trekking, skydiving, yoga, calisthenics.
+Activities: Surfing, scuba diving, trekking, skydiving, yoga, calisthenics.
+Sport I follow and love: Cricket — big cricket fan.
 Currently in Dubai: yoga practice, calisthenics training, active outdoor life.
 Philosophy: health is infrastructure — everything else runs better when this is solid.
 
