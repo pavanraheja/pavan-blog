@@ -1,4 +1,7 @@
 ---
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+
 interface Props {
   title?: string;
   description?: string;
@@ -86,5 +89,7 @@ const {
         </div>
       </div>
     </footer>
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>
