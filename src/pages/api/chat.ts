@@ -16,6 +16,16 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ error: 'Invalid messages' }), { status: 400 });
     }
 
+    console.log(JSON.stringify({
+      event: 'chat_message',
+      at: new Date().toISOString(),
+      messageCount: messages.length,
+      lastUserMessage: messages[messages.length - 1]?.content?.slice?.(0, 200) ?? null,
+      country: request.headers.get('x-vercel-ip-country'),
+      city: request.headers.get('x-vercel-ip-city'),
+      ua: request.headers.get('user-agent')?.slice(0, 100) ?? null,
+    }));
+
     const stream = await client.messages.stream({
       model: 'claude-sonnet-4-6',
       max_tokens: 1024,
