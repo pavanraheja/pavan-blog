@@ -140,23 +140,23 @@ import Layout from '@/layouts/Layout.astro';
         {[
           {
             title: 'pavan.blog — Digital Clone',
-            tech: 'Astro · Claude API · Vercel',
-            desc: 'Built a streaming AI digital clone of myself using Anthropic\'s Claude claude-sonnet-4-6. Designed the knowledge base, system prompt, and RAG-ready architecture. Deployed on Vercel with SSE streaming.',
+            tech: 'Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel',
+            desc: 'Conversational AI clone of myself on this site. Designed the knowledge base, system prompt, suggested-question UX, and contact fallback. Streams token-by-token over SSE on a Vercel serverless function.',
             link: 'https://pavan.blog/#chat',
             github: 'https://github.com/pavanraheja/pavan-blog',
           },
           {
-            title: 'MFI Live Trader — Bot Dashboard',
-            tech: 'Python · Flask · Binance API · VPS',
-            desc: 'Live dashboard for a systematic crypto trading bot scanning for MFI-based reversal signals. Tracks open positions, win rate, profit factor, and trade log in real time across multiple coins.',
-            link: 'http://217.15.164.68:8083',
+            title: 'AlphaGrid — Live Execution Controller',
+            tech: 'Python · Flask · Binance API · systemd · Multi-strategy orchestration',
+            desc: 'Live orchestration layer I built that routes signals from paper research bots into real Binance orders. Capital allocator per strategy, risk guardian (drawdown-kill, per-strategy loss cap, coin-conflict gate), retry-safe two-stage entry. Currently running the AlphaGrid Systems Lead Trader profile on Binance Copy Trading.',
+            link: 'http://217.15.164.68:8095',
             github: 'https://github.com/pavanraheja/crypto-trading-bots',
           },
           {
-            title: 'Liq Zone Trader — Bot Dashboard',
-            tech: 'Python · Flask · Binance API · VPS',
-            desc: 'Dashboard for a liquidity zone reversal strategy bot. Monitors regime detection (bear/bull), active positions, margin sizing, and cumulative PnL. Regime switches automatically based on monthly MFI.',
-            link: 'http://217.15.164.68:8089',
+            title: 'Alligator — Systematic Strategy Lab',
+            tech: 'Python · Flask · Backtester · Binance API',
+            desc: 'Research-to-production pipeline for a SHORT-only systematic strategy on 9 Binance pairs. Every config change is backtest-validated before it reaches paper, and gated (15 trades, WR ≥ 50%, PF ≥ 1.5) before it touches live capital. Current v2.4 paper: 30 trades, 60% WR on active universe, +$887 PnL.',
+            link: 'http://217.15.164.68:8086',
             github: 'https://github.com/pavanraheja/crypto-trading-bots',
           },
         ].map((p) => (
