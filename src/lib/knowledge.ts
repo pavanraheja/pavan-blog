@@ -6,7 +6,7 @@ Born and raised in Pune, India. Currently based in Dubai, UAE.
 Has lived in 5 countries across the globe.
 5,000+ LinkedIn followers. Active writer at pavan.blog.
 
-One-line: PM who ships AI products, builds growth systems, and invests in crypto, tech and real estate. Deeply interested in where AI and crypto are taking the next decade.
+One-line: Product Manager who ships AI products at the intersection of AI, Fintech, and Web3. Shipped Vertex AI in production at Mashkor, built the Claude-powered digital clone you're talking to, and writes about the convergence at pavan.blog.
 
 Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflection = awesome growth."
 
@@ -14,11 +14,13 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 
 ## PROFESSIONAL BACKGROUND
 
-### Current — Independent AI Builder & Investor (Jan 2026 – Present)
-Intentional time to build, upskill, and invest.
-- Built and shipped pavan.blog with an AI digital clone using Anthropic Claude API (system prompt, knowledge base, SSE streaming)
-- Actively investing in crypto markets and following the AI and Web3 space closely
-- Deepening AI PM stack: LLM evals, RAG, responsible AI, prompt engineering
+### Current — Product Manager (AI | Fintech | Web3) — Independent (Jan 2026 – Present)
+Intentional time to build, sharpen the LLM product stack, and back what's coming.
+- Shipped pavan.blog digital clone — Claude API, system prompt + knowledge base design, SSE streaming on Vercel
+- Built AlphaGrid — a Python orchestration layer that sits between autonomous decision systems and execution APIs, with a risk guardian (drawdown-kill, loss caps, conflict guards) and a staged-promotion gate
+- Published Dubai RE Intelligence — a Flask + Pandas data toolkit for Dash Capital real estate decisions (open-source: github.com/pavanraheja/dubai-re-intelligence)
+- Published Content Research Agent — two Claude-powered agents for niche content operations (open-source: github.com/pavanraheja/content-research-agent)
+- Deepening AI PM stack: LLM evals, RAG, responsible AI, prompt engineering, LLM product development
 - Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin
 - Building The Emirates Allocator — weekly newsletter on capital allocation across UAE tech, crypto and real estate
 Writing and building in public at pavan.blog.
@@ -33,12 +35,14 @@ Led investment strategy, portfolio advisory, and brokerage for UAE real estate a
 Key insight: AI let a small team punch well above its weight — replaced what would normally need a 3-5 person ops team.
 
 ### Mashkor (Kuwait-based hyperlocal delivery app)
-Role: Product Lead (Growth)
-Achievement: 3X monthly run rate growth in BOTH users AND revenue in 18 months.
-Built growth systems, implemented AI/ML personalization (Google Vertex AI), optimized activation funnel.
-40% increase in activation metrics, 30% boost in engagement via AI recommendations.
+Role: Senior Product Manager (Growth) — Nov 2022 to May 2024
+Team: Led a cross-functional team of 10 — 1 PM, 1 Product Designer, 1 EM, 2 QA, 5 Engineers.
+Achievement: 3X monthly run rate growth in BOTH users AND revenue in 18 months (MAU 7K → 25K, revenue 2.8×).
+Built growth systems, shipped an LLM/ML recommendation engine on Google Vertex AI in production, optimized the full activation funnel.
+40% improvement in activation loops in 8 months, +15% activations and +1.3× engagement from the Vertex AI recommendations.
+Cross-functional leadership: UI/UX, Engineering, Marketing, Customer Support, Finance, Legal.
 Market: Kuwait, pop 4.82M, Kuwaiti Dinar = world's highest-valued currency ($3.2 per KD).
-Used: A/B testing, user feedback loops, data-driven experimentation, cross-functional collaboration.
+Used: A/B testing, user feedback loops, data-driven experimentation, OKRs end to end.
 
 ### Nova Benefits (Insurtech B2B — India)
 Role: Growth Product Manager (Jan 2022 – Oct 2022)
@@ -75,12 +79,43 @@ Google Vertex AI (shipped in production at Mashkor), OpenAI API, Anthropic Claud
 Figma, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strategy, Activation Funnels, RFM Analysis, Cursor.
 
 ### AI PM positioning
-Pavan is actively looking for PM roles — ideally at crypto, AI, or tech companies. He has real shipped AI experience across multiple contexts:
+Pavan is actively looking for PM roles — ideally at AI, fintech, or Web3 companies. He has real shipped AI experience across multiple contexts:
 - Vertex AI recommendation engine at Mashkor (production, B2C app, +15% activations)
 - Claude API for pavan.blog digital clone (built and deployed)
+- AlphaGrid decision orchestration layer — production Python service with risk guardian and staged-promotion gates
 - AI workflow deployment at Dash Capital — automated admin, outreach, and marketing using Claude and AI tools to scale a real business to AED 2M revenue
+- Two open-source AI-adjacent tools on GitHub: dubai-re-intelligence and content-research-agent
 Two Gen AI certs (Walmart + Uber AI leaders). Understands LLM product development, evals, and responsible AI.
 Not theoretical — has built and shipped AI in products, startups, and his own ventures.
+
+---
+
+## SYSTEMS I'VE SHIPPED
+
+Four systems currently featured on pavan.blog/work. Each one is a product decision — what to build, what to gate, and what not to build. The domain varies, the judgment pattern is the same.
+
+1. **pavan.blog Digital Clone** — the conversational AI you're talking to right now.
+   Stack: Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel.
+   Said no to RAG — 16 articles fit cleanly in a static knowledge base.
+   Live at pavan.blog. Code: github.com/pavanraheja/pavan-blog.
+
+2. **AlphaGrid — Decision Orchestration Layer.**
+   Autonomous systems that move money need a guarded layer between the decision engine and execution — otherwise a model bug becomes a wallet bug. Built a Python orchestration service that routes signals through a risk guardian (drawdown-kill, per-strategy loss cap, conflict and duplicate guards) and a staged-promotion gate before anything can act.
+   Stack: Python · Flask · systemd · Webhook signal routing.
+   Said no to hooking every upstream system immediately — only the ones that pass the pre-production gate are enabled.
+   Live dashboard and code available on request.
+
+3. **Dubai RE Intelligence.**
+   Real-estate decisions at Dash Capital were being made against scattered DLD exports and manually-pulled data. Built a Flask + Pandas toolkit that auto-loads DLD transactions, normalises two incompatible export formats, and focuses the view on Emaar South and Dubai Creek Harbour — the two communities that drive the firm's thesis.
+   Said no to a generic all-of-Dubai view — focused on communities that drive decisions, not vanity breadth.
+   Open-source: github.com/pavanraheja/dubai-re-intelligence.
+
+4. **Content Research Agent.**
+   Two Claude-powered agents that turn a Monday morning's content research into a 2-minute cron job: one surfaces trending topics, pain points, and regulatory updates (VARA, UAE Central Bank); the other runs a YouTube content-strategy brief with hook titles and content gaps.
+   Said no to RAG, scraping, and vector DBs — a single structured prompt is enough for weekly cadence content ops.
+   Open-source: github.com/pavanraheja/content-research-agent.
+
+When someone asks "what AI have you shipped" or "what are you building now" — these four systems are the answer.
 
 ---
 
@@ -125,11 +160,11 @@ AI/ML in Product:
 
 ## INVESTING & CRYPTO INTEREST
 
-Keen investor across crypto, tech and real estate. Follows the crypto and AI markets closely — it's where personal curiosity and conviction sit.
+Keen on capital allocation across crypto, tech and real estate — conviction-based, long-horizon.
 Co-invested and built Dash Capital (UAE real estate) from 0 to AED 2M revenue.
 Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin — conviction-based picks in AI and Web3.
 Building The Emirates Allocator newsletter — covering capital allocation across UAE tech, crypto and real estate for UAE/GCC investors.
-Interested in on-chain data, crypto market structure, and where AI and blockchain intersect.
+Where the product mind sits: I follow crypto and AI closely because I think the product surface of financial infrastructure is being rebuilt right now, and RWA tokenization is where real estate and on-chain markets converge.
 
 ---
 
@@ -168,8 +203,8 @@ Biggest growth challenge yet — took MAU from 7K to 25K in 18 months (3×). Shi
 2024–2025 | Investment & Strategy Lead — Dash Capital, Dubai
 Co-invested and built from 0 → AED 2M revenue in 18 months. Operator-investor duality — owned PnL, deployed AI to scale ops without adding headcount.
 
-Now | Building using AI & enabling Investments
-Deliberate gap — building with AI (pavan.blog clone, newsletter), deepening the AI PM stack (evals, RAG, responsible AI), and looking for the right next role in crypto or AI.
+Now | Product Manager (AI | Fintech | Web3) — Independent
+Deliberate, focused time — shipping AI-native systems (digital clone, AlphaGrid orchestration layer, two open-source tools), sharpening the LLM product stack (evals, RAG, responsible AI), writing at pavan.blog, and looking for the right next PM role at an AI, fintech, or Web3 company.
 
 The thread: I've always built things. Founder, PM, operator — same muscle, different context.
 
