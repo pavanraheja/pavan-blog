@@ -132,32 +132,32 @@ import Layout from '@/layouts/Layout.astro';
       ))}
     </div>
 
-    <!-- Side Projects -->
+    <!-- Systems I've Shipped -->
     <div class="mt-14 pt-10 border-t border-gray-100">
-      <h2 class="text-lg font-semibold text-gray-900 mb-1">Side Projects</h2>
-      <p class="text-sm text-gray-400 mb-6">Built to learn, experiment, and stay sharp.</p>
+      <h2 class="text-lg font-semibold text-gray-900 mb-1">Systems I've Shipped</h2>
+      <p class="text-sm text-gray-400 mb-6">Each system below is a product decision — what to build, what to gate, and what not to build. The domain varies, the judgment pattern is the same.</p>
       <div class="grid sm:grid-cols-2 gap-5">
         {[
           {
             title: 'pavan.blog — Digital Clone',
             tech: 'Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel',
-            desc: 'Conversational AI clone of myself on this site. Designed the knowledge base, system prompt, suggested-question UX, and contact fallback. Streams token-by-token over SSE on a Vercel serverless function.',
+            desc: 'Conversational AI clone on pavan.blog. Designed the knowledge base, system prompt, suggested-question UX, and a graceful contact fallback for when the clone hits its limits. Streams token-by-token over SSE on a Vercel serverless function. Said no to RAG — 16 articles fit cleanly in a static knowledge base.',
+            outcome: ['Live on pavan.blog', 'Streaming Claude', '16 knowledge sections'],
             link: 'https://pavan.blog/#chat',
             github: 'https://github.com/pavanraheja/pavan-blog',
           },
           {
-            title: 'AlphaGrid — Live Execution Controller',
-            tech: 'Python · Flask · Binance API · systemd · Multi-strategy orchestration',
-            desc: 'Live orchestration layer I built that routes signals from paper research bots into real Binance orders. Capital allocator per strategy, risk guardian (drawdown-kill, per-strategy loss cap, coin-conflict gate), retry-safe two-stage entry. Currently running the AlphaGrid Systems Lead Trader profile on Binance Copy Trading.',
-            link: 'http://217.15.164.68:8095',
-            github: 'https://github.com/pavanraheja/crypto-trading-bots',
+            title: 'AlphaGrid — Decision Orchestration Layer',
+            tech: 'Python · Flask · systemd · Webhook signal routing',
+            desc: 'Autonomous systems that move money need a guarded layer between the decision engine and execution — otherwise a model bug becomes a wallet bug. Built a Python orchestration service that sits between upstream decision systems and downstream execution APIs. Every signal passes a risk guardian (drawdown-kill, per-strategy loss cap, conflict and duplicate guards) and a staged-promotion gate before it can act. Said no to hooking every upstream system immediately — only ones that pass the pre-production gate are enabled. Live dashboard and code available on request.',
+            outcome: ['2 systems live', 'Risk guardian', 'Kill switch tested', 'Retry-safe dispatch'],
           },
           {
-            title: 'Alligator — Systematic Strategy Lab',
-            tech: 'Python · Flask · Backtester · Binance API',
-            desc: 'Research-to-production pipeline for a SHORT-only systematic strategy on 9 Binance pairs. Every config change is backtest-validated before it reaches paper, and gated (15 trades, WR ≥ 50%, PF ≥ 1.5) before it touches live capital. Current v2.4 paper: 30 trades, 60% WR on active universe, +$887 PnL.',
-            link: 'http://217.15.164.68:8086',
-            github: 'https://github.com/pavanraheja/crypto-trading-bots',
+            title: 'Dubai RE Intelligence',
+            tech: 'Python · Flask · Pandas · DLD transaction pipeline',
+            desc: 'Dubai real-estate decisions at Dash Capital were being made against scattered DLD exports and manually-pulled data — slow and hard to re-run. Built a Flask + Pandas toolkit that auto-loads DLD transactions, normalises two incompatible export formats, and focuses the view on the two communities driving the firm\'s thesis: Emaar South and Dubai Creek Harbour. Said no to a generic all-of-Dubai view — focused on communities that drive decisions, not vanity breadth.',
+            outcome: ['Runs on every DLD drop', 'Two-format normaliser', 'Bundled demo data', 'Emaar South + Creek Harbour'],
+            github: 'https://github.com/pavanraheja/dubai-re-intelligence',
           },
         ].map((p) => (
           <div class="p-5 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
@@ -178,6 +178,13 @@ import Layout from '@/layouts/Layout.astro';
             </div>
             <p class="text-xs text-gray-400 mb-2">{p.tech}</p>
             <p class="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+            {p.outcome && (
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                {p.outcome.map((o) => (
+                  <span class="text-xs px-2 py-0.5 rounded-md bg-gray-50 text-gray-600 border border-gray-100">{o}</span>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
