@@ -150,8 +150,9 @@ import Layout from '@/layouts/Layout.astro';
           {
             title: 'AlphaGrid — Production Orchestration Layer',
             tech: 'Python · Flask · systemd · Webhook signal routing · Telegram alerts',
-            desc: 'Autonomous systems that move money need a guarded layer between the decision engine and execution — otherwise a model bug becomes a wallet bug. Built and operate a Python orchestration service routing signals from upstream decision systems through a risk guardian (drawdown-kill, per-strategy loss caps, conflict and duplicate guards, two-stage entry, tested kill switch) and staged-promotion gates (shadow → paper → live). Telegram alerts on every entry, close, and error. Said no to hooking every upstream system immediately — only ones that pass the pre-production gate are enabled. Live dashboard and code available on request.',
+            desc: 'Autonomous systems that move money need a guarded layer between the decision engine and execution — otherwise a model bug becomes a wallet bug. Built and operate a Python orchestration service routing signals from upstream decision systems through a risk guardian (drawdown-kill, per-strategy loss caps, conflict and duplicate guards, two-stage entry, tested kill switch) and staged-promotion gates (shadow → paper → live). Telegram alerts on every entry, close, and error. Said no to hooking every upstream system immediately — only ones that pass the pre-production gate are enabled. Public pattern extracted to GitHub; live dashboard and production adapters remain private.',
             outcome: ['Multi-stream production', 'Risk guardian', 'Kill switch tested', 'Telegram alerts', 'Staged-promotion gates'],
+            github: 'https://github.com/pavanraheja/alphagrid-orchestrator',
           },
           {
             title: 'Lab Framework — Multi-Stream Promotion Infrastructure',

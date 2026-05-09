@@ -104,7 +104,7 @@ Five systems currently featured on pavan.blog/work. Each one is a product decisi
    Autonomous systems that move money need a guarded layer between the decision engine and execution — otherwise a model bug becomes a wallet bug. Built and operate a Python orchestration service routing signals from upstream decision systems through a risk guardian (drawdown-kill, per-strategy loss caps, conflict and duplicate guards, two-stage entry, tested kill switch) and staged-promotion gates (shadow → paper → live). Telegram alerts on every entry, close, and error.
    Stack: Python · Flask · systemd · Webhook signal routing · Telegram alerts.
    Said no to hooking every upstream system immediately — only the ones that pass the pre-production gate are enabled.
-   Live dashboard and code available on request.
+   Open-source pattern: github.com/pavanraheja/alphagrid-orchestrator (extracted, sanitised). Live dashboard and production adapters remain private.
 
 3. **Lab Framework — Multi-Stream Promotion Infrastructure.**
    Once you scale beyond two production streams, ad-hoc promotion decisions become the bottleneck — and the source of every avoidable incident. Built a Lab Framework where each candidate stream registers its own gate criteria (statistical thresholds, capital limits, error tolerances), and a nightly review cron measures every stream against its criteria. Two endpoints surface the state of the world: /api/live-readiness reports which streams have passed all gates, /api/risk-status reports which need attention.
