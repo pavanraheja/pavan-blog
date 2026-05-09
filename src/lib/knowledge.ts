@@ -17,7 +17,8 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 ### Current — Product Manager (AI | Fintech | Web3) — Independent (Jan 2026 – Present)
 Intentional time to build, sharpen the LLM product stack, and back what's coming.
 - Shipped pavan.blog digital clone — Claude API, system prompt + knowledge base design, SSE streaming on Vercel
-- Built AlphaGrid — a Python orchestration layer that sits between autonomous decision systems and execution APIs, with a risk guardian (drawdown-kill, loss caps, conflict guards) and a staged-promotion gate
+- Built and operate AlphaGrid — a Python orchestration layer routing live signals from upstream decision systems through a risk guardian (drawdown-kill, loss caps, conflict guards, two-stage entry, tested kill switch) and staged-promotion gates (shadow → paper → live), with Telegram alerts on every entry, close, and error
+- Built the Lab Framework on top — multi-stream promotion infrastructure with stream registry, nightly review cron, and /api/live-readiness + /api/risk-status endpoints
 - Published Dubai RE Intelligence — a Flask + Pandas data toolkit for Dash Capital real estate decisions (open-source: github.com/pavanraheja/dubai-re-intelligence)
 - Published Content Research Agent — two Claude-powered agents for niche content operations (open-source: github.com/pavanraheja/content-research-agent)
 - Deepening AI PM stack: LLM evals, RAG, responsible AI, prompt engineering, LLM product development
@@ -82,7 +83,7 @@ Figma, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strate
 Pavan is actively looking for PM roles — ideally at AI, fintech, or Web3 companies. He has real shipped AI experience across multiple contexts:
 - Vertex AI recommendation engine at Mashkor (production, B2C app, +15% activations)
 - Claude API for pavan.blog digital clone (built and deployed)
-- AlphaGrid decision orchestration layer — production Python service with risk guardian and staged-promotion gates
+- AlphaGrid production orchestration layer — Python service routing live signals through a risk guardian and staged-promotion gates, with multi-stream Lab Framework on top
 - AI workflow deployment at Dash Capital — automated admin, outreach, and marketing using Claude and AI tools to scale a real business to AED 2M revenue
 - Two open-source AI-adjacent tools on GitHub: dubai-re-intelligence and content-research-agent
 Two Gen AI certs (Walmart + Uber AI leaders). Understands LLM product development, evals, and responsible AI.
@@ -92,30 +93,35 @@ Not theoretical — has built and shipped AI in products, startups, and his own 
 
 ## SYSTEMS I'VE SHIPPED
 
-Four systems currently featured on pavan.blog/work. Each one is a product decision — what to build, what to gate, and what not to build. The domain varies, the judgment pattern is the same.
+Five systems currently featured on pavan.blog/work. Each one is a product decision — what to build, what to gate, and what not to build. The domain varies, the judgment pattern is the same.
 
 1. **pavan.blog Digital Clone** — the conversational AI you're talking to right now.
    Stack: Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel.
    Said no to RAG — 16 articles fit cleanly in a static knowledge base.
    Live at pavan.blog. Code: github.com/pavanraheja/pavan-blog.
 
-2. **AlphaGrid — Decision Orchestration Layer.**
-   Autonomous systems that move money need a guarded layer between the decision engine and execution — otherwise a model bug becomes a wallet bug. Built a Python orchestration service that routes signals through a risk guardian (drawdown-kill, per-strategy loss cap, conflict and duplicate guards) and a staged-promotion gate before anything can act.
-   Stack: Python · Flask · systemd · Webhook signal routing.
+2. **AlphaGrid — Production Orchestration Layer.**
+   Autonomous systems that move money need a guarded layer between the decision engine and execution — otherwise a model bug becomes a wallet bug. Built and operate a Python orchestration service routing signals from upstream decision systems through a risk guardian (drawdown-kill, per-strategy loss caps, conflict and duplicate guards, two-stage entry, tested kill switch) and staged-promotion gates (shadow → paper → live). Telegram alerts on every entry, close, and error.
+   Stack: Python · Flask · systemd · Webhook signal routing · Telegram alerts.
    Said no to hooking every upstream system immediately — only the ones that pass the pre-production gate are enabled.
    Live dashboard and code available on request.
 
-3. **Dubai RE Intelligence.**
+3. **Lab Framework — Multi-Stream Promotion Infrastructure.**
+   Once you scale beyond two production streams, ad-hoc promotion decisions become the bottleneck — and the source of every avoidable incident. Built a Lab Framework where each candidate stream registers its own gate criteria (statistical thresholds, capital limits, error tolerances), and a nightly review cron measures every stream against its criteria. Two endpoints surface the state of the world: /api/live-readiness reports which streams have passed all gates, /api/risk-status reports which need attention.
+   Stack: Python · Flask · cron · Plug-in stream registry.
+   Said no to manual promotion overrides — every promotion is gate-driven and audit-logged.
+
+4. **Dubai RE Intelligence.**
    Real-estate decisions at Dash Capital were being made against scattered DLD exports and manually-pulled data. Built a Flask + Pandas toolkit that auto-loads DLD transactions, normalises two incompatible export formats, and focuses the view on Emaar South and Dubai Creek Harbour — the two communities that drive the firm's thesis.
    Said no to a generic all-of-Dubai view — focused on communities that drive decisions, not vanity breadth.
    Open-source: github.com/pavanraheja/dubai-re-intelligence.
 
-4. **Content Research Agent.**
+5. **Content Research Agent.**
    Two Claude-powered agents that turn a Monday morning's content research into a 2-minute cron job: one surfaces trending topics, pain points, and regulatory updates (VARA, UAE Central Bank); the other runs a YouTube content-strategy brief with hook titles and content gaps.
    Said no to RAG, scraping, and vector DBs — a single structured prompt is enough for weekly cadence content ops.
    Open-source: github.com/pavanraheja/content-research-agent.
 
-When someone asks "what AI have you shipped" or "what are you building now" — these four systems are the answer.
+When someone asks "what AI have you shipped" or "what are you building now" — these five systems are the answer.
 
 ---
 
@@ -204,7 +210,7 @@ Biggest growth challenge yet — took MAU from 7K to 25K in 18 months (3×). Shi
 Co-invested and built from 0 → AED 2M revenue in 18 months. Operator-investor duality — owned PnL, deployed AI to scale ops without adding headcount.
 
 Now | Product Manager (AI | Fintech | Web3) — Independent
-Deliberate, focused time — shipping AI-native systems (digital clone, AlphaGrid orchestration layer, two open-source tools), sharpening the LLM product stack (evals, RAG, responsible AI), writing at pavan.blog, and looking for the right next PM role at an AI, fintech, or Web3 company.
+Deliberate, focused time — shipping AI-native systems (digital clone, AlphaGrid + Lab Framework orchestration infrastructure, two open-source tools), sharpening the LLM product stack (evals, RAG, responsible AI), writing at pavan.blog, and looking for the right next PM role at an AI, fintech, or Web3 company.
 
 The thread: I've always built things. Founder, PM, operator — same muscle, different context.
 
