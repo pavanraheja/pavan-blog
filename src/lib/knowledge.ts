@@ -6,7 +6,7 @@ Born and raised in Pune, India. Currently based in Dubai, UAE.
 Has lived in 5 countries across the globe.
 5,000+ LinkedIn followers. Active writer at pavan.blog.
 
-One-line: Product Manager who ships AI products at the intersection of AI, Fintech, and Web3. Shipped Vertex AI in production at Mashkor, built the Claude-powered digital clone you're talking to, and writes about the convergence at pavan.blog.
+One-line: Product Manager and AI builder based in Dubai. Shipped Vertex AI in production at Mashkor, built the Claude-powered digital clone you're talking to, and works across LLM prompts, eval examples, knowledge-base architecture, AI workflow automation, API-driven tools, and guarded decision systems.
 
 Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflection = awesome growth."
 
@@ -16,12 +16,12 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 
 ### Current — Product Manager (AI | Fintech | Web3) — Independent (Jan 2026 – Present)
 Intentional time to build, sharpen the LLM product stack, and back what's coming.
-- Shipped pavan.blog digital clone — Claude API, system prompt + knowledge base design, SSE streaming on Vercel
-- Built and operate AlphaGrid — a Python orchestration layer routing live signals from upstream decision systems through a risk guardian (drawdown-kill, loss caps, conflict guards, two-stage entry, tested kill switch) and staged-promotion gates (shadow → paper → live), with Telegram alerts on every entry, close, and error
+- Shipped pavan.blog digital clone — Claude API, system prompt design, static knowledge-base architecture, example-set testing, SSE streaming on Vercel
+- Built and operate AlphaGrid — a Python orchestration layer routing live signals from upstream decision systems through a risk guardian (drawdown-kill, loss caps, conflict guards, two-stage entry, tested kill switch), live-readiness checks, and staged-promotion gates (shadow → paper → live), with Telegram alerts on every entry, close, and error
 - Built the Lab Framework on top — multi-stream promotion infrastructure with stream registry, nightly review cron, and /api/live-readiness + /api/risk-status endpoints
 - Published Dubai RE Intelligence — a Flask + Pandas data toolkit for Dash Capital real estate decisions (open-source: github.com/pavanraheja/dubai-re-intelligence)
 - Published Content Research Agent — two Claude-powered agents for niche content operations (open-source: github.com/pavanraheja/content-research-agent)
-- Deepening AI PM stack: LLM evals, RAG, responsible AI, prompt engineering, LLM product development
+- Deepening AI PM stack: LLM evals, prompt iteration, RAG trade-offs, responsible AI, human-in-the-loop workflows, and model-output quality loops
 - Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin
 - Building The Emirates Allocator — weekly newsletter on capital allocation across UAE tech, crypto and real estate
 Writing and building in public at pavan.blog.
@@ -81,12 +81,12 @@ Figma, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strate
 
 ### AI PM positioning
 Pavan is actively looking for PM roles — ideally at AI, fintech, or Web3 companies. He has real shipped AI experience across multiple contexts:
-- Vertex AI recommendation engine at Mashkor (production, B2C app, +15% activations)
-- Claude API for pavan.blog digital clone (built and deployed)
+- Vertex AI recommendation engine at Mashkor (production, B2C app, feasibility → eval-set design → A/B framework → quality monitoring, +15% activations)
+- Claude API for pavan.blog digital clone (system prompt, static knowledge base, example-set testing, SSE streaming, built and deployed)
 - AlphaGrid production orchestration layer — Python service routing live signals through a risk guardian and staged-promotion gates, with multi-stream Lab Framework on top
 - AI workflow deployment at Dash Capital — automated admin, outreach, and marketing using Claude and AI tools to scale a real business to AED 2M revenue
 - Two open-source AI-adjacent tools on GitHub: dubai-re-intelligence and content-research-agent
-Two Gen AI certs (Walmart + Uber AI leaders). Understands LLM product development, evals, and responsible AI.
+Two Gen AI certs (Walmart + Uber AI leaders). Understands LLM product development, evals, prompt iteration, model-output quality, human-in-the-loop workflows, and responsible AI.
 Not theoretical — has built and shipped AI in products, startups, and his own ventures.
 
 ---
@@ -97,7 +97,7 @@ Five systems currently featured on pavan.blog/work. Each one is a product decisi
 
 1. **pavan.blog Digital Clone** — the conversational AI you're talking to right now.
    Stack: Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel.
-   Said no to RAG — 16 articles fit cleanly in a static knowledge base.
+   Designed the system prompt, static knowledge base, suggested-question UX, and example-set tests. Said no to RAG — 16 articles fit cleanly in a static knowledge base.
    Live at pavan.blog. Code: github.com/pavanraheja/pavan-blog.
 
 2. **AlphaGrid — Production Orchestration Layer.**
