@@ -1,0 +1,66 @@
+---
+import Layout from '@/layouts/Layout.astro';
+const lastUpdated = '2026-05-31';
+---
+
+<Layout title="Privacy — Pavan Raheja" description="Privacy notice for pavan.blog and the Pavan on Capital newsletter — what's collected, how it's used, how to opt out.">
+  <section class="max-w-3xl mx-auto px-6 py-20">
+
+    <p class="text-xs font-medium text-brand-600 uppercase tracking-wide mb-3">Privacy</p>
+    <h1 class="text-3xl font-bold text-gray-900 mb-3">Privacy Notice</h1>
+    <p class="text-sm text-gray-400 mb-10">Last updated: {lastUpdated}</p>
+
+    <div class="prose prose-gray max-w-none text-gray-700 leading-relaxed">
+
+      <p>
+        This is the privacy notice for <strong>pavan.blog</strong> and the <strong>Pavan on Capital</strong> newsletter, both operated personally by Pavan Raheja from Dubai, UAE. The goal is to keep this short and direct.
+      </p>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">What I collect</h2>
+      <ul>
+        <li><strong>Newsletter subscribers:</strong> your email address and (optionally) your first name. Provided by you via the subscribe form.</li>
+        <li><strong>Website analytics:</strong> anonymous, aggregated usage data (pages viewed, country, device) via Vercel Analytics and Speed Insights. No cookies, no personal identifiers.</li>
+        <li><strong>Digital clone chat:</strong> when you send a message to the chat widget, the message is sent to Anthropic's Claude API to generate a response. I log message counts and truncated message text (first 200 characters) for operational purposes. No long-term storage of full conversations.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">How I use it</h2>
+      <ul>
+        <li>To send you the newsletter you subscribed to.</li>
+        <li>To understand which content resonates so I can write more useful things.</li>
+        <li>To respond to direct messages you send.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">What I don't do</h2>
+      <ul>
+        <li>I don't sell, rent, or share your data with anyone.</li>
+        <li>I don't run targeted advertising.</li>
+        <li>I don't track you across the web.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">Service providers</h2>
+      <p>The site and newsletter run on a small set of third-party tools that handle data on my behalf:</p>
+      <ul>
+        <li><strong>MailerLite</strong> — newsletter delivery and subscriber management.</li>
+        <li><strong>Vercel</strong> — site hosting, analytics, and speed insights.</li>
+        <li><strong>Anthropic Claude API</strong> — powers the digital clone chat widget.</li>
+      </ul>
+      <p>Each of these has its own privacy practices; they receive only the data needed to do their job.</p>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">Your choices</h2>
+      <ul>
+        <li><strong>Unsubscribe</strong> from the newsletter at any time using the link at the bottom of every email.</li>
+        <li><strong>Request deletion</strong> of any data I hold on you by emailing <a href="mailto:pavanraheja@gmail.com" class="text-brand-600 hover:text-brand-700">pavanraheja@gmail.com</a>.</li>
+        <li><strong>Don't use the chat widget</strong> if you'd rather not share any text with the Claude API.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">Contact</h2>
+      <p>
+        Questions about this notice or how your data is handled? Email <a href="mailto:pavanraheja@gmail.com" class="text-brand-600 hover:text-brand-700">pavanraheja@gmail.com</a>.
+      </p>
+
+      <p class="text-sm text-gray-400 mt-12">This notice may be updated as the site evolves. The "Last updated" date at the top reflects the most recent change.</p>
+
+    </div>
+
+  </section>
+</Layout>
