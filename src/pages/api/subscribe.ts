@@ -17,8 +17,8 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400 });
     }
 
-    const token = import.meta.env.MAILERLITE_API_TOKEN;
-    const groupId = import.meta.env.MAILERLITE_GROUP_ID;
+    const token = process.env.MAILERLITE_API_TOKEN;
+    const groupId = process.env.MAILERLITE_GROUP_ID;
     if (!token || !groupId) {
       console.error('subscribe: missing MAILERLITE_API_TOKEN or MAILERLITE_GROUP_ID');
       return new Response(JSON.stringify({ error: 'Server misconfigured' }), { status: 500 });
