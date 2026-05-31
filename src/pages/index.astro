@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import ChatWidget from '@/components/ChatWidget.astro';
+import SubscribeForm from '@/components/SubscribeForm.astro';
 import { getCollection } from 'astro:content';
 
 const recentPosts = (await getCollection('articles'))
@@ -140,8 +141,7 @@ function formatDate(d: string) {
         <p class="text-sm text-gray-500 leading-relaxed">A personal newsletter — operator's notes on capital, tech, and where value moves. Flagship series: <span class="text-gray-700 font-medium">Pavan on Capital</span>.</p>
       </div>
       <div class="flex-shrink-0 w-full sm:w-auto">
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-        <iframe src="https://subscribe-forms.beehiiv.com/7440ef18-7a53-490a-b513-60eac2e9b5d5" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 291px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+        <SubscribeForm variant="card" />
       </div>
     </div>
   </section>

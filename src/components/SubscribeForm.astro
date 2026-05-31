@@ -1,0 +1,89 @@
+---
+interface Props {
+  variant?: 'card' | 'inline';
+}
+const { variant = 'card' }: Props = Astro.props;
+const id = `sf-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<form
+  id={id}
+  class:list={[
+    'subscribe-form w-full max-w-md',
+    variant === 'card' ? 'space-y-3' : 'flex flex-col sm:flex-row gap-2',
+  ]}
+  novalidate
+>
+  <input
+    type="text"
+    name="hp"
+    tabindex="-1"
+    autocomplete="off"
+    class="absolute opacity-0 pointer-events-none -left-[9999px]"
+    aria-hidden="true"
+  />
+  <input
+    type="email"
+    name="email"
+    placeholder="you@example.com"
+    required
+    autocomplete="email"
+    class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+  />
+  <button
+    type="submit"
+    class="bg-gray-900 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+  >
+    Subscribe
+  </button>
+  <p class="sf-msg text-xs text-gray-400 mt-1 hidden"></p>
+</form>
+
+<script define:vars={{ id }}>
+  const form = document.getElementById(id);
+  if (form) {
+    const btn = form.querySelector('button');
+    const msg = form.querySelector('.sf-msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const email = String(data.get('email') ?? '').trim();
+      const hp = String(data.get('hp') ?? '');
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.textContent = 'Enter a valid email.';
+        msg.classList.remove('hidden', 'text-green-600');
+        msg.classList.add('text-red-500');
+        return;
+      }
+
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = 'Subscribing…';
+      msg.classList.add('hidden');
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, hp }),
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(body.error || 'Subscription failed');
+
+        form.reset();
+        msg.textContent = "You're in. Watch your inbox (and your Promotions tab — drag to Primary).";
+        msg.classList.remove('hidden', 'text-red-500');
+        msg.classList.add('text-green-600');
+        btn.textContent = 'Subscribed ✓';
+      } catch (err) {
+        msg.textContent = err?.message || 'Something went wrong. Try again.';
+        msg.classList.remove('hidden', 'text-green-600');
+        msg.classList.add('text-red-500');
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  }
+</script>

@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import SubscribeForm from '@/components/SubscribeForm.astro';
 ---
 
 <Layout title="Pavan Raheja — Newsletter" description="A personal newsletter from Pavan Raheja — AI PM, crypto investor, and operator in Dubai. Flagship series: Pavan on Capital — where capital moves across crypto, tech, and real estate.">
@@ -40,15 +41,7 @@ import Layout from '@/layouts/Layout.astro';
     <div class="mb-12">
       <h2 class="text-lg font-semibold text-gray-900 mb-2">Subscribe — it's free</h2>
       <p class="text-sm text-gray-400 mb-6">Weekly. No spam. Unsubscribe anytime.</p>
-      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-      <iframe
-        src="https://subscribe-forms.beehiiv.com/7440ef18-7a53-490a-b513-60eac2e9b5d5"
-        class="beehiiv-embed"
-        data-test-id="beehiiv-embed"
-        frameborder="0"
-        scrolling="no"
-        style="width: 100%; max-width: 560px; height: 291px; margin: 0; border-radius: 0px !important; background-color: transparent; box-shadow: 0 0 #0000;"
-      ></iframe>
+      <SubscribeForm variant="card" />
     </div>
 
     <!-- Who it's for -->

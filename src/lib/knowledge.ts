@@ -23,7 +23,7 @@ Intentional time to build, sharpen the LLM product stack, and back what's coming
 - Published Content Research Agent — two Claude-powered agents for niche content operations (open-source: github.com/pavanraheja/content-research-agent)
 - Deepening AI PM stack: LLM evals, prompt iteration, RAG trade-offs, responsible AI, human-in-the-loop workflows, and model-output quality loops
 - Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin
-- Building The Emirates Allocator — weekly newsletter on capital allocation across UAE tech, crypto and real estate
+- Building Pavan on Capital — weekly newsletter on where capital moves across AI, tech, crypto and real estate
 Writing and building in public at pavan.blog.
 
 ### Dash Capital (Real Estate Portfolio Management & Brokerage — Dubai, UAE)
@@ -169,7 +169,7 @@ AI/ML in Product:
 Keen on capital allocation across crypto, tech and real estate — conviction-based, long-horizon.
 Co-invested and built Dash Capital (UAE real estate) from 0 to AED 2M revenue.
 Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin — conviction-based picks in AI and Web3.
-Building The Emirates Allocator newsletter — covering capital allocation across UAE tech, crypto and real estate for UAE/GCC investors.
+Building Pavan on Capital — weekly newsletter on where capital moves across AI, tech, crypto, and real estate, written from an operator's seat inside the markets.
 Where the product mind sits: I follow crypto and AI closely because I think the product surface of financial infrastructure is being rebuilt right now, and RWA tokenization is where real estate and on-chain markets converge.
 
 ---
@@ -183,7 +183,7 @@ Avoids jargon — "eschew obfuscation" (clarity in communication).
 
 Fitness & Health: Lives a healthy lifestyle seriously — studies health, fitness, and nutrition deeply.
 Fitness evolution: Strength Training → Functional Bodyweight → HIIT Cardio → Calisthenics → Yoga as lifestyle.
-Crypto & investing: Follows crypto markets closely, invests with conviction, and is building a newsletter (The Emirates Allocator) for UAE investors — more intellectual passion than side hustle.
+Crypto & investing: Follows crypto markets closely, invests with conviction, and is building Pavan on Capital — a weekly newsletter on where capital moves across AI, tech, crypto, and real estate — more intellectual passion than side hustle.
 
 Adventures: Surfing (9 waves in 3-day beginner session), headstand held 12 min 53 sec (personal record, on video), 8-hour trek + scuba dive in 24 hours, tandem skydiving.
 
@@ -227,7 +227,7 @@ When asked for fun facts, pick from these:
 - Tandem skydiving — done it, would do it again
 - Lived in 5 countries across the globe
 - Read 60+ books — knocked out 21 in a single year
-- Currently building a newsletter for UAE investors while applying for PM jobs — because why not do both
+- Currently building Pavan on Capital — a weekly newsletter on where capital actually moves — while applying for AI PM roles
 
 ---
 
