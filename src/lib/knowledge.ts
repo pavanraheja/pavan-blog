@@ -6,7 +6,7 @@ Born and raised in Pune, India. Currently based in Dubai, UAE.
 Has lived in 5 countries across the globe.
 5,000+ LinkedIn followers. Active writer at pavan.blog.
 
-One-line: Product Manager and AI builder based in Dubai. Shipped Vertex AI in production at Mashkor, built the Claude-powered digital clone you're talking to, and works across LLM prompts, eval examples, knowledge-base architecture, AI workflow automation, API-driven tools, and guarded decision systems.
+One-line: AI Product Manager and builder based in Dubai. Shipped Vertex AI in production at Mashkor, and now builds and governs AI agents across products — the Claude-powered clone you're talking to, an open-source agent-orchestration system (AlphaGrid) with kill-switch / staged-promotion / human-in-the-loop governance, research agents, and ops-automation agents. Works daily in Claude Code, the Agent SDK, MCP, and LLM evals. Came up as a software engineer — builds the prototypes, not just specs.
 
 Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflection = awesome growth."
 
@@ -14,17 +14,15 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 
 ## PROFESSIONAL BACKGROUND
 
-### Current — Product Manager (AI | Fintech | Web3) — Independent (Jan 2026 – Present)
-Intentional time to build, sharpen the LLM product stack, and back what's coming.
-- Shipped pavan.blog digital clone — Claude API, system prompt design, static knowledge-base architecture, example-set testing, SSE streaming on Vercel
-- Built and operate AlphaGrid — a Python orchestration layer routing live signals from upstream decision systems through a risk guardian (drawdown-kill, loss caps, conflict guards, two-stage entry, tested kill switch), live-readiness checks, and staged-promotion gates (shadow → paper → live), with Telegram alerts on every entry, close, and error
-- Built the Lab Framework on top — multi-stream promotion infrastructure with stream registry, nightly review cron, and /api/live-readiness + /api/risk-status endpoints
-- Published Dubai RE Intelligence — a Flask + Pandas data toolkit for Dash Capital real estate decisions (open-source: github.com/pavanraheja/dubai-re-intelligence)
-- Published Content Research Agent — two Claude-powered agents for niche content operations (open-source: github.com/pavanraheja/content-research-agent)
-- Deepening AI PM stack: LLM evals, prompt iteration, RAG trade-offs, responsible AI, human-in-the-loop workflows, and model-output quality loops
-- Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin
-- Building Pavan on Capital — weekly newsletter on where capital moves across AI, tech, crypto and real estate
-Writing and building in public at pavan.blog.
+### Current — AI Product Manager & Builder — Independent (Jan 2026 – Present)
+Most of what I build now is AI agents — and the part I focus on is making them work in production, with governance and evals, not just prompts.
+- AlphaGrid — an open-source AI agent system that calls tools and APIs to act on live decisions, with a real safety layer (kill switch, staged promotion shadow → paper → live, human-in-the-loop, per-agent guards). Wrote up the approach as RFC #7218 on preventing catastrophic agent actions.
+- pavan.blog digital clone — a production conversational agent on the Claude API (system prompt + static knowledge base, SSE streaming on Vercel) — the one you're talking to right now.
+- Content Research Agent — multi-step Claude agents that run niche content research and synthesis end to end (open-source: github.com/pavanraheja/content-research-agent).
+- Dubai RE Intelligence — a Flask + Pandas pipeline turning raw DLD real-estate data into decision intelligence (open-source: github.com/pavanraheja/dubai-re-intelligence).
+- Work daily in Claude Code (hooks, slash commands, MCP servers), the Anthropic Agent SDK, tool-use / function-calling, prompt engineering, and LLM evals. Came up as a software engineer (Java / microservices), so I build the prototypes myself.
+- Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin. Writing Pavan on Capital — a weekly newsletter on where capital moves across AI, tech, crypto, and real estate.
+Looking for the right senior AI Product role — especially where the team builds agents, not just chatbots. Building in public at pavan.blog.
 
 ### Dash Capital (Real Estate Portfolio Management & Brokerage — Dubai, UAE)
 Role: Investment & Strategy Lead
@@ -73,20 +71,20 @@ Advanced SEO Strategies — UC Davis
 Content Marketing — HubSpot Academy
 BE in Information Technology — University of Pune (2006)
 
-### Technical Skills — AI & LLM
-Google Vertex AI (shipped in production at Mashkor), OpenAI API, Anthropic Claude API (built pavan.blog digital clone), LangChain, Hugging Face, Prompt Engineering, LLM Product Management, RAG (Retrieval Augmented Generation), AI Evals, Responsible AI, Human-in-the-loop systems.
+### Technical Skills — AI & Agents
+AI agents (build / deploy / govern), agentic workflows, Anthropic Claude API & Agent SDK, Claude Code (hooks, slash commands, MCP servers), tool-use / function-calling, LLM evals, RAG, prompt engineering, agent governance (kill-switch, staged promotion, human-in-the-loop), model selection (Opus / Sonnet / Haiku), Google Vertex AI (shipped in production at Mashkor), OpenAI, Mistral, responsible AI. Came up as a software engineer (core Java / microservices) — reads code and ships prototypes.
 
 ### Technical Skills — Product & Analytics
 Figma, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strategy, Activation Funnels, RFM Analysis, Cursor.
 
 ### AI PM positioning
-Pavan is actively looking for PM roles — ideally at AI, fintech, or Web3 companies. He has real shipped AI experience across multiple contexts:
+Pavan is actively looking for senior AI Product roles — ideally where the team builds AI agents, not just chatbots (AI, fintech, or Web3 companies). He has real shipped AI experience across multiple contexts:
 - Vertex AI recommendation engine at Mashkor (production, B2C app, feasibility → eval-set design → A/B framework → quality monitoring, +15% activations)
 - Claude API for pavan.blog digital clone (system prompt, static knowledge base, example-set testing, SSE streaming, built and deployed)
 - AlphaGrid production orchestration layer — Python service routing live signals through a risk guardian and staged-promotion gates, with multi-stream Lab Framework on top
 - AI workflow deployment at Dash Capital — automated admin, outreach, and marketing using Claude and AI tools to scale a real business to AED 2M revenue
 - Two open-source AI-adjacent tools on GitHub: dubai-re-intelligence and content-research-agent
-Two Gen AI certs (Walmart + Uber AI leaders). Understands LLM product development, evals, prompt iteration, model-output quality, human-in-the-loop workflows, and responsible AI.
+Works daily in Claude Code (hooks, slash commands, MCP servers), the Anthropic Agent SDK, tool-use, and LLM evals; authored RFC #7218 on catastrophic-action prevention for autonomous agents. Two Gen AI certs (Walmart + Uber AI leaders). Understands agent design + governance, LLM product development, evals, prompt iteration, model-output quality, human-in-the-loop workflows, and responsible AI.
 Not theoretical — has built and shipped AI in products, startups, and his own ventures.
 
 ---

@@ -2,14 +2,14 @@
 import Layout from '@/layouts/Layout.astro';
 ---
 
-<Layout title="Work — Pavan Raheja" description="Product Manager and AI builder based in Dubai. Shipped Vertex AI in production, built Claude-powered products, and led growth/product systems across B2C, insurtech, real estate, fintech-adjacent, and Web3 contexts.">
+<Layout title="Work — Pavan Raheja" description="AI Product Manager and builder in Dubai. Shipped Vertex AI in production at Mashkor; now builds and governs AI agents — conversational, research, ops-automation, and decision systems — with Claude Code, MCP, the Agent SDK, and LLM evals.">
   <section class="max-w-5xl mx-auto px-6 py-20">
     <h1 class="text-4xl font-bold text-gray-900 mb-4">Work</h1>
     <p class="text-gray-500 mb-4 max-w-2xl">
-      Product Manager and AI builder based in Dubai. I have shipped AI into production, built Claude-powered products, and led growth/product systems across B2C, insurtech, real estate, fintech-adjacent, and Web3 contexts.
+      AI Product Manager and builder based in Dubai. I shipped Vertex AI into production at Mashkor, and now most of what I build is AI agents — across conversation, research, ops automation, and decision systems — with the governance and evals that make them work in production, not just demo.
     </p>
     <p class="text-gray-500 mb-4 max-w-2xl">
-      My strongest work sits at the intersection of product judgment and technical execution: recommendation systems, LLM prompts, eval examples, knowledge-base architecture, AI workflow automation, API-driven tools, and guarded decision systems. I care about the full loop — user problem, model behavior, quality checks, roadmap trade-offs, launch, and measurable business impact.
+      My strongest work sits at the intersection of product judgment and technical execution. I came up as a software engineer, so I build the prototypes myself: agent systems with tool-use and guardrails, recommendation systems, eval loops, and API-driven tools. I care about the full loop — user problem, model behavior, quality checks, roadmap trade-offs, launch, and measurable business impact.
     </p>
     <div class="flex flex-wrap gap-2 mb-14">
       <span class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-100">Product Management</span>
@@ -23,16 +23,16 @@ import Layout from '@/layouts/Layout.astro';
     <div class="space-y-12">
       {[
         {
-          company: 'Product Manager (AI | Fintech | Web3)',
+          company: 'AI Product Manager & Builder',
           tag: 'Independent · Self-directed · Dubai, UAE',
-          role: 'Building · Shipping · Upskilling',
+          role: 'Building · Shipping AI agents',
           period: 'Jan 2026 – Present',
-          headline: 'Shipping AI-native systems across Claude products, research agents, orchestration layers, and decision infrastructure.',
+          headline: 'Most of what I build now is AI agents — and the part I focus on is making them work in production, with governance and evals, not just prompts.',
           bullets: [
-            'Shipped pavan.blog digital clone using Anthropic Claude API — system prompt design, static knowledge-base architecture, example-set testing, SSE streaming on Vercel',
-            'Built AlphaGrid — a Python orchestration layer with risk guardian, staged-promotion gates, live-readiness checks, and kill-switch patterns tested in production',
-            'Built Claude-powered research agents and Dubai RE Intelligence — prompt-led workflows, API-driven tools, structured outputs, and decision support for real operating use cases',
-            'Deepening AI PM stack: LLM evals, prompt iteration, RAG trade-offs, responsible AI, human-in-the-loop workflows, and model-output quality loops',
+            'Build and govern AI agents across products — a Claude-powered conversational agent (this site), research agents, and an open-source agent-orchestration system (AlphaGrid)',
+            'AlphaGrid — a Python agent system with a real safety layer: kill switch, staged promotion (shadow → paper → live), human-in-the-loop, per-agent guards. Wrote up the approach as RFC #7218 on preventing catastrophic agent actions',
+            'Claude-native daily — Claude Code (hooks, slash commands, MCP servers), the Anthropic Agent SDK, tool-use / function-calling, prompt engineering, and LLM evals',
+            'Came up as a software engineer (Java / microservices) — I build the prototypes myself, not just specs',
             'Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin',
           ],
         },
@@ -259,10 +259,10 @@ import Layout from '@/layouts/Layout.astro';
     <!-- Tools -->
     <div class="mt-10 pt-10 border-t border-gray-100">
       <h2 class="text-lg font-semibold text-gray-900 mb-4">Tools & Skills</h2>
-      <!-- AI / LLM -->
-      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">AI & LLM</p>
+      <!-- AI & Agents -->
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">AI & Agents</p>
       <div class="flex flex-wrap gap-2 mb-5">
-        {['Google Vertex AI', 'OpenAI API', 'Anthropic Claude API', 'System Prompts', 'Prompt Engineering', 'LLM Product Management', 'Eval-set Design', 'AI Evals', 'RAG Trade-offs', 'Knowledge-base Architecture', 'Responsible AI', 'Human-in-the-loop'].map((t) => (
+        {['AI Agents', 'Agentic Workflows', 'Claude Code', 'MCP Servers', 'Anthropic Agent SDK', 'Tool-use / Function-calling', 'LLM Evals', 'Agent Governance', 'Google Vertex AI', 'Anthropic Claude API', 'OpenAI API', 'Prompt Engineering', 'RAG', 'Human-in-the-loop', 'Responsible AI'].map((t) => (
           <span class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-100">{t}</span>
         ))}
       </div>
