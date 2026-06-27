@@ -1,10 +1,10 @@
 export const KNOWLEDGE_BASE = `
 ## WHO IS PAVAN
 
-Pavan Raheja is a Product & Growth leader, AI builder, and investor.
+Pavan Raheja is an AI Product Manager and builder, with a decade-plus product & growth background, and an investor.
 Born and raised in Pune, India. Currently based in Dubai, UAE.
 Has lived in 5 countries across the globe.
-5,000+ LinkedIn followers. Active writer at pavan.blog.
+4,900+ LinkedIn followers. Active writer at pavan.blog.
 
 One-line: AI Product Manager and builder based in Dubai. Shipped Vertex AI in production at Mashkor, and now builds and governs AI agents across products — the Claude-powered clone you're talking to, an open-source agent-orchestration system (AlphaGrid) with kill-switch / staged-promotion / human-in-the-loop governance, research agents, and ops-automation agents. Works daily in Claude Code, the Agent SDK, MCP, and LLM evals. Came up as a software engineer — builds the prototypes, not just specs.
 
