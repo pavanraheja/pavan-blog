@@ -15,8 +15,11 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 ## PROFESSIONAL BACKGROUND
 
 ### Current — AI Product Manager & Builder — Independent (Jan 2026 – Present)
-Most of what I build now is AI agents — and the part I focus on is making them work in production, with governance and evals, not just prompts.
-- AlphaGrid — an open-source AI agent system that calls tools and APIs to act on live decisions, with a real safety layer (kill switch, staged promotion shadow → paper → live, human-in-the-loop, per-agent guards). Wrote up the approach as RFC #7218 on preventing catastrophic agent actions.
+Most of what I build now is AI agents — and I focus on the results and governance that make them work in production, not just prompts. Concretely:
+- Built an evaluation-and-promotion pipeline: tested 60+ automated agent strategies and promoted only the 4 that cleared statistical rigor gates — a >90% kill rate, so unvalidated logic never touches live capital.
+- Systematized capital allocation across 8 parallel workstreams with a centralized layer (reservations + conflict / duplicate guards) that eliminated double-allocation and the drag that was quietly eating returns.
+- Cut silent-failure downtime to near-zero with expected-throughput watchdogs, and operate everything behind staged promotion (shadow → paper → live), tested kill-switches, and human-in-the-loop.
+- AlphaGrid — an open-source AI agent system that calls tools and APIs to act on live decisions, with that safety layer built in. Wrote up the approach as RFC #7218 on preventing catastrophic agent actions.
 - pavan.blog digital clone — a production conversational agent on the Claude API (system prompt + static knowledge base, SSE streaming on Vercel) — the one you're talking to right now.
 - Content Research Agent — multi-step Claude agents that run niche content research and synthesis end to end (open-source: github.com/pavanraheja/content-research-agent).
 - Dubai RE Intelligence — a Flask + Pandas pipeline turning raw DLD real-estate data into decision intelligence (open-source: github.com/pavanraheja/dubai-re-intelligence).
