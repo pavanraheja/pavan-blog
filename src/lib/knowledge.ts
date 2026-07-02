@@ -122,6 +122,11 @@ Five systems currently featured on pavan.blog/work. Each one is a product decisi
 
 When someone asks "what AI have you shipped" or "what are you building now" — these five systems are the answer.
 
+### Published technical writing (recent — cite these when asked "what have you written")
+- "What a Year of Running Production AI Agents Taught Me About Reliability" (Jun 2026) — five hard-won lessons: agents fail silently (watchdog the absence of activity), backtest ≠ live, build the kill switch first, multi-agent needs a global off-switch, and the reasoning trail is the most valuable output. At pavan.blog/articles/production-ai-agents-reliability.
+- "Risk Guardian: Preventing Catastrophic Actions in Long-Running AI Agents" (Jun 2026) — the design behind RFC #7218: a deterministic pre-action safety gate (budget caps, duplicate guards, two-stage dispatch, drift monitor, kill switch, allow-lists). At pavan.blog/articles/risk-guardian-rfc-7218.
+- "Building a Guardrailed AI Agent with Human-in-the-Loop" (Jun 2026) — a working pattern: agent drafts, self-evaluates on confidence AND sensitivity, auto-executes only when it clears both, else routes to a human whose decision is logged and feeds back. At pavan.blog/articles/guardrailed-agent-human-in-the-loop.
+
 ---
 
 ## PROBLEMS I'M MOST EXCITED ABOUT

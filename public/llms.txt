@@ -1,30 +1,32 @@
 # Pavan Raheja — pavan.blog
 
-> Product & Growth operator, angel investor, crypto trader, and writer. Based in Dubai, UAE.
+> AI Product Manager and builder. Builds AI agents and LLM products — with the governance, evals, and human-in-the-loop that make them work in production. Based in Dubai, UAE.
 
 ## About
 
-Pavan Raheja is a seasoned Product & Growth operator who has driven 3× growth at Mashkor (Kuwait) and 7× growth at PriceLabs. He angel invests in AI and Web3 companies, trades crypto markets systematically, and writes about product, growth, and building in public.
+Pavan Raheja is an AI Product Manager who ships: he built an evaluation-and-promotion pipeline that tested 60+ automated agent strategies and promoted only the 4 that cleared statistical rigor gates (a >90% kill rate), shipped Google Vertex AI to production at Mashkor (+15% activations, 3× MAU), and authored RFC #7218 on preventing catastrophic actions by autonomous AI agents. He works daily in Claude Code, MCP servers, and the Anthropic Agent SDK, and angel invests in AI and Web3 companies (xAI, GrowthX, WorldMobile, Worldcoin).
 
 Core mantra: "Learn daily, grow daily, learn fundamentally."
 
 ## Key Experience
 
-- Product Lead (Growth) at Mashkor — 3× revenue and user growth in 18 months (Kuwait)
-- Growth at PriceLabs — 7× growth, team scaled from 7 to 150+ people
-- Built and sold two content websites (SEO / website flipping)
-- 8 years digital marketing, 7 years specialized in SEO
-- Angel investments: GrowthX, WorldMobile, Worldcoin
+- Independent — AI Product Manager & Builder (Dubai, 2026–present): builds and governs production AI agents; evals, staged promotion, kill-switches, human-in-the-loop; open RFC #7218
+- Founder — Product & Operations at Dash Capital (Dubai): built the AI ops product that ran the business; 0 → AED 2M revenue in 18 months with full P&L
+- Senior Product Manager (Growth & AI) at Mashkor (Kuwait): 3× MAU, 2.8× revenue in 18 months; shipped a Vertex AI recommendation engine (+15% activations)
+- Founder at Flint Technology: drove 5× growth for PriceLabs (AI SaaS), team scaled from 7 to 150+
+- Started as a software engineer (Java, microservices, banking applications)
 
 ## Writing
 
-Articles on product management, growth frameworks, trading, and building in public.
+Technical writing on production AI agents — reliability, guardrails, human-in-the-loop, and evals — plus product management and growth frameworks.
+Notable: "What a Year of Running Production AI Agents Taught Me About Reliability", "Risk Guardian: Preventing Catastrophic Actions in Long-Running AI Agents (RFC #7218)", "Building a Guardrailed AI Agent with Human-in-the-Loop".
 Published at https://pavan.blog/articles
 
 ## Digital Clone
 
-An AI-powered digital clone of Pavan is available at https://pavan.blog — trained on his knowledge, voice, and experience. Ask it about product, growth, trading, or anything else.
+An AI-powered digital clone of Pavan is available at https://pavan.blog — built on the Claude API, trained on his knowledge, voice, and experience. Ask it about AI agents, product management, or his work.
 
 ## Contact
 
 LinkedIn: https://www.linkedin.com/in/pavanraheja
+GitHub: https://github.com/pavanraheja
