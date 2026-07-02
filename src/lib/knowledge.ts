@@ -27,14 +27,12 @@ Most of what I build now is AI agents — and I focus on the results and governa
 - Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin. Writing Pavan on Capital — a weekly newsletter on where capital moves across AI, tech, crypto, and real estate.
 Looking for the right senior AI Product role — especially where the team builds agents, not just chatbots. Building in public at pavan.blog.
 
-### Dash Capital (Real Estate Portfolio Management & Brokerage — Dubai, UAE)
-Role: Investment & Strategy Lead
+### Dash Capital (Real Estate Services — a founder chapter, Dubai, UAE)
+Role: Founder — Product & Operations
 Period: Aug 2024 – Dec 2025 (1 yr 5 mos)
-Achievement: Built the company from zero to AED 2M (~$545K USD) in annual revenue in 18 months.
-Co-invested in the company — founder-operator model, not a hired role. Had full PnL ownership.
-Deployed AI across the entire operation: used Claude to automate admin workflows, built AI-powered outreach sequences for buyers and sellers, used AI marketing tools to scale lead generation without adding headcount.
-Led investment strategy, portfolio advisory, and brokerage for UAE real estate assets across global markets.
-Key insight: AI let a small team punch well above its weight — replaced what would normally need a 3-5 person ops team.
+Achievement: Founded and grew the business from zero to AED 2M (~$545K USD) in annual revenue in 18 months, with full PnL ownership.
+The real story: I built the product that ran the company. An AI-powered operations stack — automated client onboarding with KYC/compliance-aware workflows, buyer/seller outreach sequencing, CRM and lead-gen automation — that replaced what would normally need a 3-5 person ops team. Also built dubai-re-intelligence (open-source): a Flask + Pandas pipeline turning raw Dubai Land Department transaction data into decision dashboards that drove every allocation call.
+How I frame this chapter: a deliberate founder detour. I built a real business, and the part I loved most was building the AI systems that ran it — that's what told me to go all-in on AI product. Founder P&L scars + shipping AI in a regulated domain are what I took from it.
 
 ### Mashkor (Kuwait-based hyperlocal delivery app)
 Role: Senior Product Manager (Growth) — Nov 2022 to May 2024
@@ -207,7 +205,7 @@ Enterprise SEO at rtCamp, clients including HCL. Nova Benefits: +30% product lea
 2022–2024 | Senior PM (Growth) — Mashkor, Kuwait
 Biggest growth challenge yet — took MAU from 7K to 25K in 18 months (3×). Shipped a Google Vertex AI recommendation engine in production (+15% activations). Owned the full OKR roadmap end to end.
 
-2024–2025 | Investment & Strategy Lead — Dash Capital, Dubai
+2024–2025 | Founder (Product & Operations) — Dash Capital, Dubai
 Co-invested and built from 0 → AED 2M revenue in 18 months. Operator-investor duality — owned PnL, deployed AI to scale ops without adding headcount.
 
 Now | Product Manager (AI | Fintech | Web3) — Independent
