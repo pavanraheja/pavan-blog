@@ -9,7 +9,7 @@ Most agent frameworks have a way to judge an action *after* it happens — an ev
 
 It is not enough when the action touches the real world. You cannot un-send a webhook. You cannot un-drain an API budget. You cannot un-issue a duplicate order. For that class of failure, an evaluator catching the mistake after the fact is just a well-documented post-mortem.
 
-So I filed **RFC #7218 — "Risk Guardian: a production safety harness for catastrophic-action prevention in long-running agent loops"** on [Aden HQ's open-source Hive](https://github.com/adenhq/hive) (a multi-agent harness for production AI). It proposes the layer that most harnesses are missing: a **deterministic, pre-action gate**. This is the design, drawn from a smaller reference implementation I maintain ([`alphagrid-orchestrator`](https://github.com/pavanraheja/alphagrid-orchestrator), MIT), extracted from a multi-strategy live execution system I operate.
+So I filed **[RFC #7218 — "Risk Guardian: a production safety harness for catastrophic-action prevention in long-running agent loops"](https://github.com/aden-hive/hive/issues/7218)** on [Aden HQ's open-source Hive](https://github.com/aden-hive/hive) (a multi-agent harness for production AI). It proposes the layer that most harnesses are missing: a **deterministic, pre-action gate**. This is the design, drawn from a smaller reference implementation I maintain ([`alphagrid-orchestrator`](https://github.com/pavanraheja/alphagrid-orchestrator), MIT), extracted from a multi-strategy live execution system I operate.
 
 ## The failures you can't afford even once
 
