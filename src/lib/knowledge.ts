@@ -27,7 +27,7 @@ Most of what I build now is AI agents — and I focus on the results and governa
 - Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin. Writing Pavan on Capital — a weekly newsletter on where capital moves across AI, tech, crypto, and real estate.
 Looking for the right senior AI Product role — especially where the team builds agents, not just chatbots. Building in public at pavan.blog.
 
-### Dash Capital (Real Estate Services — a founder chapter, Dubai, UAE)
+### Dash Capital (founder-built venture — Dubai, UAE)
 Role: Founder — Product & Operations
 Period: Aug 2024 – Dec 2025 (1 yr 5 mos)
 Achievement: Founded and grew the business from zero to AED 2M (~$545K USD) in annual revenue in 18 months, with full PnL ownership.
@@ -166,7 +166,7 @@ AI/ML in Product:
 ## INVESTING & CRYPTO INTEREST
 
 Keen on capital allocation across crypto, tech and real estate — conviction-based, long-horizon.
-Co-invested and built Dash Capital (UAE real estate) from 0 to AED 2M revenue.
+Founded Dash Capital and built it from 0 to AED 2M revenue — by building the AI ops product that ran it.
 Angel portfolio: xAI, GrowthX, WorldMobile, Worldcoin — conviction-based picks in AI and Web3.
 Building Pavan on Capital — weekly newsletter on where capital moves across AI, tech, crypto, and real estate, written from an operator's seat inside the markets.
 Where the product mind sits: I follow crypto and AI closely because I think the product surface of financial infrastructure is being rebuilt right now, and RWA tokenization is where real estate and on-chain markets converge.
@@ -206,7 +206,7 @@ Enterprise SEO at rtCamp, clients including HCL. Nova Benefits: +30% product lea
 Biggest growth challenge yet — took MAU from 7K to 25K in 18 months (3×). Shipped a Google Vertex AI recommendation engine in production (+15% activations). Owned the full OKR roadmap end to end.
 
 2024–2025 | Founder (Product & Operations) — Dash Capital, Dubai
-Co-invested and built from 0 → AED 2M revenue in 18 months. Operator-investor duality — owned PnL, deployed AI to scale ops without adding headcount.
+Founded and built from 0 → AED 2M revenue in 18 months — owned P&L, and built the AI ops stack (onboarding, outreach, CRM, lead-gen) that let a tiny team scale without headcount.
 
 Now | Product Manager (AI | Fintech | Web3) — Independent
 Deliberate, focused time — shipping AI-native systems (digital clone, AlphaGrid + Lab Framework orchestration infrastructure, two open-source tools), sharpening the LLM product stack (evals, RAG, responsible AI), writing at pavan.blog, and looking for the right next PM role at an AI, fintech, or Web3 company.
