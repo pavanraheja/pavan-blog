@@ -20,7 +20,7 @@ function formatDate(d: string) {
   });
 }
 
-const articleUrl = `https://pavan.blog/articles/${post.slug}`;
+const articleUrl = `https://www.pavan.blog/articles/${post.slug}`;
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -28,14 +28,14 @@ const articleSchema = {
   description: post.data.excerpt,
   datePublished: post.data.date,
   dateModified: post.data.date,
-  ...(post.data.image ? { image: new URL(post.data.image, 'https://pavan.blog').href } : {}),
+  ...(post.data.image ? { image: new URL(post.data.image, 'https://www.pavan.blog').href } : {}),
   author: {
     '@type': 'Person',
     name: 'Pavan Raheja',
-    url: 'https://pavan.blog',
+    url: 'https://www.pavan.blog',
     jobTitle: 'AI Product Manager',
   },
-  publisher: { '@type': 'Person', name: 'Pavan Raheja', url: 'https://pavan.blog' },
+  publisher: { '@type': 'Person', name: 'Pavan Raheja', url: 'https://www.pavan.blog' },
   mainEntityOfPage: articleUrl,
   url: articleUrl,
 };
