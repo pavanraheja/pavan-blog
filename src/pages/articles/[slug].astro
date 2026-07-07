@@ -19,9 +19,29 @@ function formatDate(d: string) {
     day: 'numeric', month: 'long', year: 'numeric'
   });
 }
+
+const articleUrl = `https://www.pavan.blog/articles/${post.slug}`;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.excerpt,
+  datePublished: post.data.date,
+  dateModified: post.data.date,
+  ...(post.data.image ? { image: new URL(post.data.image, 'https://www.pavan.blog').href } : {}),
+  author: {
+    '@type': 'Person',
+    name: 'Pavan Raheja',
+    url: 'https://www.pavan.blog',
+    jobTitle: 'AI Product Manager',
+  },
+  publisher: { '@type': 'Person', name: 'Pavan Raheja', url: 'https://www.pavan.blog' },
+  mainEntityOfPage: articleUrl,
+  url: articleUrl,
+};
 ---
 
-<Layout title={`${post.data.title} — Pavan Raheja`} description={post.data.excerpt}>
+<Layout title={`${post.data.title} — Pavan Raheja`} description={post.data.excerpt} jsonLd={articleSchema}>
   <article class="max-w-5xl mx-auto px-6 py-20">
     <div class="max-w-2xl mx-auto">
       <!-- Back -->
