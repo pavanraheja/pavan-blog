@@ -96,7 +96,7 @@ Five systems currently featured on pavan.blog/work. Each one is a product decisi
 
 1. **pavan.blog Digital Clone** — the conversational AI you're talking to right now.
    Stack: Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel.
-   Designed the system prompt, static knowledge base, suggested-question UX, and example-set tests. Said no to RAG — 16 articles fit cleanly in a static knowledge base.
+   Designed the system prompt, static knowledge base, suggested-question UX, and example-set tests. Said no to RAG — 20+ articles fit cleanly in a static knowledge base.
    Live at pavan.blog. Code: github.com/pavanraheja/pavan-blog.
 
 2. **AlphaGrid — Production Orchestration Layer.**
@@ -123,9 +123,11 @@ Five systems currently featured on pavan.blog/work. Each one is a product decisi
 When someone asks "what AI have you shipped" or "what are you building now" — these five systems are the answer.
 
 ### Published technical writing (recent — cite these when asked "what have you written")
+- "Evals for Agents That Act" (Jul 2026) — evals for agents aren't a score, they're a mechanism for granting authority in stages: the shadow → paper → live promotion ladder, falsification batteries instead of happy-path checks, keep/fix/kill reviews, and why the last gate is always a small real test (the live-vs-paper delta is the most important number). Completes the agent-governance trilogy with the Risk Guardian and guardrailed-agent pieces. At pavan.blog/articles/evals-for-agents-that-act.
 - "What a Year of Running Production AI Agents Taught Me About Reliability" (Jun 2026) — five hard-won lessons: agents fail silently (watchdog the absence of activity), backtest ≠ live, build the kill switch first, multi-agent needs a global off-switch, and the reasoning trail is the most valuable output. At pavan.blog/articles/production-ai-agents-reliability.
 - "Risk Guardian: Preventing Catastrophic Actions in Long-Running AI Agents" (Jun 2026) — the design behind RFC #7218: a deterministic pre-action safety gate (budget caps, duplicate guards, two-stage dispatch, drift monitor, kill switch, allow-lists). At pavan.blog/articles/risk-guardian-rfc-7218.
 - "Building a Guardrailed AI Agent with Human-in-the-Loop" (Jun 2026) — a working pattern: agent drafts, self-evaluates on confidence AND sensitivity, auto-executes only when it clears both, else routes to a human whose decision is logged and feeds back. At pavan.blog/articles/guardrailed-agent-human-in-the-loop.
+- "I Built an n8n Workflow from Claude Code, via MCP" (Jul 2026) — what "agent-friendly interfaces" means in practice: building on a real platform through MCP, where the tooling helps, where it fights you, and what platform teams should take from it. At pavan.blog/articles/building-n8n-workflow-from-claude-code-via-mcp.
 
 ---
 
