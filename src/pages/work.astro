@@ -177,7 +177,7 @@ import Layout from '@/layouts/Layout.astro';
           {
             title: 'pavan.blog — Digital Clone',
             tech: 'Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel',
-            desc: 'Conversational AI clone on pavan.blog. Designed the knowledge base, system prompt, suggested-question UX, and a graceful contact fallback for when the clone hits its limits. Streams token-by-token over SSE on a Vercel serverless function. Said no to RAG — 16 articles fit cleanly in a static knowledge base.',
+            desc: 'Conversational AI clone on pavan.blog. Designed the knowledge base, system prompt, suggested-question UX, and a graceful contact fallback for when the clone hits its limits. Streams token-by-token over SSE on a Vercel serverless function. Said no to RAG — 20+ articles fit cleanly in a static knowledge base.',
             outcome: ['Live on pavan.blog', 'Streaming Claude', '16 knowledge sections'],
             link: 'https://pavan.blog/#chat',
             github: 'https://github.com/pavanraheja/pavan-blog',
@@ -242,6 +242,54 @@ import Layout from '@/layouts/Layout.astro';
               </div>
             )}
           </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- How I Build — Playbooks -->
+    <div class="mt-14 pt-10 border-t border-gray-100">
+      <h2 class="text-lg font-semibold text-gray-900 mb-1">How I Build — Playbooks</h2>
+      <p class="text-sm text-gray-400 mb-6">The patterns behind the systems above, written up in depth. Every piece comes from something running in production — not theory.</p>
+      <div class="space-y-4">
+        {[
+          {
+            title: 'Evals for Agents That Act',
+            desc: 'You don\'t score an agent\'s output — you grant authority in stages. The shadow → paper → live promotion ladder, with falsification gates at every rung. This is the pipeline behind the Lab Framework and AlphaGrid.',
+            href: '/articles/evals-for-agents-that-act',
+            from: 'Lab Framework · AlphaGrid',
+          },
+          {
+            title: 'Risk Guardian: Preventing Catastrophic Actions in Long-Running AI Agents',
+            desc: 'An evaluator that catches a bad output after the fact is too late — you can\'t un-send a webhook. RFC #7218: a deterministic pre-action safety gate (budget caps, duplicate guards, two-stage dispatch, drift monitor, kill switch).',
+            href: '/articles/risk-guardian-rfc-7218',
+            from: 'AlphaGrid execution guard · RFC #7218',
+          },
+          {
+            title: 'Building a Guardrailed AI Agent with Human-in-the-Loop',
+            desc: 'The gate that decides whether an agent acts alone: self-evaluate on confidence AND sensitivity, auto-execute only when both clear, otherwise escalate to a human whose decision feeds back. The same pattern behind the WhatsApp service assistant.',
+            href: '/articles/guardrailed-agent-human-in-the-loop',
+            from: 'WhatsApp AI Service Assistant',
+          },
+          {
+            title: 'What a Year of Running Production AI Agents Taught Me About Reliability',
+            desc: 'Five hard-won lessons: agents fail silently (watchdog the absence of activity), backtest ≠ live, build the kill switch first, multi-agent needs a global off-switch, and the reasoning trail is the most valuable output.',
+            href: '/articles/production-ai-agents-reliability',
+            from: 'All production agents',
+          },
+          {
+            title: 'I Built an n8n Workflow from Claude Code, via MCP',
+            desc: 'What "agent-friendly interfaces" means in practice: an agent building on a real platform through MCP — where the tooling helps, where it fights you, and what platform teams should take from it.',
+            href: '/articles/building-n8n-workflow-from-claude-code-via-mcp',
+            from: 'Agent tooling · MCP',
+          },
+        ].map((a) => (
+          <a href={a.href} class="block p-4 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors group">
+            <div class="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+              <h3 class="font-semibold text-gray-900 text-sm group-hover:text-brand-700 transition-colors">{a.title}</h3>
+              <span class="text-xs text-gray-400 flex-shrink-0">{a.from}</span>
+            </div>
+            <p class="text-sm text-gray-500 leading-relaxed">{a.desc}</p>
+          </a>
         ))}
       </div>
     </div>

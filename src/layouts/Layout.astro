@@ -75,6 +75,7 @@ const canonical = new URL(Astro.url.pathname, 'https://www.pavan.blog').href;
           <a href="/articles" class="hover:text-gray-900 transition-colors">Articles</a>
           <a href="/newsletter" class="hover:text-gray-900 transition-colors">Newsletter</a>
           <a href="/about" class="hover:text-gray-900 transition-colors">About</a>
+          <a href="/#contact" class="hover:text-gray-900 transition-colors">Contact</a>
           <a
             href="/#chat"
             class="bg-gray-900 text-white px-3 py-1.5 rounded-md text-xs font-medium hover:bg-gray-700 transition-colors"
@@ -92,7 +93,9 @@ const canonical = new URL(Astro.url.pathname, 'https://www.pavan.blog').href;
     <footer class="mt-24 border-t border-gray-100 py-10">
       <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
         <span>© {new Date().getFullYear()} Pavan Raheja</span>
-        <div class="flex gap-5">
+        <div class="flex flex-wrap gap-5">
+          <a href="https://wa.me/971503860738?text=Hi%20Pavan%20%E2%80%94%20found%20you%20via%20pavan.blog." target="_blank" rel="noopener" class="hover:text-gray-700 transition-colors">WhatsApp</a>
+          <a href="mailto:pavanraheja@gmail.com" class="hover:text-gray-700 transition-colors">Email</a>
           <a href="https://www.linkedin.com/in/pavanraheja" target="_blank" rel="noopener" class="hover:text-gray-700 transition-colors">LinkedIn</a>
           <a href="/articles" class="hover:text-gray-700 transition-colors">Articles</a>
           <a href="/#chat" class="hover:text-gray-700 transition-colors">Digital Clone</a>
