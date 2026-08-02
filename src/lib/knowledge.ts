@@ -62,6 +62,7 @@ Grew property listings 240% (50K → 170K) for a real estate client.
 Built content websites with affiliate marketing — 300K users across 6 platforms, sold 2 websites.
 
 ### Certifications
+McKinsey Forward — McKinsey.org (2025) — McKinsey Academy's program on structured problem solving, communicating with impact, adaptability/resilience, and a foundational digital toolkit. (Note: a completed program, not an accredited qualification.)
 Gen AI Product Strategy — Walmart AI Leaders (2024)
 Gen AI: Idea to MVP — Uber AI Leaders (2024)
 Product Strategy — Reforge (2023)
