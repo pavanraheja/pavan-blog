@@ -5,16 +5,19 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title = 'Pavan Raheja — AI Product Manager | AI Agents & LLM Products',
   description = 'AI Product Manager building AI agents and LLM products. 10+ years across marketplaces, SaaS, fintech, and crypto — taking products from zero to one. Based in Dubai.',
+  image = '/images/og-default.png',
   jsonLd,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, 'https://www.pavan.blog').href;
+const ogImage = new URL(image, 'https://www.pavan.blog').href;
 ---
 
 <!doctype html>
@@ -32,6 +35,16 @@ const canonical = new URL(Astro.url.pathname, 'https://www.pavan.blog').href;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Pavan Raheja" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Schema.org Person -->
     <script type="application/ld+json">

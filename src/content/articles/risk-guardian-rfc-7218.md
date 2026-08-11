@@ -2,6 +2,7 @@
 title: "Risk Guardian: Preventing Catastrophic Actions in Long-Running AI Agents"
 date: "2026-06-30"
 excerpt: "An evaluator that catches a bad output after the fact is sometimes too late — you can't un-send a webhook or un-drain a budget. RFC #7218 proposes the missing layer: a deterministic, pre-action safety gate for autonomous agents. Here's the design."
+image: "/images/risk-guardian-rfc-7218.png"
 slug: "risk-guardian-rfc-7218"
 ---
 
