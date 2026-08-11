@@ -102,7 +102,7 @@ That ratio isn't a failure rate — it's the framework working. One that promote
 
 ## 5. Three things I killed, with the numbers
 
-This is the section I'd want a hiring manager to read, because anyone can list what they shipped.
+This is the section that matters most, because anyone can list what they shipped. What separates a process from a story is whether it ever produced a no.
 
 ### Kill 1 — The idea that tested beautifully and lost money every single time
 
@@ -162,11 +162,11 @@ I've since found the same blind spot in most systems I look at. Teams instrument
 
 ---
 
-## If you're hiring for AI product
+## Everything here is inspectable
 
-What I'd bring is not a framework I read about. It's the habit of deciding — repeatedly, with consequences — what an AI system is allowed to do on its own, and being willing to kill my own work when the evidence says so.
+None of this is a framework I read about. It's the habit of deciding — repeatedly, with consequences — what an AI system is allowed to do on its own, and being willing to kill your own work when the evidence says so. That habit is cheap to describe and expensive to acquire.
 
-Everything here is inspectable. The orchestration pattern is open-sourced with a full test suite at [github.com/pavanraheja](https://github.com/pavanraheja), the safety design is published as an open RFC, and the deeper technical write-ups are here: [the seven-layer architecture](/articles/architecture-of-a-self-driving-system), [evaluation gates in detail](/articles/evals-for-agents-that-act), and [the human-in-the-loop pattern](/articles/guardrailed-agent-human-in-the-loop). The platform itself is at [glasshousedesk.com](https://glasshousedesk.com).
+The orchestration pattern is open-sourced with a full test suite at [github.com/pavanraheja](https://github.com/pavanraheja), the safety design is published as an open RFC, and the deeper technical write-ups are here: [the seven-layer architecture](/articles/architecture-of-a-self-driving-system), [evaluation gates in detail](/articles/evals-for-agents-that-act), and [the human-in-the-loop pattern](/articles/guardrailed-agent-human-in-the-loop). The platform itself is at [glasshousedesk.com](https://glasshousedesk.com).
 
 Deliberately not included: returns, client names, pricing. The engineering and the judgement are the transferable parts.
 
