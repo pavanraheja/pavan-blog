@@ -2,6 +2,7 @@
 title: "Case Study: Shipping AI Agents That Act Without a Human"
 date: "2026-08-03"
 excerpt: "How I decide whether an AI agent is allowed to act on its own — the evaluation gates, the three products I killed with the numbers shown, and the outage that changed how I monitor everything. Written for product people. No jargon, no returns, no hand-waving."
+image: "/images/glasshouse-case-study.png"
 slug: "glasshouse-case-study"
 ---
 
@@ -76,6 +77,8 @@ Autonomy isn't a switch you flip. In my system it's a ladder, and nothing skips 
 
 **Autonomous** — the agent acts inside limits agreed in advance.
 
+![The autonomy ladder: shadow, then supervised, then autonomous — with a gate between each stage](/images/autonomy-ladder.png)
+
 Three rules hold it together:
 
 **Draw the propose-versus-decide line explicitly.** Almost every agent incident I've seen elsewhere traces back to this line never being drawn — nobody wrote down what the agent was allowed to conclude on its own.
@@ -83,6 +86,8 @@ Three rules hold it together:
 **Gate on *irreversible*, not on *uncertain*.** This is the distinction I'd argue hardest for. Teams instinctively route low-confidence outputs to a human. But confidence is the wrong axis: a low-confidence draft email is harmless, and a high-confidence payment is not. Route by whether you can undo it. Doing it the other way is what buries a review queue in noise while the dangerous actions sail through.
 
 **Test the kill-switch on a schedule.** An untested kill-switch is a comment, not a control.
+
+![Reversible actions can be autonomous once the bar is met; irreversible actions require human approval every time](/images/reversibility-gate.png)
 
 ---
 
@@ -97,6 +102,8 @@ That exists for one unflattering reason. Once results are in front of you, you w
 **The funnel to date: 60+ candidates evaluated. 4 promoted. Over 90% killed on evidence.**
 
 That ratio isn't a failure rate — it's the framework working. One that promotes most of what enters it isn't a quality bar; it's a formality.
+
+![Evaluation funnel: 60+ candidates evaluated, over 90% killed on evidence, 4 promoted to live](/images/evaluation-funnel.png)
 
 ---
 
@@ -149,6 +156,8 @@ My worst incident was **30 hours in which nothing errored and nothing ran.**
 No alert fired, because nothing failed loudly. Every health check was green. The processes were alive — they simply weren't doing anything. Monitoring built around error rates is completely blind to this.
 
 The fix was to invert the assumption: **the absence of expected activity is itself an incident.** Alert on silence, not just on errors.
+
+![Two dashboards over the same 30 hours: one watching for errors shows all healthy, one watching for expected activity is flatlined](/images/silent-failure.png)
 
 I've since found the same blind spot in most systems I look at. Teams instrument what breaks, and don't instrument what stops. It's a metrics-definition problem wearing an engineering costume — which is exactly the kind of thing a product owner should catch.
 

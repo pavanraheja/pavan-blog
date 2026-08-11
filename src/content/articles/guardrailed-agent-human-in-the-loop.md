@@ -2,6 +2,7 @@
 title: "Building a Guardrailed AI Agent with Human-in-the-Loop"
 date: "2026-06-30"
 excerpt: "A copilot suggests; an agent acts. The moment an agent can act on its own, one question becomes the entire product: is it confident AND safe enough to do this without a human? Here's a small, working pattern — with the actual workflow."
+image: "/images/guardrailed-agent-human-in-the-loop.png"
 slug: "guardrailed-agent-human-in-the-loop"
 ---
 

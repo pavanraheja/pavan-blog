@@ -2,6 +2,7 @@
 title: "Evals for Agents That Act"
 date: "2026-07-13"
 excerpt: "Grading a chatbot's answer is one problem. Deciding whether to let an agent touch production is a different one. You don't score the output — you grant authority, in stages, behind gates that it has to earn."
+image: "/images/evals-for-agents-that-act.png"
 slug: "evals-for-agents-that-act"
 ---
 

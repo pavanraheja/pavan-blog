@@ -41,7 +41,7 @@ const articleSchema = {
 };
 ---
 
-<Layout title={`${post.data.title} — Pavan Raheja`} description={post.data.excerpt} jsonLd={articleSchema}>
+<Layout title={`${post.data.title} — Pavan Raheja`} description={post.data.excerpt} image={post.data.image} jsonLd={articleSchema}>
   <article class="max-w-5xl mx-auto px-6 py-20">
     <div class="max-w-2xl mx-auto">
       <!-- Back -->
@@ -56,7 +56,7 @@ const articleSchema = {
           {post.data.title}
         </h1>
         {post.data.image && (
-          <div class="mt-8 rounded-xl overflow-hidden bg-gray-100 aspect-[16/7]">
+          <div class="mt-8 rounded-xl overflow-hidden bg-gray-100 aspect-[40/21]">
             <img
               src={post.data.image}
               alt={post.data.title}
