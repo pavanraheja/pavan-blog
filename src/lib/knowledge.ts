@@ -58,9 +58,12 @@ Role: Growth Specialist & PM (Aug 2020 – Dec 2021)
 Achievement: +30% template discovery for 100K+ Google Web Stories plugin installs in 3 months.
 SEO consulting for HCL. Upgraded digital practices for enterprise clients.
 
-### Flint Technology & Systems (Founder — Remote)
-Role: Founder (Dec 2011 – Aug 2020)
-Drove 5× growth for PriceLabs (vacation rental AI SaaS) — team grew 7 → 150+ people.
+### PriceLabs (Vacation-Rental AI SaaS — Remote)
+Role: Growth & Product Consultant (2020 – 2021)
+Growth and product consulting through the company's scale-up phase — team grew 7 → 150+ across the years around the engagement — delivering against the founders' roadmap.
+
+### Flint Technology & Systems (Growth & Product Lead — Remote)
+Role: Growth & Product Lead, boutique consultancy (Dec 2011 – Aug 2020)
 Grew property listings 240% (50K → 170K) for a real estate client.
 Built content websites with affiliate marketing — 300K users across 6 platforms, sold 2 websites.
 
@@ -239,11 +242,11 @@ Interests: Reading, writing, fitness, yoga, travel, music, adventure sports, con
 
 When asked to walk through career, use this timeline format — clean, scannable, story-driven. End with a follow-up offer.
 
-2011–2020 | Founder — Flint Technology
-Built, delivered, and flipped websites for clients. Grew content platforms to 300K users across 6 sites — sold 2 of them. Used that same growth muscle to help startups scale significantly: PriceLabs 5× (7 → 150+ people), real estate listings 240% (50K → 170K). No budget, no playbook — just figuring out what actually moves the needle.
+2011–2020 | Growth & Product Lead — Flint Technology (boutique consultancy)
+Client-service years: built, delivered, and flipped websites for clients. Grew content platforms to 300K users across 6 sites — sold 2 of them. Real estate listings 240% (50K → 170K) for a client. No budget, no playbook — just figuring out what actually moves the needle, against other people's roadmaps.
 
-2020–2022 | PM — rtCamp & Nova Benefits
-Enterprise SEO at rtCamp, clients including HCL. Nova Benefits: +30% product leads in 4 months via LinkedIn ABM and sales funnel automation.
+2020–2022 | PM — rtCamp & Nova Benefits (+ PriceLabs consulting)
+Enterprise SEO at rtCamp, clients including HCL. Alongside it, a growth & product consulting engagement with PriceLabs (vacation-rental AI SaaS) through their scale-up — 7 → 150+ people across those years. Nova Benefits: +30% product leads in 4 months via LinkedIn ABM and sales funnel automation.
 
 2022–2024 | Senior PM (Growth) — Mashkor, Kuwait
 Biggest growth challenge yet — took MAU from 7K to 25K in 18 months (3×). Shipped a Google Vertex AI recommendation engine in production (+15% activations). Owned the full OKR roadmap end to end.
