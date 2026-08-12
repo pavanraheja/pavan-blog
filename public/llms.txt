@@ -10,7 +10,7 @@ Core mantra: "Learn daily, grow daily, learn fundamentally."
 
 ## Key Experience
 
-- Independent — AI Product Manager & Builder (Dubai, 2026–present): builds and governs production AI agents; evals, staged promotion, kill-switches, human-in-the-loop; open RFC #7218
+- Independent — AI Product Manager & Builder (Dubai, 2026–present): ships a fleet of production AI agents (autonomous + human-in-the-loop) running live capital across 4 venues; evals-driven — >90% of candidates killed before launch, out-of-sample validation, weekly live reconciliation, zero catastrophic incidents; full LLM stack daily (Claude API, MCP, RAG, evals); open RFC #7218
 - Founder — Product & Operations at Dash Capital (Dubai): built the AI ops product that ran the business; 0 → AED 2M revenue in 18 months with full P&L
 - Senior Product Manager (Growth & AI) at Mashkor (Kuwait): 3× MAU, 2.8× revenue in 18 months; shipped a Vertex AI recommendation engine (+15% activations)
 - Growth & Product Consultant at PriceLabs (AI SaaS, 2020–21): growth/product partner through its 5× scale-up (team 7 → 150+)
