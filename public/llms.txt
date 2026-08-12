@@ -13,7 +13,8 @@ Core mantra: "Learn daily, grow daily, learn fundamentally."
 - Independent — AI Product Manager & Builder (Dubai, 2026–present): builds and governs production AI agents; evals, staged promotion, kill-switches, human-in-the-loop; open RFC #7218
 - Founder — Product & Operations at Dash Capital (Dubai): built the AI ops product that ran the business; 0 → AED 2M revenue in 18 months with full P&L
 - Senior Product Manager (Growth & AI) at Mashkor (Kuwait): 3× MAU, 2.8× revenue in 18 months; shipped a Vertex AI recommendation engine (+15% activations)
-- Founder at Flint Technology: drove 5× growth for PriceLabs (AI SaaS), team scaled from 7 to 150+
+- Growth & Product Consultant at PriceLabs (AI SaaS, 2020–21): growth/product partner through its 5× scale-up (team 7 → 150+)
+- Growth & Product Lead at Flint Technology (boutique consultancy, 2011–20): client growth work — real-estate listings +240%, content platforms to 300K users
 - Started as a software engineer (Java, microservices, banking applications)
 
 ## Writing
