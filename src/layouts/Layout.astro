@@ -84,6 +84,38 @@ const ogImage = new URL(image, 'https://www.pavan.blog').href;
         defaults: '2026-05-30',
       })
     </script>
+
+    <!-- PostHog conversion events -->
+    <script is:inline>
+      (function(){
+        if (window.posthog && window.posthog.register) window.posthog.register({ site: 'pavan_blog' });
+        function cap(n, p){ if (window.posthog && window.posthog.capture) window.posthog.capture(n, p); }
+        document.addEventListener('click', function(e){
+          if (!e.target || !e.target.closest) return;
+          var a = e.target.closest('a');
+          if (a) {
+            var href = a.getAttribute('href') || '';
+            var b = { link_url: href, link_text: (a.innerText || '').trim().slice(0, 80), page: location.pathname };
+            if (/wa\.me|api\.whatsapp\.com/i.test(href)) cap('whatsapp_click', b);
+            else if (href.indexOf('mailto:') === 0) cap('email_click', b);
+            else if (href.indexOf('tel:') === 0) cap('phone_click', b);
+            else if (/\.(pdf|csv|xlsx?|zip|docx?)(\?|$)/i.test(href)) cap('file_download', b);
+            else if (/#(access|talk|chat|start|book|contact)$/i.test(href)) cap('cta_click', b);
+            else if (/^https?:\/\//i.test(href) && href.indexOf(location.hostname) === -1) cap('outbound_click', b);
+            return;
+          }
+          if (e.target.closest('button.suggested-q')) cap('clone_suggested_question_click', { question: (e.target.closest('button.suggested-q').innerText || '').trim().slice(0, 120) });
+        }, true);
+        document.addEventListener('submit', function(e){
+          var f = e.target;
+          if (!f || f.tagName !== 'FORM') return;
+          var p = { form_id: f.id || null, form_class: f.className || null, page: location.pathname };
+          if (f.id === 'chat-form') cap('clone_chat_message_sent', p);
+          else if (/subscribe-form/.test(f.className || '')) cap('newsletter_form_submit', p);
+          else cap('form_submit', p);
+        }, true);
+      })();
+    </script>
   </head>
 
   <body class="bg-white text-gray-900 font-sans antialiased">
