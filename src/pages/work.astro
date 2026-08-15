@@ -186,6 +186,20 @@ import Layout from '@/layouts/Layout.astro';
       <div class="grid sm:grid-cols-2 gap-5">
         {[
           {
+            title: 'Autonomous Execution Agents',
+            tech: 'Python · Multi-strategy decision engine · Live venue execution · Staged promotion',
+            desc: 'A decision system is only as good as the discipline around what it is allowed to do. Built a multi-strategy execution layer where every candidate strategy runs the same lifecycle — shadow, then paper, then live — and is measured against pre-registered criteria it declared before seeing results. Most candidates never graduate: over 60 were evaluated, 4 promoted, and more than 90% killed by their own test batteries. Said no to promoting on a good backtest — a strategy earns capital by surviving falsification, not by looking good in-sample.',
+            outcome: ['60+ evaluated → 4 promoted', '>90% killed by design', 'Shadow → paper → live', 'Pre-registered criteria'],
+            github: 'https://github.com/pavanraheja/autonomous-execution-agents',
+          },
+          {
+            title: 'Glasshouse — Transparent Research Desk',
+            tech: 'Agent infrastructure · Falsification test batteries · Non-custodial copy service',
+            desc: 'Most of this industry markets performance and hides method. Built Glasshouse on the inverse: the product is verifiability. Systematic strategies are developed under falsification discipline and killed by their own test batteries before they touch capital, and the copy-service model is non-custodial — clients keep custody of their funds and compensation is performance-share only. The whole operation runs on the agent infrastructure below: research agents, monitoring loops, promotion gates. Said no to performance marketing — the pitch is the audit trail, not the returns.',
+            outcome: ['Launched 2026', 'Non-custodial by design', 'Performance-share only', 'Runs on own agent stack'],
+            link: 'https://glasshousedesk.com',
+          },
+          {
             title: 'pavan.blog — Digital Clone',
             tech: 'Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel',
             desc: 'Conversational AI clone on pavan.blog. Designed the knowledge base, system prompt, suggested-question UX, and a graceful contact fallback for when the clone hits its limits. Streams token-by-token over SSE on a Vercel serverless function. Said no to RAG — 20+ articles fit cleanly in a static knowledge base.',
@@ -214,8 +228,9 @@ import Layout from '@/layouts/Layout.astro';
             github: 'https://github.com/pavanraheja/dubai-re-intelligence',
           },
           {
-            title: 'WhatsApp AI Service Assistant — Client Engagement',
+            title: 'Insight Bay — WhatsApp AI Lead-Responder',
             tech: 'Claude API · WhatsApp Business · Booking & CRM workflow automation',
+            link: 'https://insightbayai.com',
             desc: 'A UAE field-services business was losing leads to slow replies and spending hours daily on inquiry handling. Built (as a paid engagement) a WhatsApp-native AI assistant that answers inquiries, qualifies leads, quotes and books jobs 24/7 — with human-in-the-loop handoff for edge cases and pricing exceptions. Response time went from hours to seconds, and the owner reclaimed hours of admin every week. Said no to a custom app — met customers on the channel they already use.',
             outcome: ['Paid client engagement', 'Response time: hours → seconds', '24/7 lead capture', 'Human-in-the-loop handoff'],
           },
