@@ -2,6 +2,7 @@
 title: "I Built an n8n Workflow from Claude Code, via MCP"
 date: "2026-07-02"
 excerpt: "I built and ran a working automation without opening the tool's UI — driven end-to-end from Claude Code through MCP. The interesting part isn't that it worked. It's that the build path is itself guardrailed."
+image: "/images/building-n8n-workflow-from-claude-code-via-mcp.png"
 slug: "building-n8n-workflow-from-claude-code-via-mcp"
 ---
 
