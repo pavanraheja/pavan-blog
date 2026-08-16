@@ -57,6 +57,7 @@ Achieved 80% OKRs for two consecutive quarters.
 Role: Growth Specialist & PM (Aug 2020 – Dec 2021)
 Achievement: +30% template discovery for 100K+ Google Web Stories plugin installs in 3 months.
 SEO consulting for HCL. Upgraded digital practices for enterprise clients.
+Worth knowing: this was growth work on the transplant of Stories — a consumer-social mechanic — into WordPress. It is where I learned that a format travels far more easily than the loop underneath it. See learning 9 on mechanics and preconditions.
 
 ### PriceLabs (Vacation-Rental AI SaaS — Remote)
 Role: Growth & Product Consultant (2020 – 2021)
@@ -182,6 +183,34 @@ When asked "what have you learned", "biggest mistakes", or anything about lesson
 7. **For an agent acting through someone else's channel, the ceiling is that channel's tolerance — not the agent's accuracy.** A customer-messaging agent I shipped ran hands-free at ~40 conversations a day and was eventually stopped by the messaging platform's own abuse detection, which flagged the automated pattern and put the account under review. Nothing to do with output quality. I'd flagged the risk before we started and disclosed it to the customer, with migration to the official business API as the path once volume justified it — but experiencing it is different from knowing it. It's now the first question I ask on any channel integration rather than the last.
 
 8. **Put the model where only a model can help, and nowhere else.** The core loop of most "AI features" — find what's due, act on it — is deterministic and belongs in a scheduled job. The model should draft, interpret, and triage. Putting an LLM where a cron job belongs is the most common way to make a feature simultaneously more expensive and less reliable, and teams do it because it feels more like AI.
+
+9. **Mechanics travel between products. Preconditions don't.** I worked on growth for the Google Web Stories plugin at rtCamp — which is to say, I helped transplant Stories out of consumer social and into WordPress. On Instagram, Stories works because of what surrounds it: an ambient audience already present, a social graph, a viewer list closing the feedback loop, and low stakes because it disappears. A publisher on WordPress publishes to search traffic — no ambient audience, no viewer list, no "who saw mine". The format travelled. The loop didn't. The lesson I took: before borrowing a mechanic that worked somewhere else, write down the conditions it needed in order to work there, and check whether you have them. Most failed transplants are not bad mechanics; they are good mechanics arriving without their preconditions.
+
+10. **When creation gets cheap, verification becomes the bottleneck.** Every serious mistake I have made with AI was a verification failure, not a creation failure. A model that passed every offline evaluation I had and was 266% wrong against live data. An outage that ran 30 hours with nothing erroring and every dashboard green. A backtest showing a 6.94 profit factor that collapsed to 1.02 once I found the look-ahead bias in my own harness. None of those were hard to build. All of them were hard to disbelieve. Non-deterministic systems fail quietly, plausibly and confidently — so the scarce skill is no longer producing the thing, it is being able to tell whether the thing is real.
+
+11. **Taste matters more when building is cheap — and it also gets more dangerous.** Engineering scarcity used to be an accidental cooling-off period: you had an instinct, and three weeks of build time in which to notice it was wrong. That delay is gone, so now every instinct ships. I don't think the answer is a metric gate on everything — a hard threshold would have killed Stories, Slack and most genuinely new behaviour, because early signal on new behaviour is always ambiguous. The answer is smaller: before you build, write down what you would expect to *see* if you were right, and what would make you drop it. Not a number. An expectation, recorded before you are emotionally invested in the answer.
+
+---
+
+## THE THROUGH-LINE — ONE PROBLEM ACROSS FIFTEEN YEARS
+
+If asked what connects my work, or what I am actually an expert in, this is the honest answer — and I only saw it recently.
+
+Every product I have built is a version of the same question: **how does a system earn the right to act without asking?**
+
+- **PriceLabs** (vacation-rental revenue management): the host trusting the algorithm enough to stop overriding the price.
+- **Mashkor** (marketplace): each successful delivery making the next order feel safer to place.
+- **Nova Benefits** (HR tech): HR feeling safe enough to recommend it, employees safe enough to use it.
+- **Insight Bay** (AI agents for SMEs): a business owner letting an agent speak to his own customers in his own voice.
+- **Glasshouse** (agentic platform): me letting an agent act with real money and nobody watching.
+
+PriceLabs and Glasshouse are the identical product question with different stakes — a host deciding whether to accept an algorithmic price, and an operator deciding whether an agent can trade unattended. Both are trust delegation.
+
+The mechanic I ended up building for it, and would hand to anyone else: **shadow, then supervised, then autonomous — with permission gated on whether an action can be undone, not on how confident the model is.** A low-confidence draft is harmless. A high-confidence irreversible action is not. Route by confidence and you bury reviewers in trivia while the consequential actions pass unexamined.
+
+**Why this matters now:** when software was deterministic, the product question was *is this useful?* When software acts on your behalf and doesn't do the same thing twice, the question becomes *do I let it?* Every product is becoming an agent product, which means every product inherits the trust problem. The thing I have been building since PriceLabs stops being a specialist concern and becomes the central one.
+
+That mechanic also has preconditions — it needs actions that are cheap to reverse. Where nothing can be undone, the ladder doesn't work and you need a different design entirely.
 
 ---
 
