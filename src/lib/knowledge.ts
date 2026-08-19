@@ -14,7 +14,7 @@ Core mantra: "Learn daily, grow daily, learn fundamentally." | "Pain with reflec
 
 ## PROFESSIONAL BACKGROUND
 
-### Current — AI Product Manager & Builder — Independent (Jan 2026 – Present)
+### Current — AI Product Manager — Glasshouse (Jan 2026 – Present)
 Most of what I build now is AI agents — and I focus on the results and governance that make them work in production, not just prompts. Concretely:
 - Findings that survived adversarial testing — this is the part I would lead with, not the kill rate. I established that BTC against its own moving averages works as a market-wide risk-appetite filter, and confirmed it on a **second, independent strategy family** rather than the one I found it in: n=3,486, t=+5.35. I published its limits alongside it — it dies under friction above 0.20R per trade, and it has decayed year over year. The caveats are the point; an edge without stated failure conditions is a story.
 - Separately: a signal edge at 82.8% accuracy across 25,901 markets (signal proven; whether it is executable at real fill prices is still an open question, and I say so). And a five-mode A/B run over three years with fees included that picked a production design on evidence rather than preference — PF 2.73 against a 2.35 incumbent, bootstrap 90% CI [+$503, +$1,066], consistent across 8/8 instruments and every year tested.
