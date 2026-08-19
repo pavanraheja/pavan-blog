@@ -15,8 +15,8 @@ import Layout from '@/layouts/Layout.astro';
     <!-- Impact highlights -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10 max-w-3xl">
       <div>
-        <p class="text-2xl font-bold text-gray-900">60+ → 4</p>
-        <p class="mt-1 text-xs text-gray-500">Agent strategies tested → promoted (&gt;90% killed before live capital)</p>
+        <p class="text-2xl font-bold text-gray-900">t = +5.35</p>
+        <p class="mt-1 text-xs text-gray-500">Risk filter validated out-of-family (n=3,486) — published with its failure conditions</p>
       </div>
       <div>
         <p class="text-2xl font-bold text-gray-900">3×</p>
@@ -58,9 +58,12 @@ import Layout from '@/layouts/Layout.astro';
           tag: 'Independent · Self-directed · Dubai, UAE',
           role: 'Building · Shipping AI agents',
           period: 'Jan 2026 – Present',
-          headline: 'Tested 60+ automated agent strategies, promoted only the 4 that cleared the rigor gates — a >90% kill rate. I build the governance that makes agents safe to run unattended.',
+          headline: 'I find things that hold up under adversarial testing — then publish where they break. A market-wide risk filter confirmed on a second, independent strategy family (n=3,486, t=+5.35). I build the governance that makes agents safe to run unattended.',
           bullets: [
-            'Built an evaluation-and-promotion pipeline: tested 60+ automated agent strategies and promoted only the 4 that cleared statistical rigor gates — a >90% kill rate, so unvalidated logic never touches live capital',
+            'Validated a regime filter out-of-family rather than in the data it was found in — n=3,486, t=+5.35 — and published its limits alongside it: it dies above 0.20R of friction and has decayed year over year. An edge without stated failure conditions is a story, not a finding',
+            'Modelled expected value before committing engineering time: a three-year, fees-included five-mode A/B chose the production design on evidence — PF 2.73 against a 2.35 incumbent, bootstrap 90% CI [+$503, +$1,066], consistent across 8/8 instruments and every year tested',
+            'Measured a signal edge at 82.8% accuracy across 25,901 markets — and say plainly that execution fillability is still unproven, because a signal result is not a tradeable one',
+            'Built the evaluation-and-promotion pipeline behind all of it: 60+ candidates assessed against criteria agreed before results existed, 4 promoted — the gate is what makes the four worth believing',
             'Systematized capital allocation across 8 parallel workstreams — a centralized layer with reservations and conflict / duplicate guards that eliminated double-allocation and the drag that was quietly eating returns',
             'Operate AI agents in production with staged promotion (shadow → paper → live), tested kill-switches, human-in-the-loop, and expected-throughput watchdogs that cut silent-failure downtime to near-zero — wrote up the approach as RFC #7218 on preventing catastrophic agent actions (open-source, 8/8 tests)',
             'Claude-native daily — Claude Code (hooks, slash commands, MCP servers), the Anthropic Agent SDK, tool-use, prompt engineering, LLM evals; came up as a software engineer (Java / microservices), so I build the prototypes myself',
@@ -189,7 +192,7 @@ import Layout from '@/layouts/Layout.astro';
             title: 'Autonomous Execution Agents',
             tech: 'Python · Multi-strategy decision engine · Live venue execution · Staged promotion',
             desc: 'A decision system is only as good as the discipline around what it is allowed to do. Built a multi-strategy execution layer where every candidate strategy runs the same lifecycle — shadow, then paper, then live — and is measured against pre-registered criteria it declared before seeing results. Most candidates never graduate: over 60 were evaluated, 4 promoted, and more than 90% killed by their own test batteries. Said no to promoting on a good backtest — a strategy earns capital by surviving falsification, not by looking good in-sample.',
-            outcome: ['60+ evaluated → 4 promoted', '>90% killed by design', 'Shadow → paper → live', 'Pre-registered criteria'],
+            outcome: ['n=3,486 · t=+5.35 out-of-family', 'PF 2.73 · CI [+503, +1066]', '60+ evaluated → 4 promoted', 'Pre-registered criteria'],
             github: 'https://github.com/pavanraheja/autonomous-execution-agents',
           },
           {
