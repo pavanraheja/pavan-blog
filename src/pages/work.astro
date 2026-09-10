@@ -1,5 +1,7 @@
 ---
+export const prerender = true;
 import Layout from '@/layouts/Layout.astro';
+import ContactCTA from '@/components/ContactCTA.astro';
 ---
 
 <Layout title="Work — Pavan Raheja" description="AI Product Manager and builder in Dubai. Shipped Vertex AI in production at Mashkor; now builds and governs AI agents — conversational, research, ops-automation, and decision systems — with Claude Code, MCP, the Agent SDK, and LLM evals.">
@@ -41,14 +43,22 @@ import Layout from '@/layouts/Layout.astro';
       <span class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-100">Dubai, UAE</span>
     </div>
 
-    <!-- Digital clone CTA -->
+    <!-- Contact CTA -->
     <div class="rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
       <p class="text-sm text-gray-600">
-        Want the short version? <span class="text-gray-900 font-medium">Ask my AI clone anything</span> about my experience — or read the full timeline below.
+        Hiring, or want to talk AI products? <span class="text-gray-900 font-medium">WhatsApp me</span> — I usually reply within the hour. Or ask my AI clone for the short version.
       </p>
-      <a href="/#chat" class="inline-flex items-center justify-center gap-1.5 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors whitespace-nowrap">
-        💬 Talk to my clone
-      </a>
+      <div class="flex flex-wrap gap-2">
+        <a href="https://wa.me/971503860738?text=Hi%20Pavan%20%E2%80%94%20found%20you%20via%20pavan.blog." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-1.5 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors whitespace-nowrap">
+          💬 WhatsApp me
+        </a>
+        <a href="mailto:pavanraheja@gmail.com" class="inline-flex items-center justify-center gap-1.5 border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:border-gray-400 transition-colors whitespace-nowrap">
+          ✉️ Email
+        </a>
+        <a href="/#chat" class="inline-flex items-center justify-center gap-1.5 border border-gray-200 bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:border-gray-400 transition-colors whitespace-nowrap">
+          Talk to my clone
+        </a>
+      </div>
     </div>
 
     <div class="space-y-12">
@@ -407,6 +417,11 @@ import Layout from '@/layouts/Layout.astro';
           <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-600">{t}</span>
         ))}
       </div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="mt-14 scroll-mt-20">
+      <ContactCTA />
     </div>
   </section>
 </Layout>
