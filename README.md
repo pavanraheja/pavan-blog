@@ -2,7 +2,7 @@
 
 Personal site for [Pavan Raheja](https://pavan.blog) — AI Product Manager — including a **digital clone**: a streaming conversational agent that answers questions about my work.
 
-**Live:** [pavan.blog](https://pavan.blog)
+**Live:** [pavan.blog](https://pavan.blog) · **Work & contact:** [pavan.blog/work](https://www.pavan.blog/work?utm_source=github&utm_medium=readme&utm_campaign=pavan-blog)
 
 ---
 
