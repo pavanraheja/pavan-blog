@@ -1,23 +1,55 @@
 ---
+interface Props {
+  variant?: 'inline' | 'floating';
+}
+
+const { variant = 'inline' } = Astro.props;
+const floating = variant === 'floating';
+const chips = ["I'm hiring / recruiting", "I'm exploring a collaboration", 'Just exploring'];
 ---
 
-<section id="chat" class="max-w-5xl mx-auto px-6 py-20">
-  <div class="max-w-2xl mx-auto">
-    <div class="mb-6">
-      <h2 class="text-2xl font-semibold text-gray-900">Talk to my AI clone</h2>
-      <p class="mt-1 text-gray-500 text-sm">
-        An AI trained on my work. Tell it who you are and it'll show you what's relevant — I read the conversations and follow up personally.
-      </p>
+{floating && (
+  <button
+    id="chat-launcher"
+    type="button"
+    aria-controls="chat-panel"
+    aria-expanded="false"
+    class="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 bg-gray-900 text-white px-4 py-3 rounded-full text-sm font-medium shadow-lg hover:bg-gray-700 transition-colors"
+  >
+    💬 Ask my AI clone
+  </button>
+)}
+
+<section
+  id={floating ? 'chat-panel' : 'chat'}
+  data-variant={variant}
+  hidden={floating}
+  class={floating
+    ? 'fixed bottom-20 right-4 left-4 sm:left-auto sm:w-[400px] z-50 bg-white rounded-2xl border border-gray-200 shadow-2xl p-4'
+    : 'max-w-5xl mx-auto px-6 py-20'}
+>
+  <div class={floating ? '' : 'max-w-2xl mx-auto'}>
+    <div class={floating ? 'mb-3 flex items-start justify-between gap-3' : 'mb-6'}>
+      <div>
+        <h2 class={floating ? 'text-base font-semibold text-gray-900' : 'text-2xl font-semibold text-gray-900'}>
+          Talk to my AI clone
+        </h2>
+        <p class={floating ? 'mt-0.5 text-gray-500 text-xs' : 'mt-1 text-gray-500 text-sm'}>
+          An AI trained on my work. Tell it who you are and it'll show you what's relevant — I read the conversations and follow up personally.
+        </p>
+      </div>
+      {floating && (
+        <button id="chat-close" type="button" aria-label="Close chat" class="text-gray-400 hover:text-gray-700 text-lg leading-none px-1">
+          ×
+        </button>
+      )}
     </div>
 
     <!-- Intent chips (class kept as suggested-q for PostHog click tracking) -->
-    <div id="intent-chips" class="flex flex-wrap gap-2 mb-4">
-      {[
-        "I'm hiring / recruiting",
-        "I'm exploring a collaboration",
-        "Just exploring",
-      ].map((q) => (
+    <div id="intent-chips" class={floating ? 'flex flex-wrap gap-2 mb-3' : 'flex flex-wrap gap-2 mb-4'}>
+      {chips.map((q) => (
         <button
+          type="button"
           class="suggested-q text-xs px-3 py-1.5 rounded-full border border-gray-200 text-gray-600 hover:border-gray-400 hover:text-gray-800 transition-colors bg-white"
         >
           {q}
@@ -28,13 +60,13 @@
     <!-- Chat messages -->
     <div
       id="chat-messages"
-      class="h-96 overflow-y-auto rounded-xl border border-gray-200 bg-gray-50 p-4 flex flex-col gap-3 mb-3"
+      class={`${floating ? 'h-80' : 'h-96'} overflow-y-auto rounded-xl border border-gray-200 bg-gray-50 p-4 flex flex-col gap-3 mb-3`}
     >
       <div class="flex gap-3">
         <div class="w-7 h-7 rounded-full bg-gray-900 flex-shrink-0 flex items-center justify-center">
           <span class="text-white text-xs font-bold">P</span>
         </div>
-        <div class="bg-white rounded-xl px-4 py-3 text-sm text-gray-700 shadow-sm max-w-[85%]">
+        <div id="chat-greeting" class="bg-white rounded-xl px-4 py-3 text-sm text-gray-700 shadow-sm max-w-[85%]">
           Hi — I'm Pavan's AI clone. What brings you here: hiring, a collaboration, or just exploring?
         </div>
       </div>
@@ -48,7 +80,7 @@
         placeholder="Type a message..."
         autocomplete="off"
         maxlength="2000"
-        class="flex-1 rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+        class="flex-1 min-w-0 rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
       />
       <button
         type="submit"
@@ -62,15 +94,79 @@
 </section>
 
 <script>
+  const root = (document.getElementById('chat') ?? document.getElementById('chat-panel')) as HTMLElement;
+  const floating = root.dataset.variant === 'floating';
   const form = document.getElementById('chat-form') as HTMLFormElement;
   const input = document.getElementById('chat-input') as HTMLInputElement;
   const submit = document.getElementById('chat-submit') as HTMLButtonElement;
   const messagesEl = document.getElementById('chat-messages') as HTMLDivElement;
   const chips = document.getElementById('intent-chips') as HTMLDivElement;
+  const greeting = document.getElementById('chat-greeting') as HTMLDivElement;
+  const launcher = document.getElementById('chat-launcher') as HTMLButtonElement | null;
 
   const history: { role: 'user' | 'assistant'; content: string }[] = [];
   const conversationId = crypto.randomUUID();
   let leadAlerted = 0; // which lead details have already triggered an alert to Pavan
+  const posthog = () => (window as any).posthog;
+
+  // --- Returning visitors: details they shared, kept only in their own browser ---
+  type Visitor = { name?: string; company?: string; role?: string; intent?: string };
+  const VISITOR_KEY = 'pavanClone.visitor';
+
+  function loadVisitor(): Visitor | null {
+    try {
+      const raw = localStorage.getItem(VISITOR_KEY);
+      return raw ? (JSON.parse(raw) as Visitor) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function saveVisitor(update: Visitor) {
+    const merged: Visitor = { ...(loadVisitor() ?? {}) };
+    for (const [key, value] of Object.entries(update)) {
+      if (typeof value === 'string' && value.trim()) (merged as Record<string, string>)[key] = value.trim().slice(0, 80);
+    }
+    try {
+      localStorage.setItem(VISITOR_KEY, JSON.stringify(merged));
+    } catch {
+      /* storage unavailable — the chat still works, it just won't remember */
+    }
+  }
+
+  const returning = loadVisitor();
+  if (returning?.name) {
+    greeting.textContent = returning.company
+      ? `Welcome back, ${returning.name} — want to pick up where we left off on ${returning.company}, or start something new?`
+      : `Welcome back, ${returning.name} — want to pick up where we left off, or start something new?`;
+  }
+
+  // --- Floating panel: open from the launcher or any "#chat" link on the page ---
+  function openPanel(source: string) {
+    if (!floating || !root.hidden) return;
+    root.hidden = false;
+    launcher?.setAttribute('aria-expanded', 'true');
+    posthog()?.capture?.('clone_opened', { source, page: location.pathname });
+    input.focus();
+  }
+
+  function closePanel() {
+    root.hidden = true;
+    launcher?.setAttribute('aria-expanded', 'false');
+  }
+
+  if (floating) {
+    launcher?.addEventListener('click', () => (root.hidden ? openPanel('launcher') : closePanel()));
+    document.getElementById('chat-close')?.addEventListener('click', closePanel);
+    document.addEventListener('click', (e) => {
+      const link = (e.target as HTMLElement).closest?.('a[href$="#chat"]');
+      if (link) {
+        e.preventDefault();
+        openPanel('link');
+      }
+    });
+    if (location.hash === '#chat') openPanel('hash');
+  }
 
   document.querySelectorAll('.suggested-q').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -79,6 +175,7 @@
     });
   });
 
+  // --- Rendering ---
   function escapeHtml(s: string): string {
     return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
   }
@@ -116,6 +213,12 @@
     return html.join('');
   }
 
+  const STATUS_TEXT: Record<string, string> = {
+    find_applied_roles: 'Looking that up…',
+    save_visitor: 'Noting that down…',
+    request_call: 'Sending your request to Pavan…',
+  };
+
   function addMessage(role: 'user' | 'assistant', text: string): HTMLElement {
     const wrapper = document.createElement('div');
     wrapper.className = 'flex gap-3' + (role === 'user' ? ' justify-end' : '');
@@ -140,6 +243,7 @@
     return bubble;
   }
 
+  // --- Sending ---
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const text = input.value.trim();
@@ -155,7 +259,6 @@
     const bubble = addMessage('assistant', '');
     bubble.innerHTML = '<span class="animate-pulse text-gray-400">...</span>';
 
-    const posthog = (window as any).posthog;
     let fullText = '';
 
     try {
@@ -165,9 +268,11 @@
         body: JSON.stringify({
           messages: history,
           conversationId,
-          distinctId: posthog?.get_distinct_id?.() ?? null,
-          sessionId: posthog?.get_session_id?.() ?? null,
+          distinctId: posthog()?.get_distinct_id?.() ?? null,
+          sessionId: posthog()?.get_session_id?.() ?? null,
           leadAlerted,
+          visitor: loadVisitor(),
+          page: location.pathname,
         }),
       });
 
@@ -188,11 +293,15 @@
         for (const event of events) {
           if (!event.startsWith('data: ')) continue;
           const payload = JSON.parse(event.slice(6));
+          if (payload.status && !fullText.trim()) {
+            bubble.innerHTML = `<span class="animate-pulse text-gray-400">${escapeHtml(STATUS_TEXT[payload.status] ?? 'Thinking…')}</span>`;
+          }
           if (payload.t) {
             fullText += payload.t;
-            bubble.innerHTML = renderMarkdown(fullText);
+            if (fullText.trim()) bubble.innerHTML = renderMarkdown(fullText);
             messagesEl.scrollTop = messagesEl.scrollHeight;
           }
+          if (payload.visitor) saveVisitor(payload.visitor);
           if (typeof payload.leadAlerted === 'number') leadAlerted = payload.leadAlerted;
           if (payload.error) failed = true;
         }

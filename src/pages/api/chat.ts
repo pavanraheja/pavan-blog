@@ -4,6 +4,7 @@ import type { APIRoute } from 'astro';
 import Anthropic from '@anthropic-ai/sdk';
 import type {
   BetaMessageParam,
+  BetaTextBlockParam,
   BetaTool,
   BetaToolResultBlockParam,
   BetaToolUseBlock,
@@ -41,7 +42,8 @@ const TOOLS: BetaTool[] = [
     name: 'find_applied_roles',
     description:
       'Look up the roles Pavan has applied for at the company a recruiter or hiring manager says they are from. ' +
-      'Returns found=false, or the company name and its role titles. Call it as soon as a recruiter names their company. ' +
+      'Returns found=false, or the company name and its roles — each with a title and, when available, a pitch: ' +
+      'the angle Pavan\'s application for that role led with. Call it as soon as a recruiter names their company. ' +
       'Only the role titles at that one company may ever be mentioned to the visitor.',
     input_schema: {
       type: 'object',
@@ -71,13 +73,35 @@ const TOOLS: BetaTool[] = [
       additionalProperties: false,
     },
   },
+  {
+    name: 'request_call',
+    description:
+      'Send Pavan a request for a call with this visitor. Use only once the visitor has said they want a call and has ' +
+      'given an email, 2–3 time slots and their timezone. Pavan confirms the booking himself by email.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        email: { type: 'string' },
+        topic: { type: 'string', description: 'One line: what they want to discuss' },
+        timezone: { type: 'string', description: "The visitor's timezone, e.g. GMT+4 or Europe/London" },
+        slots: { type: 'array', items: { type: 'string' }, description: "2–3 proposed time slots, in the visitor's words" },
+        name: { type: 'string' },
+        company: { type: 'string' },
+      },
+      required: ['email', 'topic', 'timezone', 'slots'],
+      additionalProperties: false,
+    },
+  },
 ];
+
+type Emit = (payload: Record<string, unknown>) => void;
 
 interface ChatContext {
   distinctId: string;
   conversationId: string;
   sessionId: string | null;
   leadAlerted: number;
+  emit: Emit;
 }
 
 async function runTool(block: BetaToolUseBlock, ctx: ChatContext): Promise<string> {
@@ -97,6 +121,8 @@ async function runTool(block: BetaToolUseBlock, ctx: ChatContext): Promise<strin
 
   if (block.name === 'save_visitor') {
     await captureEvent('clone_lead', ctx.distinctId, { ...base, ...input });
+    // Lets the widget remember a returning visitor in their own browser.
+    ctx.emit({ visitor: { name: input.name, company: input.company, role: input.role, intent: input.intent } });
     const known = (input.name ? LEAD_NAME : 0) | (input.email ? LEAD_EMAIL : 0);
     if (known & ~ctx.leadAlerted) {
       const lines = [
@@ -110,6 +136,32 @@ async function runTool(block: BetaToolUseBlock, ctx: ChatContext): Promise<strin
       if (await notifyTelegram(lines.join('\n'))) ctx.leadAlerted |= known;
     }
     return JSON.stringify({ saved: true });
+  }
+
+  if (block.name === 'request_call') {
+    const call = block.input as { email?: string; topic?: string; timezone?: string; slots?: unknown; name?: string; company?: string };
+    const slots = Array.isArray(call.slots) ? call.slots.slice(0, 5).map(String) : [];
+    await captureEvent('clone_call_request', ctx.distinctId, {
+      ...base,
+      name: call.name,
+      email: call.email,
+      company: call.company,
+      topic: call.topic,
+      timezone: call.timezone,
+      slots: slots.join(' | '),
+    });
+    const lines = [
+      'pavan.blog clone — CALL REQUEST',
+      call.name && `Name: ${call.name}`,
+      call.company && `Company: ${call.company}`,
+      `Email: ${call.email}`,
+      `Topic: ${call.topic}`,
+      `Timezone: ${call.timezone}`,
+      ...slots.map((s, i) => `Slot ${i + 1}: ${s}`),
+      ctx.sessionId && `Replay: ${POSTHOG_REPLAY_URL}${ctx.sessionId}`,
+    ].filter(Boolean);
+    await notifyTelegram(lines.join('\n'));
+    return JSON.stringify({ requested: true });
   }
 
   return JSON.stringify({ error: `Unknown tool ${block.name}` });
@@ -128,6 +180,24 @@ function isValidMessages(messages: unknown): messages is { role: 'user' | 'assis
         m.content.length <= MAX_MESSAGE_CHARS,
     ) &&
     messages[messages.length - 1].role === 'user'
+  );
+}
+
+// Details a returning visitor shared on an earlier visit, stored only in their browser.
+function returningVisitorNote(visitor: unknown): string | null {
+  if (!visitor || typeof visitor !== 'object') return null;
+  const clean = (v: unknown) => (typeof v === 'string' ? v.replace(/[\r\n]+/g, ' ').trim().slice(0, 80) : '');
+  const v = visitor as Record<string, unknown>;
+  const fields = [
+    ['name', clean(v.name)],
+    ['company', clean(v.company)],
+    ['role', clean(v.role)],
+    ['intent', clean(v.intent)],
+  ].filter(([, value]) => value);
+  if (!fields.some(([key]) => key === 'name')) return null;
+  return (
+    'RETURNING VISITOR — details they shared on an earlier visit, remembered in their browser (unverified): ' +
+    fields.map(([key, value]) => `${key}: ${value}`).join('; ')
   );
 }
 
@@ -150,12 +220,14 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const conversationId = typeof body.conversationId === 'string' ? body.conversationId.slice(0, 64) : crypto.randomUUID();
-  const ctx: ChatContext = {
-    conversationId,
-    distinctId: typeof body.distinctId === 'string' && body.distinctId ? body.distinctId.slice(0, 200) : conversationId,
-    sessionId: typeof body.sessionId === 'string' && body.sessionId ? body.sessionId.slice(0, 64) : null,
-    leadAlerted: typeof body.leadAlerted === 'number' ? body.leadAlerted & (LEAD_NAME | LEAD_EMAIL) : 0,
-  };
+  const distinctId =
+    typeof body.distinctId === 'string' && body.distinctId ? body.distinctId.slice(0, 200) : conversationId;
+  const sessionId = typeof body.sessionId === 'string' && body.sessionId ? body.sessionId.slice(0, 64) : null;
+  const leadAlerted = typeof body.leadAlerted === 'number' ? body.leadAlerted & (LEAD_NAME | LEAD_EMAIL) : 0;
+
+  const system: BetaTextBlockParam[] = [{ type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } }];
+  const visitorNote = returningVisitorNote(body.visitor);
+  if (visitorNote) system.push({ type: 'text', text: visitorNote });
 
   const history: BetaMessageParam[] = messages.map((m) => ({ role: m.role, content: m.content }));
   const encoder = new TextEncoder();
@@ -163,8 +235,8 @@ export const POST: APIRoute = async ({ request }) => {
   const readable = new ReadableStream({
     async start(controller) {
       // Deltas are JSON-encoded so newlines inside the text never break SSE framing.
-      const send = (payload: Record<string, unknown>) =>
-        controller.enqueue(encoder.encode(`data: ${JSON.stringify(payload)}\n\n`));
+      const send: Emit = (payload) => controller.enqueue(encoder.encode(`data: ${JSON.stringify(payload)}\n\n`));
+      const ctx: ChatContext = { conversationId, distinctId, sessionId, leadAlerted, emit: send };
       let reply = '';
       const toolsUsed: string[] = [];
       let outcome = 'ok';
@@ -181,9 +253,15 @@ export const POST: APIRoute = async ({ request }) => {
             betas: ['server-side-fallback-2026-07-01'],
             fallbacks: 'default',
             output_config: { effort: 'low' },
-            system: [{ type: 'text', text: SYSTEM_PROMPT, cache_control: { type: 'ephemeral' } }],
+            system,
             tools: TOOLS,
             messages: history,
+          });
+          stream.on('streamEvent', (event) => {
+            // Tell the widget a lookup is under way, so a tool round doesn't look like a stall.
+            if (event.type === 'content_block_start' && event.content_block.type === 'tool_use') {
+              send({ status: event.content_block.name });
+            }
           });
           stream.on('text', (delta) => {
             reply += delta;
@@ -225,6 +303,8 @@ export const POST: APIRoute = async ({ request }) => {
         assistant_message: reply,
         tools_used: toolsUsed.join(','),
         outcome,
+        returning_visitor: Boolean(visitorNote),
+        page: typeof body.page === 'string' ? body.page.slice(0, 200) : null,
         model: MODEL,
         country: request.headers.get('x-vercel-ip-country'),
       });
