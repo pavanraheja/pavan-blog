@@ -1,12 +1,13 @@
 ---
+export const prerender = true;
 import Layout from '@/layouts/Layout.astro';
 ---
 
-<Layout title="About — Pavan Raheja" description="AI Product Manager based in Dubai, building AI agents and LLM products. Learning daily, growing daily.">
+<Layout title="About Pavan Raheja — AI Product Manager in Dubai" description="AI Product Manager based in Dubai, building AI agents and LLM products. Learning daily, growing daily.">
   <section class="max-w-5xl mx-auto px-6 py-20">
     <div class="max-w-2xl">
       <div class="w-28 h-28 rounded-2xl overflow-hidden bg-gray-100 shadow-sm mb-8">
-        <img src="/pavan.jpg" alt="Pavan Raheja" class="w-full h-full object-cover object-top" />
+        <img src="/pavan.jpg" alt="Pavan Raheja" width="1000" height="1000" decoding="async" class="w-full h-full object-cover object-top" />
       </div>
       <h1 class="text-4xl font-bold text-gray-900 mb-6">About</h1>
 
@@ -56,6 +57,10 @@ import Layout from '@/layouts/Layout.astro';
             <img
               src="/images/travel-rocks.jpg"
               alt="Pavan Raheja travelling"
+              width="900"
+              height="1200"
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover object-center"
             />
           </div>
@@ -63,6 +68,10 @@ import Layout from '@/layouts/Layout.astro';
             <img
               src="/images/headstand-actual.jpg"
               alt="Pavan Raheja headstand — 12 min 53 sec"
+              width="960"
+              height="1280"
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover object-center"
             />
           </div>
@@ -70,6 +79,10 @@ import Layout from '@/layouts/Layout.astro';
             <img
               src="/images/hike.jpg"
               alt="Pavan Raheja hiking"
+              width="960"
+              height="1280"
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover object-center"
             />
           </div>

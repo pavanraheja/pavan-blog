@@ -10,6 +10,11 @@ interface Props {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   /** Floating chat on every page; pages that embed the chat inline pass 'none'. */
   chat?: 'floating' | 'none';
+  /** 'article' marks blog posts for social previews and adds their publish date. */
+  ogType?: 'website' | 'article';
+  publishedTime?: string;
+  /** Keeps a page out of search results (the 404 page). */
+  noindex?: boolean;
 }
 
 const {
@@ -18,9 +23,14 @@ const {
   image = '/images/og-default.png',
   jsonLd,
   chat = 'floating',
+  ogType = 'website',
+  publishedTime,
+  noindex = false,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, 'https://www.pavan.blog').href;
+// Prerendered pages build as dir/index.html, so their pathname ends in "/"; canonicals match the sitemap without it.
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const canonical = new URL(path, 'https://www.pavan.blog').href;
 const ogImage = new URL(image, 'https://www.pavan.blog').href;
 ---
 
@@ -30,19 +40,21 @@ const ogImage = new URL(image, 'https://www.pavan.blog').href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
     <title>{title}</title>
-    <link rel="canonical" href={canonical} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <link rel="alternate" type="application/rss+xml" title="Pavan Raheja — Articles" href="https://www.pavan.blog/rss.xml" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Pavan Raheja" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -100,12 +112,20 @@ const ogImage = new URL(image, 'https://www.pavan.blog').href;
       (function(){
         if (window.posthog && window.posthog.register) window.posthog.register({ site: 'pavan_blog' });
         function cap(n, p){ if (window.posthog && window.posthog.capture) window.posthog.capture(n, p); }
+        // Where on the page a link sits: an explicit data-cta block, else the nav or footer.
+        function position(a){
+          var block = a.closest('[data-cta]');
+          if (block) return block.getAttribute('data-cta');
+          if (a.closest('nav')) return 'nav';
+          if (a.closest('footer')) return 'footer';
+          return 'body';
+        }
         document.addEventListener('click', function(e){
           if (!e.target || !e.target.closest) return;
           var a = e.target.closest('a');
           if (a) {
             var href = a.getAttribute('href') || '';
-            var b = { link_url: href, link_text: (a.innerText || '').trim().slice(0, 80), page: location.pathname };
+            var b = { link_url: href, link_text: (a.innerText || '').trim().slice(0, 80), page: location.pathname, position: position(a) };
             if (/wa\.me|api\.whatsapp\.com/i.test(href)) cap('whatsapp_click', b);
             else if (href.indexOf('mailto:') === 0) cap('email_click', b);
             else if (href.indexOf('tel:') === 0) cap('phone_click', b);
@@ -124,6 +144,44 @@ const ogImage = new URL(image, 'https://www.pavan.blog').href;
           else if (/subscribe-form/.test(f.className || '')) cap('newsletter_form_submit', p);
           else cap('form_submit', p);
         }, true);
+
+        // Scroll depth (fires on real scrolling only, so bots that never scroll don't count).
+        var marks = [25, 50, 75, 100], reached = {}, ticking = false;
+        window.addEventListener('scroll', function(){
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function(){
+            ticking = false;
+            var el = document.documentElement;
+            var max = el.scrollHeight - el.clientHeight;
+            var pct = max > 0 ? Math.round((window.scrollY / max) * 100) : 100;
+            marks.forEach(function(m){
+              if (pct >= m && !reached[m]) { reached[m] = true; cap('scroll_depth', { percent: m, page: location.pathname }); }
+            });
+          });
+        }, { passive: true });
+
+        document.addEventListener('DOMContentLoaded', function(){
+          // WhatsApp messages say which page they came from, so inbound chats can be traced to the site.
+          var page = location.pathname === '/' ? '' : location.pathname.replace(/\/+$/, '');
+          document.querySelectorAll('a[href*="wa.me/"]').forEach(function(a){
+            a.href = a.href.replace('via%20pavan.blog.', 'via%20pavan.blog' + encodeURIComponent(page).replace(/%2F/g, '/') + '.');
+          });
+          // Blocks marked data-track-section report once when half of them is on screen.
+          if (!('IntersectionObserver' in window)) return;
+          var seen = {};
+          var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+              if (!entry.isIntersecting) return;
+              var section = entry.target.getAttribute('data-track-section');
+              io.unobserve(entry.target);
+              if (seen[section]) return;
+              seen[section] = true;
+              cap('section_viewed', { section: section, page: location.pathname });
+            });
+          }, { threshold: 0.5 });
+          document.querySelectorAll('[data-track-section]').forEach(function(el){ io.observe(el); });
+        });
       })();
     </script>
   </head>
@@ -162,6 +220,7 @@ const ogImage = new URL(image, 'https://www.pavan.blog').href;
           <a href="mailto:pavanraheja@gmail.com" class="hover:text-gray-700 transition-colors">Email</a>
           <a href="https://www.linkedin.com/in/pavanraheja" target="_blank" rel="noopener" class="hover:text-gray-700 transition-colors">LinkedIn</a>
           <a href="/articles" class="hover:text-gray-700 transition-colors">Articles</a>
+          <a href="/rss.xml" class="hover:text-gray-700 transition-colors">RSS</a>
           <a href="/#chat" class="hover:text-gray-700 transition-colors">Digital Clone</a>
         </div>
       </div>
