@@ -9,8 +9,9 @@ import type {
   BetaToolResultBlockParam,
   BetaToolUseBlock,
 } from '@anthropic-ai/sdk/resources/beta/messages/messages';
-import { SYSTEM_PROMPT } from '@/lib/knowledge';
-import { findAppliedRoles } from '@/lib/clone/roles';
+import { KNOWLEDGE_DETAILS, SYSTEM_PROMPT } from '@/lib/knowledge';
+import { findAppliedRoles, findRole } from '@/lib/clone/roles';
+import { roleBrief } from '@/lib/clone/briefs';
 import { captureEvent, env, notifyTelegram } from '@/lib/clone/notify';
 
 const client = new Anthropic({ apiKey: env('ANTHROPIC_API_KEY') });
@@ -42,15 +43,43 @@ const TOOLS: BetaTool[] = [
     name: 'find_applied_roles',
     description:
       'Look up the roles Pavan has applied for at the company a recruiter or hiring manager says they are from. ' +
-      'Returns found=false, or the company name and its roles — each with a title and, when available, a pitch: ' +
-      'the angle Pavan\'s application for that role led with. Call it as soon as a recruiter names their company. ' +
-      'Only the role titles at that one company may ever be mentioned to the visitor.',
+      'Returns found=false, or the company name and its role titles. Pass the visitor\'s name when you have it: if Pavan ' +
+      'has reached out to this person before, the result includes that outreach context. Call it as soon as a recruiter ' +
+      'names their company. Only the role titles at that one company may ever be mentioned to the visitor.',
     input_schema: {
       type: 'object',
       properties: {
         company: { type: 'string', description: 'Company name as the visitor gave it' },
+        visitor_name: { type: 'string', description: "The visitor's name, if they've shared it" },
       },
       required: ['company'],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: 'get_role_brief',
+    description:
+      'Once the recruiter has confirmed which role this is about, load its brief: what the role needs and the angle ' +
+      "Pavan's application took. Call it once per confirmed role, before tailoring your answer.",
+    input_schema: {
+      type: 'object',
+      properties: {
+        company: { type: 'string' },
+        role: { type: 'string', description: 'The confirmed role title, as returned by find_applied_roles' },
+      },
+      required: ['company', 'role'],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: 'get_detail',
+    description: 'Load a detail topic from the knowledge base when a visitor digs into it. See DETAIL TOPICS in your instructions.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        topic: { type: 'string', enum: Object.keys(KNOWLEDGE_DETAILS) },
+      },
+      required: ['topic'],
       additionalProperties: false,
     },
   },
@@ -109,14 +138,36 @@ async function runTool(block: BetaToolUseBlock, ctx: ChatContext): Promise<strin
   const base = { conversation_id: ctx.conversationId, $session_id: ctx.sessionId };
 
   if (block.name === 'find_applied_roles') {
-    const match = findAppliedRoles(input.company ?? '');
+    const match = await findAppliedRoles(input.company ?? '', input.visitor_name);
     await captureEvent('clone_role_lookup', ctx.distinctId, {
       ...base,
       company_query: input.company,
       matched_company: match?.company ?? null,
       roles_found: match?.roles.length ?? 0,
+      contact_matched: Boolean(match?.contact),
     });
-    return JSON.stringify(match ? { found: true, company: match.company, roles: match.roles } : { found: false });
+    if (!match) return JSON.stringify({ found: false });
+    return JSON.stringify({
+      found: match.roles.length > 0,
+      company: match.company,
+      roles: match.roles.map((r) => r.title),
+      ...(match.contact && { prior_outreach: { context: match.contact.context, date: match.contact.date } }),
+    });
+  }
+
+  if (block.name === 'get_role_brief') {
+    const role = await findRole(input.company ?? '', input.role ?? '');
+    let brief: string | null = role?.brief ?? role?.pitch ?? null;
+    let source = brief ? 'legacy' : 'none';
+    if (!brief && role?.id) ({ brief, source } = await roleBrief(client, role.id, ctx.distinctId));
+    await captureEvent('clone_role_brief', ctx.distinctId, { ...base, company: input.company, role: role?.title ?? input.role, source });
+    return JSON.stringify(role ? { role: role.title, brief } : { brief: null });
+  }
+
+  if (block.name === 'get_detail') {
+    const detail = KNOWLEDGE_DETAILS[input.topic ?? ''];
+    await captureEvent('clone_detail_loaded', ctx.distinctId, { ...base, topic: input.topic, found: Boolean(detail) });
+    return JSON.stringify(detail ? { topic: input.topic, text: detail.text } : { error: 'unknown topic', topics: Object.keys(KNOWLEDGE_DETAILS) });
   }
 
   if (block.name === 'save_visitor') {
@@ -239,6 +290,7 @@ export const POST: APIRoute = async ({ request }) => {
       const ctx: ChatContext = { conversationId, distinctId, sessionId, leadAlerted, emit: send };
       let reply = '';
       const toolsUsed: string[] = [];
+      const usage = { input: 0, cache_read: 0, cache_write: 0, output: 0 };
       let outcome = 'ok';
 
       try {
@@ -268,6 +320,10 @@ export const POST: APIRoute = async ({ request }) => {
             send({ t: delta });
           });
           const message = await stream.finalMessage();
+          usage.input += message.usage.input_tokens ?? 0;
+          usage.cache_read += message.usage.cache_read_input_tokens ?? 0;
+          usage.cache_write += message.usage.cache_creation_input_tokens ?? 0;
+          usage.output += message.usage.output_tokens ?? 0;
 
           if (message.stop_reason === 'refusal') {
             outcome = 'refusal';
@@ -306,6 +362,10 @@ export const POST: APIRoute = async ({ request }) => {
         returning_visitor: Boolean(visitorNote),
         page: typeof body.page === 'string' ? body.page.slice(0, 200) : null,
         model: MODEL,
+        tokens_input: usage.input,
+        tokens_cache_read: usage.cache_read,
+        tokens_cache_write: usage.cache_write,
+        tokens_output: usage.output,
         country: request.headers.get('x-vercel-ip-country'),
       });
       controller.close();
