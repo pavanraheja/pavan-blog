@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-const lastUpdated = '2026-05-31';
+const lastUpdated = '2026-09-11';
 ---
 
 <Layout title="Privacy — Pavan Raheja" description="Privacy notice for pavan.blog and the Pavan on Capital newsletter — what's collected, how it's used, how to opt out.">
@@ -19,15 +19,16 @@ const lastUpdated = '2026-05-31';
       <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">What I collect</h2>
       <ul>
         <li><strong>Newsletter subscribers:</strong> your email address and (optionally) your first name. Provided by you via the subscribe form.</li>
-        <li><strong>Website analytics:</strong> anonymous, aggregated usage data (pages viewed, country, device) via Vercel Analytics and Speed Insights. No cookies, no personal identifiers.</li>
-        <li><strong>Digital clone chat:</strong> when you send a message to the chat widget, the message is sent to Anthropic's Claude API to generate a response. I log message counts and truncated message text (first 200 characters) for operational purposes. No long-term storage of full conversations.</li>
+        <li><strong>Website analytics:</strong> usage data such as pages viewed, referrer, country and device, via Vercel Analytics and PostHog. PostHog stores an identifier in your browser (cookie or local storage) to recognise a returning visit, and records session replays of how pages are used, with form inputs masked.</li>
+        <li><strong>Digital clone chat:</strong> your messages are sent to Anthropic's Claude API to generate replies. Conversations — your messages and the clone's replies — are stored in PostHog so I can follow up and improve the clone. If you share your name, email, company or what you're looking for, those details are also sent to me directly so I can get back to you.</li>
       </ul>
 
       <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">How I use it</h2>
       <ul>
         <li>To send you the newsletter you subscribed to.</li>
         <li>To understand which content resonates so I can write more useful things.</li>
-        <li>To respond to direct messages you send.</li>
+        <li>To respond to people who reach out, including through the chat.</li>
+        <li>To improve the digital clone's answers.</li>
       </ul>
 
       <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">What I don't do</h2>
@@ -42,15 +43,17 @@ const lastUpdated = '2026-05-31';
       <ul>
         <li><strong>MailerLite</strong> — newsletter delivery and subscriber management.</li>
         <li><strong>Vercel</strong> — site hosting, analytics, and speed insights.</li>
+        <li><strong>PostHog</strong> (EU cloud) — product analytics, session replay, and stored chat conversations.</li>
         <li><strong>Anthropic Claude API</strong> — powers the digital clone chat widget.</li>
+        <li><strong>Telegram</strong> — delivers contact details you share in the chat to me.</li>
       </ul>
       <p>Each of these has its own privacy practices; they receive only the data needed to do their job.</p>
 
       <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">Your choices</h2>
       <ul>
         <li><strong>Unsubscribe</strong> from the newsletter at any time using the link at the bottom of every email.</li>
-        <li><strong>Request deletion</strong> of any data I hold on you by emailing <a href="mailto:pavanraheja@gmail.com" class="text-brand-600 hover:text-brand-700">pavanraheja@gmail.com</a>.</li>
-        <li><strong>Don't use the chat widget</strong> if you'd rather not share any text with the Claude API.</li>
+        <li><strong>Request deletion</strong> of any data I hold on you, including chat conversations, by emailing <a href="mailto:pavanraheja@gmail.com" class="text-brand-600 hover:text-brand-700">pavanraheja@gmail.com</a>.</li>
+        <li><strong>Don't use the chat widget</strong> if you'd rather not have your messages stored or sent to the Claude API.</li>
       </ul>
 
       <h2 class="text-xl font-semibold text-gray-900 mt-10 mb-3">Contact</h2>
