@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 export const prerender = true;
 
 const SITE = 'https://www.pavan.blog';
-const STATIC_PAGES = ['', '/work', '/articles', '/newsletter', '/about'];
+const STATIC_PAGES = ['', '/work', '/articles', '/newsletter', '/about', '/privacy'];
 
 export const GET: APIRoute = async () => {
   const posts = await getCollection('articles');

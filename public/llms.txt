@@ -17,15 +17,28 @@ Core mantra: "Learn daily, grow daily, learn fundamentally."
 - Growth & Product Lead at Flint Technology (boutique consultancy, 2011–20): client growth work — marketplace listings +240%, content platforms to 300K users
 - Started as a software engineer (Java, microservices, banking applications)
 
+## Key pages
+
+- [Work and experience](https://www.pavan.blog/work): roles, results, and the systems he has shipped
+- [About](https://www.pavan.blog/about)
+- [Articles](https://www.pavan.blog/articles): all writing; RSS at https://www.pavan.blog/rss.xml
+- [Case Study: Shipping AI Agents That Act Without a Human](https://www.pavan.blog/articles/glasshouse-case-study)
+- [The Architecture of a Self-Driving System](https://www.pavan.blog/articles/architecture-of-a-self-driving-system)
+- [Evals for Agents That Act](https://www.pavan.blog/articles/evals-for-agents-that-act)
+- [Risk Guardian: Preventing Catastrophic Actions in Long-Running AI Agents (RFC #7218)](https://www.pavan.blog/articles/risk-guardian-rfc-7218)
+- [Building a Guardrailed AI Agent with Human-in-the-Loop](https://www.pavan.blog/articles/guardrailed-agent-human-in-the-loop)
+- [What a Year of Running Production AI Agents Taught Me About Reliability](https://www.pavan.blog/articles/production-ai-agents-reliability)
+- [I Built an n8n Workflow from Claude Code, via MCP](https://www.pavan.blog/articles/building-n8n-workflow-from-claude-code-via-mcp)
+
 ## Writing
 
 Technical writing on production AI agents — reliability, guardrails, human-in-the-loop, and evals — plus product management and growth frameworks.
 Notable: "What a Year of Running Production AI Agents Taught Me About Reliability", "Risk Guardian: Preventing Catastrophic Actions in Long-Running AI Agents (RFC #7218)", "Building a Guardrailed AI Agent with Human-in-the-Loop".
-Published at https://pavan.blog/articles
+Published at https://www.pavan.blog/articles
 
 ## Digital Clone
 
-An AI-powered digital clone of Pavan is available at https://pavan.blog — built on the Claude API, trained on his knowledge, voice, and experience. Ask it about AI agents, product management, or his work.
+An AI-powered digital clone of Pavan is available at https://www.pavan.blog — built on the Claude API, trained on his knowledge, voice, and experience. Ask it about AI agents, product management, or his work.
 
 ## Contact
 

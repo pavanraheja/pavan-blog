@@ -4,7 +4,7 @@ import Layout from '@/layouts/Layout.astro';
 import ContactCTA from '@/components/ContactCTA.astro';
 ---
 
-<Layout title="Work — Pavan Raheja" description="AI Product Manager and builder in Dubai. Shipped Vertex AI in production at Mashkor; now builds and governs AI agents — conversational, research, ops-automation, and decision systems — with Claude Code, MCP, the Agent SDK, and LLM evals.">
+<Layout title="Work — Pavan Raheja, AI Product Manager (AI Agents)" description="AI Product Manager and builder in Dubai. Shipped Vertex AI in production at Mashkor; now builds and governs AI agents — conversational, research, ops-automation, and decision systems — with Claude Code, MCP, the Agent SDK, and LLM evals.">
   <section class="max-w-5xl mx-auto px-6 py-20">
     <h1 class="text-4xl font-bold text-gray-900 mb-4">Work</h1>
     <p class="text-gray-500 mb-4 max-w-2xl">
@@ -44,7 +44,7 @@ import ContactCTA from '@/components/ContactCTA.astro';
     </div>
 
     <!-- Contact CTA -->
-    <div class="rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+    <div data-cta="work-contact" data-track-section="work-contact" class="rounded-xl border border-gray-200 bg-gray-50 px-5 py-4 mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
       <p class="text-sm text-gray-600">
         Hiring, or want to talk AI products? <span class="text-gray-900 font-medium">WhatsApp me</span> — I usually reply within the hour. Or ask my AI clone for the short version.
       </p>
@@ -217,7 +217,7 @@ import ContactCTA from '@/components/ContactCTA.astro';
             tech: 'Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel',
             desc: 'Conversational AI clone on pavan.blog. Designed the knowledge base, system prompt, suggested-question UX, and a graceful contact fallback for when the clone hits its limits. Streams token-by-token over SSE on a Vercel serverless function. Said no to RAG — 20+ articles fit cleanly in a static knowledge base.',
             outcome: ['Live on pavan.blog', 'Streaming Claude', '16 knowledge sections'],
-            link: 'https://pavan.blog/#chat',
+            link: '/#chat',
             github: 'https://github.com/pavanraheja/pavan-blog',
           },
           {

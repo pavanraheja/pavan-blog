@@ -21,5 +21,5 @@ Just copying a useful quote:
 
 "A transition is always painfulFrom filth to cleanlinessFrom darkness to lightFrom falsehood to truthHowever, the discomfort is temporary
 When you get used to the new state you wonder how and why you put up with filth, darkness and falsehood for so longYou'll never go back!"
-Also, I wrote about [Errors, mistakes](https://pavan.blog/2018/04/08/intuitions-impulsiveness-errors-mistakes-selfhelp/), previously, check it out. I suggest similar remedies like Yoga, Meditation, Conscious awareness, non-judgement to catch hold of the pain, reflect, act and progress awesomely! Cheers!
+Also, I wrote about [Errors, mistakes](/articles/intuitions-impulsiveness-errors-mistakes-selfhelp), previously, check it out. I suggest similar remedies like Yoga, Meditation, Conscious awareness, non-judgement to catch hold of the pain, reflect, act and progress awesomely! Cheers!
 References: Principles(Ray Dalio), My Gita(Devdutt Pattnaik), Power of Now(Eckhart Tolle), The Bible(Audio), and a lot of more books I have read and learnt from.

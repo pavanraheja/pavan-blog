@@ -1,6 +1,8 @@
 ---
+export const prerender = true;
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { plainText } from '@/lib/text';
 
 const posts = (await getCollection('articles')).sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
@@ -9,9 +11,12 @@ const posts = (await getCollection('articles')).sort(
 function formatDate(d: string) {
   return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 }
+
+// 160px WebP thumbnails live in /images/thumbs, so the list doesn't download full-size article images.
+const thumbnail = (src: string) => src.replace(/^\/images\/(.+)\.[a-z]+$/i, '/images/thumbs/$1.webp');
 ---
 
-<Layout title="Articles — Pavan Raheja" description="Writing on product, growth, AI, and building. By Pavan Raheja.">
+<Layout title="Articles — Pavan Raheja" description="Writing on AI agents, product management, growth, and building in public — by Pavan Raheja, AI Product Manager in Dubai.">
   <section class="max-w-5xl mx-auto px-6 py-20">
     <h1 class="text-4xl font-bold text-gray-900 mb-4">Articles</h1>
     <p class="text-gray-500 mb-14 max-w-xl">
@@ -26,8 +31,12 @@ function formatDate(d: string) {
             {post.data.image && (
               <div class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden bg-gray-100">
                 <img
-                  src={post.data.image}
+                  src={thumbnail(post.data.image)}
                   alt={post.data.title}
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -42,7 +51,7 @@ function formatDate(d: string) {
                 </time>
               </div>
               <p class="mt-1.5 text-sm text-gray-500 leading-relaxed line-clamp-2">
-                {post.data.excerpt}
+                {plainText(post.data.excerpt)}
               </p>
             </div>
           </a>
