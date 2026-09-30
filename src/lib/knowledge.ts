@@ -25,7 +25,7 @@ Most of what I build now is AI agents — and I focus on the results and governa
 - AlphaGrid — an open-source AI agent system that calls tools and APIs to act on live decisions, with that safety layer built in. Wrote up the approach as RFC #7218 on preventing catastrophic agent actions.
 - pavan.blog digital clone — the AI clone you're talking to right now: Claude (Opus 5) with tool use, streaming on Vercel. It works out who each visitor is before answering, tailors what it shares to their need, and hands genuine leads to me for a personal follow-up.
 - Content Research Agent — multi-step Claude agents that run niche content research and synthesis end to end (open-source: github.com/pavanraheja/content-research-agent).
-- Dubai RE Intelligence — a Flask + Pandas pipeline turning raw DLD real-estate data into decision intelligence (open-source: github.com/pavanraheja/dubai-re-intelligence).
+- Dubai RE Intelligence — live, refusal-aware Q&A over real 2026 DLD sales data; 85% on an independent eval at first contact (demo: dubai-re-intelligence-seven.vercel.app · open-source: github.com/pavanraheja/dubai-re-intelligence).
 - Work daily in Claude Code (hooks, slash commands, MCP servers), the Anthropic Agent SDK, tool-use / function-calling, prompt engineering, and LLM evals. Came up as a software engineer (Java / microservices), so I build the prototypes myself.
 - Glasshouse (glasshousedesk.com) — a transparent quant research desk, launched mid-2026. The name is the thesis: everything verifiable, nothing hidden — research, systematic strategies, and a non-custodial copy-service model (clients keep custody of their own funds; compensation is performance-share only). The entire operation — research agents, monitoring loops, promotion gates — runs on the agent infrastructure I built. The live desk and its production adapters stay private; the reusable orchestration pattern behind it is public at github.com/pavanraheja/alphagrid-orchestrator.
 - Insight Bay (insightbayai.com) — an AI automation agency for UAE SMEs, launched 2026. The first paid deployment ran live in July 2026: an AI-powered WhatsApp lead-responder and booking workflow for a Dubai field services company (best day: 42 jobs detected, 39 delivered, 0 errors, hands-free). The playbook is demo-first and honesty-led: build the working system, show it on the client's own leads, then charge for it.
@@ -204,14 +204,15 @@ Ten systems (five featured on pavan.blog/work, the rest newer). Each one is a pr
 4. **Dubai RE Intelligence.**
    Real-estate decisions at Dash Capital were being made against scattered DLD exports and manually-pulled data. Built a Flask + Pandas toolkit that auto-loads DLD transactions, normalises two incompatible export formats, and focuses the view on Emaar South and Dubai Creek Harbour — the two communities that drive the firm's thesis.
    Said no to a generic all-of-Dubai view — focused on communities that drive decisions, not vanity breadth.
-   Open-source: github.com/pavanraheja/dubai-re-intelligence.
+   Now a live, refusal-aware Q&A over real 2026 DLD residential sales (Jan–Sep, ~4,000 transactions): ask it about prices, trends or notable deals in those communities and it answers from the data — or refuses and says why when the data can't support an answer (e.g. year-on-year, since the public API only serves the current year). On an independent evaluation set written by a separate model that never saw the code, it scored 34/40 (85%) on first contact. A learning loop logs live questions, replays them on current code and suggests new eval cases — a human approves every label.
+   Live demo: https://dubai-re-intelligence-seven.vercel.app · Open-source: github.com/pavanraheja/dubai-re-intelligence.
 
 5. **Content Research Agent.**
    Two Claude-powered agents that turn a Monday morning's content research into a 2-minute cron job: one surfaces trending topics, pain points, and regulatory updates (VARA, UAE Central Bank); the other runs a YouTube content-strategy brief with hook titles and content gaps.
    Said no to RAG, scraping, and vector DBs — a single structured prompt is enough for weekly cadence content ops.
    Open-source: github.com/pavanraheja/content-research-agent.
 
-6. **Insight Bay Delivery Stack — WhatsApp AI Lead-Responder** (2026, first paying customer live).
+6. **Insight Bay Delivery Stack — WhatsApp AI Lead-Responder** (2026 — first paid deployment, ran live in July).
    UAE SMEs lose leads to slow replies. Built an AI responder that answers WhatsApp inquiries in seconds, qualifies the lead, and books the job — ran live in July 2026 for a Dubai field services company as the first paid deployment, sold after a demo on their own leads.
    Said no to a generic chatbot — the moat is vertical workflow depth (booking, follow-up, compliance), not conversation.
 
@@ -312,7 +313,7 @@ Biggest growth challenge yet — took MAU from 7K to 25K in 18 months (3×). Shi
 Founded and built from 0 → AED 2M revenue in 18 months — owned P&L, and built the AI ops stack (onboarding, outreach, CRM, lead-gen) that let a tiny team scale without headcount.
 
 2026–now | AI Product Manager — Glasshouse, Dubai
-Shipping AI-native systems end to end: launched Glasshouse (transparent quant research desk, glasshousedesk.com) and Insight Bay (AI automation agency with its first paying customer live, insightbayai.com) — both running on the agent infrastructure I built (AlphaGrid orchestration, Lab Framework gates, autonomous ops loops). Writing at pavan.blog, running Pavan on Capital, and looking for the right next AI Product Manager role at a company that builds agents.
+Shipping AI-native systems end to end: launched Glasshouse (transparent quant research desk, glasshousedesk.com) and Insight Bay (AI automation agency whose first paid deployment ran live in July 2026, insightbayai.com) — both running on the agent infrastructure I built (AlphaGrid orchestration, Lab Framework gates, autonomous ops loops). Writing at pavan.blog, running Pavan on Capital, and looking for the right next AI Product Manager role at a company that builds agents.
 
 The thread: I've always built things. Founder, PM, operator — same muscle, different context.
 
