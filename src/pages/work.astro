@@ -88,7 +88,7 @@ import ContactCTA from '@/components/ContactCTA.astro';
           headline: 'Founded and grew a business 0 → AED 2M in 18 months — by building the AI ops product that ran it.',
           bullets: [
             'Built the AI-powered operations stack that ran the company — automated client onboarding (KYC/compliance-aware), buyer/seller outreach sequencing, CRM and lead-gen workflows — replacing what would normally need a 3–5 person ops team',
-            'Built dubai-re-intelligence (open-source): a Flask + Pandas pipeline turning raw DLD transaction data into decision dashboards that drove every allocation call',
+            'Built dubai-re-intelligence (open-source): a pipeline turning raw DLD transaction data into decision dashboards that drove every allocation call — now a live, refusal-aware Q&A demo over real 2026 sales (85% on an independent eval at first contact)',
             'Full P&L ownership from zero to AED 2M (~$545K) annual revenue in 18 months — founder-operator, not a hired role',
             'The takeaway: the part I loved most was building the systems — which is why I went all-in on AI product',
           ],
@@ -110,7 +110,7 @@ import ContactCTA from '@/components/ContactCTA.astro';
         {
           company: 'Nova Benefits',
           tag: 'Insurtech · B2B · India',
-          role: 'Growth Program Manager',
+          role: 'Growth PM',
           period: 'Jan 2022 – Oct 2022',
           headline: '2.5× website traffic, +30% product leads in 4 months.',
           bullets: [
@@ -214,9 +214,9 @@ import ContactCTA from '@/components/ContactCTA.astro';
           },
           {
             title: 'pavan.blog — Digital Clone',
-            tech: 'Astro · Claude API (claude-sonnet-4-6) · SSE streaming · Vercel',
-            desc: 'Conversational AI clone on pavan.blog. Designed the knowledge base, system prompt, suggested-question UX, and a graceful contact fallback for when the clone hits its limits. Streams token-by-token over SSE on a Vercel serverless function. Said no to RAG — 20+ articles fit cleanly in a static knowledge base.',
-            outcome: ['Live on pavan.blog', 'Streaming Claude', '16 knowledge sections'],
+            tech: 'Astro · Claude API (claude-opus-5) · Tool use · Prompt caching · SSE streaming · Vercel',
+            desc: 'Conversational AI clone on pavan.blog. Designed the system prompt intent-first: it works out who the visitor is (recruiter, collaborator, exploring) before answering, then pulls only the knowledge that fits that need through tool calls, and hands genuine leads to me. Every conversation logs its token cost (input, cache, output) so cost per conversation is measured, not guessed; prompt caching keeps the large stable prefix cheap. Said no to RAG — the corpus is small enough that on-demand knowledge sections are cheaper and simpler than a vector store.',
+            outcome: ['Live on pavan.blog', 'Intent-first prompt', 'Lead capture', 'Token cost logged per chat'],
             link: '/#chat',
             github: 'https://github.com/pavanraheja/pavan-blog',
           },
@@ -235,9 +235,10 @@ import ContactCTA from '@/components/ContactCTA.astro';
           },
           {
             title: 'Dubai RE Intelligence',
-            tech: 'Python · Flask · Pandas · DLD transaction pipeline',
-            desc: 'Dubai real-estate decisions at Dash Capital were being made against scattered DLD exports and manually-pulled data — slow and hard to re-run. Built a Flask + Pandas toolkit that auto-loads DLD transactions, normalises two incompatible export formats, and focuses the view on the two communities driving the firm\'s thesis: Emaar South and Dubai Creek Harbour. Said no to a generic all-of-Dubai view — focused on communities that drive decisions, not vanity breadth.',
-            outcome: ['Runs on every DLD drop', 'Two-format normaliser', 'Bundled demo data', 'Emaar South + Creek Harbour'],
+            tech: 'Python · Pandas · DLD open-data pipeline · Eval harness · Vercel',
+            link: 'https://dubai-re-intelligence-seven.vercel.app',
+            desc: 'Dubai real-estate decisions at Dash Capital were being made against scattered DLD exports — slow and hard to re-run. Started as a toolkit that loads and normalises DLD transactions; now a live Q&A over real 2026 residential sales. The hard product call was what it must NOT answer: the DLD feed only serves the current year, so year-on-year is refused rather than estimated, modelled yields are labelled as modelled, and a question it cannot answer from the data gets a refusal with answerable alternatives — never a confident guess. Evaluated on a question set written by a separate model that never saw the code: 85% (34/40) at first contact. Live questions feed a human-gated learning loop — failures become eval candidates, a person approves the label. Said no to an LLM-only answer path: a rules planner answers at $0 per question, and the LLM planner is benchmarked against it on the same evals before it earns a place.',
+            outcome: ['Live demo', 'Refusal-aware', '85% independent eval', 'Human-gated learning loop'],
             github: 'https://github.com/pavanraheja/dubai-re-intelligence',
           },
           {
@@ -399,7 +400,7 @@ import ContactCTA from '@/components/ContactCTA.astro';
       <!-- AI & Agents -->
       <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">AI & Agents</p>
       <div class="flex flex-wrap gap-2 mb-5">
-        {['AI Agents', 'Agentic Workflows', 'Claude Code', 'MCP Servers', 'Anthropic Agent SDK', 'Tool-use / Function-calling', 'LLM Evals', 'Agent Governance', 'Google Vertex AI', 'Anthropic Claude API', 'OpenAI API', 'Prompt Engineering', 'RAG', 'Human-in-the-loop', 'Responsible AI'].map((t) => (
+        {['AI Agents', 'Agentic Workflows', 'Claude Code', 'MCP Servers', 'Anthropic Agent SDK', 'Tool-use / Function-calling', 'LLM Evals', 'Agent Governance', 'Google Vertex AI', 'Anthropic Claude API', 'OpenAI API', 'Model Selection (cost / latency)', 'Prompt Engineering', 'RAG', 'Human-in-the-loop', 'Responsible AI'].map((t) => (
           <span class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-100">{t}</span>
         ))}
       </div>
