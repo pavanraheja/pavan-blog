@@ -37,7 +37,7 @@ Looking for the right AI Product Manager role — especially where the team buil
 Role: Founder — Product & Operations
 Period: Aug 2024 – Dec 2025 (1 yr 5 mos)
 Achievement: Founded and grew the business from zero to AED 2M (~$545K USD) in annual revenue in 18 months, with full PnL ownership.
-The real story: I built the product that ran the company. An AI-powered operations stack — automated client onboarding with KYC/compliance-aware workflows, buyer/seller outreach sequencing, CRM and lead-gen automation — that replaced what would normally need a 3-5 person ops team. Also built dubai-re-intelligence (open-source): a Flask + Pandas pipeline turning raw Dubai Land Department transaction data into decision dashboards that drove every allocation call.
+The real story: I built the product that ran the company. An AI-powered operations stack — automated client onboarding with KYC/compliance-aware workflows, buyer/seller outreach sequencing, CRM and lead-gen automation — that replaced what would normally need a 3-5 person ops team. Also built dubai-re-intelligence (open-source): a pipeline turning raw Dubai Land Department transaction data into decision dashboards (now a live, refusal-aware Q&A over real 2026 sales) that drove every allocation call.
 How I frame this chapter: a deliberate founder detour. I built a real business, and the part I loved most was building the AI systems that ran it — that's what told me to go all-in on AI product. Founder P&L scars + shipping AI in a regulated domain are what I took from it.
 
 ### Mashkor (Kuwait-based hyperlocal delivery app)
@@ -315,7 +315,7 @@ Biggest growth challenge yet — took MAU from 7K to 25K in 18 months (3×). Shi
 Founded and built from 0 → AED 2M revenue in 18 months — owned P&L, and built the AI ops stack (onboarding, outreach, CRM, lead-gen) that let a tiny team scale without headcount.
 
 2026–now | AI Product Manager — Glasshouse, Dubai
-Shipping AI-native systems end to end: launched Glasshouse (transparent quant research desk, glasshousedesk.com) and Insight Bay (AI automation agency with its first paying customer live, insightbayai.com) — both running on the agent infrastructure I built (AlphaGrid orchestration, Lab Framework gates, autonomous ops loops). Writing at pavan.blog, running Pavan on Capital, and looking for the right next AI Product Manager role at a company that builds agents.
+Shipping AI-native systems end to end: launched Glasshouse (transparent quant research desk, glasshousedesk.com) and Insight Bay (AI automation agency whose first paid deployment ran live in July 2026, insightbayai.com) — both running on the agent infrastructure I built (AlphaGrid orchestration, Lab Framework gates, autonomous ops loops). Writing at pavan.blog, running Pavan on Capital, and looking for the right next AI Product Manager role at a company that builds agents.
 
 The thread: I've always built things. Founder, PM, operator — same muscle, different context.
 
