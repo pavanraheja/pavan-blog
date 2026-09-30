@@ -24,7 +24,7 @@ Design decisions worth naming:
 |---|---|
 | Framework | Astro 5 (static + serverless islands) |
 | Styling | Tailwind |
-| Agent | Claude API (`claude-sonnet-4-6`), streaming |
+| Agent | Claude API (`claude-opus-5`), tool use, streaming |
 | Hosting | Vercel |
 | Analytics | PostHog (EU cloud) |
 
