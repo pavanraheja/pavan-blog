@@ -111,7 +111,15 @@ const ogImage = new URL(image, 'https://www.pavan.blog').href;
     <script is:inline>
       (function(){
         if (window.posthog && window.posthog.register) window.posthog.register({ site: 'pavan_blog' });
+        // Pavan's own devices: open any page once with ?internal=1 (?internal=0 clears it) so his visits can be filtered out.
+        try {
+          if (/[?&]internal=1(&|$)/.test(location.search)) localStorage.setItem('pb_internal', '1');
+          if (/[?&]internal=0(&|$)/.test(location.search)) { localStorage.removeItem('pb_internal'); if (window.posthog && window.posthog.unregister) window.posthog.unregister('internal'); }
+          if (localStorage.getItem('pb_internal') === '1' && window.posthog && window.posthog.register) window.posthog.register({ internal: true });
+        } catch (e) {}
         function cap(n, p){ if (window.posthog && window.posthog.capture) window.posthog.capture(n, p); }
+        // Link clicks go out as a beacon so they survive the page navigating away.
+        function capLink(n, p){ if (window.posthog && window.posthog.capture) window.posthog.capture(n, p, { send_instantly: true, transport: 'sendBeacon' }); }
         // Where on the page a link sits: an explicit data-cta block, else the nav or footer.
         function position(a){
           var block = a.closest('[data-cta]');
@@ -126,12 +134,12 @@ const ogImage = new URL(image, 'https://www.pavan.blog').href;
           if (a) {
             var href = a.getAttribute('href') || '';
             var b = { link_url: href, link_text: (a.innerText || '').trim().slice(0, 80), page: location.pathname, position: position(a) };
-            if (/wa\.me|api\.whatsapp\.com/i.test(href)) cap('whatsapp_click', b);
-            else if (href.indexOf('mailto:') === 0) cap('email_click', b);
-            else if (href.indexOf('tel:') === 0) cap('phone_click', b);
-            else if (/\.(pdf|csv|xlsx?|zip|docx?)(\?|$)/i.test(href)) cap('file_download', b);
-            else if (/#(access|talk|chat|start|book|contact)$/i.test(href)) cap('cta_click', b);
-            else if (/^https?:\/\//i.test(href) && href.indexOf(location.hostname) === -1) cap('outbound_click', b);
+            if (/wa\.me|api\.whatsapp\.com/i.test(href)) capLink('whatsapp_click', b);
+            else if (href.indexOf('mailto:') === 0) capLink('email_click', b);
+            else if (href.indexOf('tel:') === 0) capLink('phone_click', b);
+            else if (/\.(pdf|csv|xlsx?|zip|docx?)(\?|$)/i.test(href)) capLink('file_download', b);
+            else if (/#(access|talk|chat|start|book|contact)$/i.test(href)) capLink('cta_click', b);
+            else if (/^https?:\/\//i.test(href) && href.indexOf(location.hostname) === -1) capLink('outbound_click', b);
             return;
           }
           if (e.target.closest('button.suggested-q')) cap('clone_suggested_question_click', { question: (e.target.closest('button.suggested-q').innerText || '').trim().slice(0, 120) });
@@ -167,17 +175,21 @@ const ogImage = new URL(image, 'https://www.pavan.blog').href;
           document.querySelectorAll('a[href*="wa.me/"]').forEach(function(a){
             a.href = a.href.replace('via%20pavan.blog.', 'via%20pavan.blog' + encodeURIComponent(page).replace(/%2F/g, '/') + '.');
           });
-          // Blocks marked data-track-section report once when half of them is on screen.
+          // Blocks marked data-track-section report once after half of them has stayed on screen for 2 seconds —
+          // the /work contact block is in view on page load, so plain visibility counted every bounce as a view.
           if (!('IntersectionObserver' in window)) return;
-          var seen = {};
+          var seen = {}, timers = {};
           var io = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
-              if (!entry.isIntersecting) return;
-              var section = entry.target.getAttribute('data-track-section');
-              io.unobserve(entry.target);
-              if (seen[section]) return;
-              seen[section] = true;
-              cap('section_viewed', { section: section, page: location.pathname });
+              var el = entry.target, section = el.getAttribute('data-track-section');
+              clearTimeout(timers[section]);
+              if (!entry.isIntersecting || seen[section]) return;
+              timers[section] = setTimeout(function(){
+                if (document.visibilityState !== 'visible') return;
+                seen[section] = true;
+                io.unobserve(el);
+                cap('section_viewed', { section: section, page: location.pathname, dwell_ms: 2000 });
+              }, 2000);
             });
           }, { threshold: 0.5 });
           document.querySelectorAll('[data-track-section]').forEach(function(el){ io.observe(el); });
