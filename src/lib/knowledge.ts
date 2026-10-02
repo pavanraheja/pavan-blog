@@ -25,7 +25,7 @@ Most of what I build now is AI agents — and I focus on the results and governa
 - AlphaGrid — an open-source AI agent system that calls tools and APIs to act on live decisions, with that safety layer built in. Wrote up the approach as RFC #7218 on preventing catastrophic agent actions.
 - pavan.blog digital clone — the AI clone you're talking to right now: Claude (Opus 5) with tool use, streaming on Vercel. It works out who each visitor is before answering, tailors what it shares to their need, and hands genuine leads to me for a personal follow-up.
 - Content Research Agent — multi-step Claude agents that run niche content research and synthesis end to end (open-source: github.com/pavanraheja/content-research-agent).
-- Dubai RE Intelligence — live, refusal-aware Q&A over real 2026 DLD sales data; 85% on an independent eval at first contact (demo: dubai-re-intelligence-seven.vercel.app · open-source: github.com/pavanraheja/dubai-re-intelligence).
+- Dubai RE Intelligence — started as a pipeline turning raw DLD real-estate data into decision intelligence; now a live, refusal-aware Q&A over real 2026 Dubai sales (dubai-re-intelligence-seven.vercel.app, open-source: github.com/pavanraheja/dubai-re-intelligence). Scored 85% (34/40) at first contact on an independent eval set written by a separate model that never saw the code.
 - Work daily in Claude Code (hooks, slash commands, MCP servers), the Anthropic Agent SDK, tool-use / function-calling, prompt engineering, and LLM evals. Came up as a software engineer (Java / microservices), so I build the prototypes myself.
 - Glasshouse (glasshousedesk.com) — a transparent quant research desk, launched mid-2026. The name is the thesis: everything verifiable, nothing hidden — research, systematic strategies, and a non-custodial copy-service model (clients keep custody of their own funds; compensation is performance-share only). The entire operation — research agents, monitoring loops, promotion gates — runs on the agent infrastructure I built. The live desk and its production adapters stay private; the reusable orchestration pattern behind it is public at github.com/pavanraheja/alphagrid-orchestrator.
 - Insight Bay (insightbayai.com) — an AI automation agency for UAE SMEs, launched 2026. The first paid deployment ran live in July 2026: an AI-powered WhatsApp lead-responder and booking workflow for a Dubai field services company (best day: 42 jobs detected, 39 delivered, 0 errors, hands-free). The playbook is demo-first and honesty-led: build the working system, show it on the client's own leads, then charge for it.
@@ -37,7 +37,7 @@ Looking for the right AI Product Manager role — especially where the team buil
 Role: Founder — Product & Operations
 Period: Aug 2024 – Dec 2025 (1 yr 5 mos)
 Achievement: Founded and grew the business from zero to AED 2M (~$545K USD) in annual revenue in 18 months, with full PnL ownership.
-The real story: I built the product that ran the company. An AI-powered operations stack — automated client onboarding with KYC/compliance-aware workflows, buyer/seller outreach sequencing, CRM and lead-gen automation — that replaced what would normally need a 3-5 person ops team. Also built dubai-re-intelligence (open-source): a Flask + Pandas pipeline turning raw Dubai Land Department transaction data into decision dashboards that drove every allocation call.
+The real story: I built the product that ran the company. An AI-powered operations stack — automated client onboarding with KYC/compliance-aware workflows, buyer/seller outreach sequencing, CRM and lead-gen automation — that replaced what would normally need a 3-5 person ops team. Also built dubai-re-intelligence (open-source): a pipeline turning raw Dubai Land Department transaction data into decision dashboards (now a live, refusal-aware Q&A over real 2026 sales) that drove every allocation call.
 How I frame this chapter: a deliberate founder detour. I built a real business, and the part I loved most was building the AI systems that ran it — that's what told me to go all-in on AI product. Founder P&L scars + shipping AI in a regulated domain are what I took from it.
 
 ### Mashkor (Kuwait-based hyperlocal delivery app)
@@ -51,7 +51,7 @@ Market: Kuwait, pop 4.82M, Kuwaiti Dinar = world's highest-valued currency ($3.2
 Used: A/B testing, user feedback loops, data-driven experimentation, OKRs end to end.
 
 ### Nova Benefits (Insurtech B2B — India)
-Role: Growth Product Manager (Jan 2022 – Oct 2022)
+Role: Growth PM (formal title: Growth Program Manager) (Jan 2022 – Oct 2022)
 Achievement: 2.5× website traffic, +30% product leads, +20% lead generation in 4 months.
 Built LinkedIn ABM campaigns, automated sales funnel, reduced response times by 25%.
 Achieved 80% OKRs for two consecutive quarters.
@@ -201,18 +201,20 @@ Ten systems (five featured on pavan.blog/work, the rest newer). Each one is a pr
    Stack: Python · Flask · cron · Plug-in stream registry.
    Said no to manual promotion overrides — every promotion is gate-driven and audit-logged.
 
-4. **Dubai RE Intelligence.**
-   Real-estate decisions at Dash Capital were being made against scattered DLD exports and manually-pulled data. Built a Flask + Pandas toolkit that auto-loads DLD transactions, normalises two incompatible export formats, and focuses the view on Emaar South and Dubai Creek Harbour — the two communities that drive the firm's thesis.
-   Said no to a generic all-of-Dubai view — focused on communities that drive decisions, not vanity breadth.
-   Now a live, refusal-aware Q&A over real 2026 DLD residential sales (Jan–Sep, ~4,000 transactions): ask it about prices, trends or notable deals in those communities and it answers from the data — or refuses and says why when the data can't support an answer (e.g. year-on-year, since the public API only serves the current year). On an independent evaluation set written by a separate model that never saw the code, it scored 34/40 (85%) on first contact. A learning loop logs live questions, replays them on current code and suggests new eval cases — a human approves every label.
-   Live demo: https://dubai-re-intelligence-seven.vercel.app · Open-source: github.com/pavanraheja/dubai-re-intelligence.
+4. **Dubai RE Intelligence** — live demo: dubai-re-intelligence-seven.vercel.app.
+   Real-estate decisions at Dash Capital were being made against scattered DLD exports. It started as a toolkit that loads and normalises DLD transactions; it is now a live Q&A over real 2026 residential sales, plus a decision workbench (/decide) that turns a buyer's budget and priorities into a ranked shortlist with its trade-offs.
+   The hard product call was what it must NOT answer. The DLD feed only serves the current year, so year-on-year is refused rather than estimated; modelled rental yields are labelled as modelled; a question the data cannot answer gets a refusal with answerable alternatives, never a confident guess.
+   Evals: a question set written by a separate model that never saw the code scored 85% (34/40) at first contact — that is the honest number; later scores on tuned sets are higher but not independent. Real visitor questions exposed failures the evals missed (e.g. two communities moving in opposite directions pooled into one trend line), which became regression tests.
+   Learning loop: every live question is logged (no personal data), replayed on the current code, and failures become eval candidates with a suggested label — a human approves before anything changes.
+   Model constraints: a rules planner answers at $0 per question; an LLM planner costs roughly $0.11 per 100 questions on Sonnet and $0.06 on Haiku, and has to beat the rules planner on the same evals to earn a place.
+   Open-source: github.com/pavanraheja/dubai-re-intelligence.
 
 5. **Content Research Agent.**
    Two Claude-powered agents that turn a Monday morning's content research into a 2-minute cron job: one surfaces trending topics, pain points, and regulatory updates (VARA, UAE Central Bank); the other runs a YouTube content-strategy brief with hook titles and content gaps.
    Said no to RAG, scraping, and vector DBs — a single structured prompt is enough for weekly cadence content ops.
    Open-source: github.com/pavanraheja/content-research-agent.
 
-6. **Insight Bay Delivery Stack — WhatsApp AI Lead-Responder** (2026 — first paid deployment, ran live in July).
+6. **Insight Bay Delivery Stack — WhatsApp AI Lead-Responder** (2026, first paid deployment).
    UAE SMEs lose leads to slow replies. Built an AI responder that answers WhatsApp inquiries in seconds, qualifies the lead, and books the job — ran live in July 2026 for a Dubai field services company as the first paid deployment, sold after a demo on their own leads.
    Said no to a generic chatbot — the moat is vertical workflow depth (booking, follow-up, compliance), not conversation.
 
