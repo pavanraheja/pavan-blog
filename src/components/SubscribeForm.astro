@@ -72,6 +72,8 @@ const id = `sf-${Math.random().toString(36).slice(2, 9)}`;
         const body = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(body.error || 'Subscription failed');
 
+        // Counts real signups only: the server accepted it and the hidden honeypot field was left empty.
+        if (!hp && window.posthog && window.posthog.capture) window.posthog.capture('newsletter_subscribed', { page: location.pathname });
         form.reset();
         msg.textContent = "You're in. Watch your inbox (and your Promotions tab — drag to Primary).";
         msg.classList.remove('hidden', 'text-red-500');
