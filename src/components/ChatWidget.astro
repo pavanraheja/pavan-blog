@@ -108,6 +108,14 @@ const chips = ["I'm hiring / recruiting", "I'm exploring a collaboration", 'Just
   const conversationId = crypto.randomUUID();
   let leadAlerted = 0; // which lead details have already triggered an alert to Pavan
   const posthog = () => (window as any).posthog;
+  // Pavan's own devices (flag set by opening any page with ?internal=1) — passed to the server so his chats are filterable.
+  const isInternal = () => {
+    try {
+      return localStorage.getItem('pb_internal') === '1';
+    } catch {
+      return false;
+    }
+  };
 
   // --- Returning visitors: details they shared, kept only in their own browser ---
   type Visitor = { name?: string; company?: string; role?: string; intent?: string };
@@ -262,6 +270,7 @@ const chips = ["I'm hiring / recruiting", "I'm exploring a collaboration", 'Just
     bubble.innerHTML = '<span class="animate-pulse text-gray-400">...</span>';
 
     let fullText = '';
+    let httpStatus = 0;
 
     try {
       const res = await fetch('/api/chat', {
@@ -275,9 +284,11 @@ const chips = ["I'm hiring / recruiting", "I'm exploring a collaboration", 'Just
           leadAlerted,
           visitor: loadVisitor(),
           page: location.pathname,
+          internal: isInternal(),
         }),
       });
 
+      httpStatus = res.status;
       if (res.status === 429) throw new Error('rate_limited');
       if (!res.ok || !res.body) throw new Error('api_error');
 
@@ -312,6 +323,14 @@ const chips = ["I'm hiring / recruiting", "I'm exploring a collaboration", 'Just
       if (failed && !fullText) throw new Error('api_error');
       history.push({ role: 'assistant', content: fullText });
     } catch (err) {
+      // The visitor saw an error: record it, so a failed chat shows up in PostHog and not only on their screen.
+      posthog()?.capture?.('clone_error', {
+        reason: (err as Error).message,
+        http_status: httpStatus,
+        turn: history.filter((m) => m.role === 'user').length,
+        partial_reply: Boolean(fullText),
+        page: location.pathname,
+      });
       history.pop();
       bubble.classList.add('text-red-500');
       bubble.textContent =
