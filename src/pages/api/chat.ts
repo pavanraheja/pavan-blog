@@ -1,6 +1,7 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
+import { waitUntil } from '@vercel/functions';
 import Anthropic from '@anthropic-ai/sdk';
 import type {
   BetaMessageParam,
@@ -18,7 +19,8 @@ const client = new Anthropic({ apiKey: env('ANTHROPIC_API_KEY') });
 
 const MODEL = 'claude-opus-5';
 const MAX_MESSAGES = 40;
-const MAX_MESSAGE_CHARS = 2000;
+const MAX_MESSAGE_CHARS = 2000; // a visitor's message
+const MAX_REPLY_CHARS = 12000; // the clone's own earlier replies, sent back as history
 const MAX_TOOL_ROUNDS = 4;
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_MAX_REQUESTS = 30;
@@ -130,12 +132,13 @@ interface ChatContext {
   conversationId: string;
   sessionId: string | null;
   leadAlerted: number;
+  internal: boolean;
   emit: Emit;
 }
 
 async function runTool(block: BetaToolUseBlock, ctx: ChatContext): Promise<string> {
   const input = block.input as Record<string, string | undefined>;
-  const base = { conversation_id: ctx.conversationId, $session_id: ctx.sessionId };
+  const base = { conversation_id: ctx.conversationId, $session_id: ctx.sessionId, ...(ctx.internal ? { internal: true } : {}) };
 
   if (block.name === 'find_applied_roles') {
     const match = await findAppliedRoles(input.company ?? '', input.visitor_name);
@@ -228,7 +231,7 @@ function isValidMessages(messages: unknown): messages is { role: 'user' | 'assis
         m &&
         (m.role === 'user' || m.role === 'assistant') &&
         typeof m.content === 'string' &&
-        m.content.length <= MAX_MESSAGE_CHARS,
+        m.content.length <= (m.role === 'user' ? MAX_MESSAGE_CHARS : MAX_REPLY_CHARS),
     ) &&
     messages[messages.length - 1].role === 'user'
   );
@@ -252,23 +255,45 @@ function returningVisitorNote(visitor: unknown): string | null {
   );
 }
 
+// Requests turned away before the model runs still leave a record, so a visitor who saw an error is visible.
+function rejected(body: Record<string, unknown> | null, reason: string, status: number, request: Request): Response {
+  const messages = Array.isArray(body?.messages) ? (body?.messages as { role?: unknown; content?: unknown }[]) : [];
+  const last = messages[messages.length - 1];
+  const distinctId = typeof body?.distinctId === 'string' && body.distinctId ? body.distinctId.slice(0, 200) : 'clone-anonymous';
+  waitUntil(
+    captureEvent('clone_turn', distinctId, {
+      conversation_id: typeof body?.conversationId === 'string' ? body.conversationId.slice(0, 64) : null,
+      outcome: 'rejected',
+      reason,
+      http_status: status,
+      turn: messages.filter((m) => m?.role === 'user').length,
+      user_message: typeof last?.content === 'string' ? last.content.slice(0, 500) : null,
+      page: typeof body?.page === 'string' ? body.page.slice(0, 200) : null,
+      ...(body?.internal === true ? { internal: true } : {}),
+      country: request.headers.get('x-vercel-ip-country'),
+    }),
+  );
+  return new Response(JSON.stringify({ error: reason }), { status });
+}
+
 export const POST: APIRoute = async ({ request }) => {
   let body: Record<string, unknown>;
   try {
     body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400 });
+    return rejected(null, 'invalid_json', 400, request);
   }
 
   const { messages } = body;
   if (!isValidMessages(messages)) {
-    return new Response(JSON.stringify({ error: 'Invalid messages' }), { status: 400 });
+    return rejected(body, 'invalid_messages', 400, request);
   }
 
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   if (rateLimited(ip)) {
-    return new Response(JSON.stringify({ error: 'Too many requests' }), { status: 429 });
+    return rejected(body, 'rate_limited', 429, request);
   }
+  const internal = body.internal === true;
 
   const conversationId = typeof body.conversationId === 'string' ? body.conversationId.slice(0, 64) : crypto.randomUUID();
   const distinctId =
@@ -283,11 +308,31 @@ export const POST: APIRoute = async ({ request }) => {
   const history: BetaMessageParam[] = messages.map((m) => ({ role: m.role, content: m.content }));
   const encoder = new TextEncoder();
 
+  // A visitor who closes the chat mid-reply cancels the stream. The turn still runs to the end and is logged
+  // (outcome 'abandoned'); before 2026-10-08 the next write threw and the turn vanished from PostHog.
+  let clientGone = false;
   const readable = new ReadableStream({
-    async start(controller) {
+    cancel() {
+      clientGone = true;
+    },
+    start(controller) {
+      const turn = runTurn(controller);
+      waitUntil(turn); // keep the function alive for the log after the visitor has gone
+      return turn;
+    },
+  });
+
+  async function runTurn(controller: ReadableStreamDefaultController) {
       // Deltas are JSON-encoded so newlines inside the text never break SSE framing.
-      const send: Emit = (payload) => controller.enqueue(encoder.encode(`data: ${JSON.stringify(payload)}\n\n`));
-      const ctx: ChatContext = { conversationId, distinctId, sessionId, leadAlerted, emit: send };
+      const send: Emit = (payload) => {
+        if (clientGone) return;
+        try {
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify(payload)}\n\n`));
+        } catch {
+          clientGone = true;
+        }
+      };
+      const ctx: ChatContext = { conversationId, distinctId, sessionId, leadAlerted, internal, emit: send };
       let reply = '';
       const toolsUsed: string[] = [];
       const usage = { input: 0, cache_read: 0, cache_write: 0, output: 0 };
@@ -358,7 +403,8 @@ export const POST: APIRoute = async ({ request }) => {
         user_message: messages[messages.length - 1].content,
         assistant_message: reply,
         tools_used: toolsUsed.join(','),
-        outcome,
+        outcome: clientGone && outcome === 'ok' ? 'abandoned' : outcome,
+        ...(internal ? { internal: true } : {}),
         returning_visitor: Boolean(visitorNote),
         page: typeof body.page === 'string' ? body.page.slice(0, 200) : null,
         model: MODEL,
@@ -368,9 +414,14 @@ export const POST: APIRoute = async ({ request }) => {
         tokens_output: usage.output,
         country: request.headers.get('x-vercel-ip-country'),
       });
-      controller.close();
-    },
-  });
+      if (!clientGone) {
+        try {
+          controller.close();
+        } catch {
+          // stream already cancelled
+        }
+      }
+  }
 
   return new Response(readable, {
     headers: {
