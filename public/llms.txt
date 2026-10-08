@@ -29,6 +29,9 @@ Core mantra: "Learn daily, grow daily, learn fundamentally."
 - [Building a Guardrailed AI Agent with Human-in-the-Loop](https://www.pavan.blog/articles/guardrailed-agent-human-in-the-loop)
 - [What a Year of Running Production AI Agents Taught Me About Reliability](https://www.pavan.blog/articles/production-ai-agents-reliability)
 - [I Built an n8n Workflow from Claude Code, via MCP](https://www.pavan.blog/articles/building-n8n-workflow-from-claude-code-via-mcp)
+- [How an LLM Answers 'What Is the Capital of France?' — Every Concept, One Example](https://www.pavan.blog/articles/how-an-llm-answers-a-question)
+- [AI Made Building Cheap. Being Wrong Is Still Expensive.](https://www.pavan.blog/articles/ai-made-building-cheap)
+- [Mechanics Travel. Preconditions Don't.](https://www.pavan.blog/articles/mechanics-travel-preconditions-dont)
 
 ## Writing
 
