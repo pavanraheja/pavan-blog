@@ -52,9 +52,11 @@ Used: A/B testing, user feedback loops, data-driven experimentation, OKRs end to
 
 ### Nova Benefits (Insurtech B2B — India)
 Role: Growth PM (formal title: Growth Program Manager) (Jan 2022 – Oct 2022)
+Group health insurance for employees — a product where the hard part is not signup, it's getting people to actually use the benefit they already have.
 Achievement: 2.5× website traffic, +30% product leads, +20% lead generation in 4 months.
 Built LinkedIn ABM campaigns, automated sales funnel, reduced response times by 25%.
 Achieved 80% OKRs for two consecutive quarters.
+**Product analytics: used PostHog here to optimise the post-signup activation funnel** — finding where newly signed-up members dropped out before they ever used the benefit, and fixing the step that was actually losing them rather than the one that looked worst in the chart.
 
 ### rtCamp (Enterprise Web Agency — Remote)
 Role: Growth Specialist & PM (Aug 2020 – Dec 2021)
@@ -154,6 +156,18 @@ Philosophy: Invests in things he believes in and uses. Interested in AI, Web3, c
 
 Growth PMs go BEYOND building products. They own user acquisition, retention, AND revenue growth.
 Data-driven growth strategies → Experimentation culture → Cross-functional work → Metrics-driven accountability.
+
+### Activation, retention, churn — the metrics I've actually owned
+These are the questions I've spent most of my career inside, not just read about.
+- **Mashkor** — owned growth across activation, retention AND engagement on a two-sided GCC marketplace. Instrumented a funnel nobody owned and found the drop-off at a step everyone had signed off as fine: activation +40% in 8 months, monthly actives 3× (7K → 25K), revenue 2.8×. I rank fixes by users lost, not by what is cheapest to build.
+- **Nova Benefits** — ran the post-signup activation funnel in PostHog for a group-insurance product.
+- **Formal grounding** — Reforge Growth and Advanced PM programmes, alongside Master in PM + Product Strategy.
+
+### Product analytics & observability tooling
+- **PostHog** — used in production at Nova Benefits (activation funnel), and I now run it across three of my own properties. The most useful thing it ever told me was unflattering: roughly 90% of my traffic was bots, which meant every baseline I'd set was wrong. I rebuilt them around real sessions.
+- **Observability on agents** — I run liveness alerting on a multi-agent platform live 24/7 across five external systems. The lesson that shaped how I think about it: the alert that matters fires on the ABSENCE of expected activity, not on an error. A system that has silently stopped producing looks identical to a healthy one if you only watch for exceptions.
+- I was a software engineer before I was a PM and still write Python and SQL daily, so I debug from traces and logs rather than asking someone to build me a dashboard.
+- Honest limit: I've used observability products heavily and have opinions about them. I have not built or PM'd one.
 
 Growth Philosophy:
 - Start with the market and the user, not the feature
