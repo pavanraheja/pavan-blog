@@ -54,6 +54,7 @@ Used: A/B testing, user feedback loops, data-driven experimentation, OKRs end to
 Role: Growth PM (formal title: Growth Program Manager) (Jan 2022 – Oct 2022)
 Achievement: 2.5× website traffic, +30% product leads, +20% lead generation in 4 months.
 Built LinkedIn ABM campaigns, automated sales funnel, reduced response times by 25%.
+Ran PostHog in production at Nova to optimise the post-signup activation funnel (also runs it today across his own three sites, where it showed ~90% of traffic was bots).
 Achieved 80% OKRs for two consecutive quarters.
 
 ### rtCamp (Enterprise Web Agency — Remote)
@@ -91,7 +92,7 @@ BE in Information Technology — University of Pune (2006)
 AI agents (build / deploy / govern), agentic workflows, autonomous agent loops & scheduled cloud routines, Anthropic Claude API & Agent SDK, Claude Code (hooks, slash commands, MCP servers), tool-use / function-calling, LLM evals, RAG, prompt engineering, agent governance (kill-switch, staged promotion, human-in-the-loop), model selection (Opus / Sonnet / Haiku), Google Vertex AI (shipped in production at Mashkor), OpenAI, Mistral, n8n workflow automation (via MCP), GEO — Generative Engine Optimization (built a reusable standard, deployed across 3 properties), responsible AI. Came up as a software engineer (core Java / microservices) — reads code and ships prototypes.
 
 ### Technical Skills — Product & Analytics
-Figma, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strategy, Activation Funnels, RFM Analysis, Cursor.
+Figma, PostHog, Amplitude, Mixpanel, MoEngage, Looker, A/B Testing, OKRs, PLG, GTM Strategy, Activation Funnels, RFM Analysis, Cursor.
 
 ### AI PM positioning
 Pavan is actively looking for AI Product Manager roles — ideally where the team builds AI agents, not just chatbots (AI, fintech, or Web3 companies). He has real shipped AI experience across multiple contexts:
