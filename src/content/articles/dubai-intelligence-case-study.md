@@ -1,6 +1,6 @@
 ---
 title: "Case Study: Building an AI That Knows When to Say \"I Don't Know\""
-date: "2026-11-01"
+date: "2026-10-01"
 excerpt: "Dubai Intelligence answers property questions from real government sales data, refuses what the data can't support, and gets better from every real question with a person approving each change. How I built it with AI, how I measured it honestly, and what real users broke."
 slug: "dubai-intelligence-case-study"
 ---
@@ -59,7 +59,7 @@ Both bugs were found by someone noticing a rephrase, so I built an agent to do t
 
 It never changes a rule or a label on its own. That's on purpose, and its first live catch showed why. Someone asked "how many studios sold in Creek Harbour recently". The tool listed recent deals instead, and the agent proposed that list as the correct answer, which was the bug itself. Auto-accepting it would have written the mistake into the test set as correct. I corrected it: the answer is zero.
 
-I later went further and checked that zero against the raw registry data with no filters. Across three months, those communities had about 600 sales and not one studio, while thousands of studios sold elsewhere in Dubai in the same months. So the source records studios; these communities just don't sell them. "Zero in a well-covered area" is an answer. "Zero because there's little data" is a refusal.
+The correct answer was zero: those communities had no studio sales recorded, in a period with plenty of sales overall. "Zero in a well-covered area" is an answer. "Zero because there's little data" is a refusal.
 
 ## From answering questions to supporting a decision
 
