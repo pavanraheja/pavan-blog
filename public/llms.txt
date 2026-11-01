@@ -23,6 +23,7 @@ Core mantra: "Learn daily, grow daily, learn fundamentally."
 - [About](https://www.pavan.blog/about)
 - [Articles](https://www.pavan.blog/articles): all writing; RSS at https://www.pavan.blog/rss.xml
 - [Case Study: Shipping AI Agents That Act Without a Human](https://www.pavan.blog/articles/glasshouse-case-study)
+- [Case Study: Building an AI That Knows When to Say "I Don't Know"](https://www.pavan.blog/articles/dubai-intelligence-case-study)
 - [The Architecture of a Self-Driving System](https://www.pavan.blog/articles/architecture-of-a-self-driving-system)
 - [Evals for Agents That Act](https://www.pavan.blog/articles/evals-for-agents-that-act)
 - [Risk Guardian: Preventing Catastrophic Actions in Long-Running AI Agents (RFC #7218)](https://www.pavan.blog/articles/risk-guardian-rfc-7218)
